@@ -31,7 +31,12 @@ class SessionStorage {
     }
 
     removeValue(key: string) {
-        delete this.storedValues[key];
+        if(this.hasValue(key)) {
+            delete this.storedValues[key];
+            return true;
+        } else {
+            return false;
+        }
     }
 
     wipe() {
