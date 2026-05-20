@@ -5,6 +5,10 @@ class SessionStorage {
         this.storedValues = {};
     }
 
+    getStorage() {
+        return this.storedValues;
+    }
+
     setValue(key: string, value: any) {
         this.storedValues[key] = value;
         return true;
@@ -34,16 +38,24 @@ class SessionStorage {
         this.storedValues = {};
         return true;
     }
+
+    getInterface() {
+        return {
+            getStorage: () => { return this.getStorage(); },
+            set: (key: string, value: any) => { return this.setValue(key, value); },
+            has: (key: string) => { return this.hasValue(key); },
+            get: (key: string) => { return this.getValue(key); },
+            remove: (key: string) => { return this.removeValue(key); },
+            wipeAll: () => { return this.wipe(); }
+        }
+    }
 }
 
 const sessionStorage = new SessionStorage();
 
-const useSessionStorage = {
-    set(key: string, value: any) { return sessionStorage.setValue(key, value); },
-    has(key: string) { return sessionStorage.hasValue(key); },
-    get(key: string) { return sessionStorage.getValue(key); },
-    remove(key: string) { return sessionStorage.removeValue(key); },
-    wipeAll() { return sessionStorage.wipe(); }
+
+const useSessionStorage = () => {
+    return sessionStorage.getInterface();
 };
 
 export { useSessionStorage };
