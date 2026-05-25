@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
 
 import { useAppTheme } from '../../hooks/';
 
 type Avatar = {
-    mode?: string
+    mode?: string,
+    source?: string
 };
 
 export default function({
-    mode = "normal"
+    mode = "normal",
+    source
     }: Avatar) {
     const theme = useAppTheme();
 
@@ -26,12 +28,18 @@ export default function({
     }
 
     return (
-        <View style={[styles.container, {...configuration}]} />
+        <View style={[styles.container, {...configuration}]}>
+            <Image 
+            style={{ width: '100%', height: '100%' }}
+            source={(source !== undefined ? { uri: source } : undefined)}
+            />
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'gray'
+        backgroundColor: 'gray',
+        overflow: 'hidden'
     }
 });

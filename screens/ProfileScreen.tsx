@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Avatar, Button, Checkbox, Header, Input } from '../components/base_components';
+import { Avatar, Button, Checkbox, Header, Input, InputAvatar } from '../components/base_components';
 
 export default function App() {
   const insets = useSafeAreaInsets();
@@ -14,36 +14,28 @@ export default function App() {
         <View style={{ width: '100%', height: 100 }}></View>
         <View style={{ width: '90%', height: 500, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
-            <View style={{ width: '90%', height: null, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 }}>
-            <Avatar 
-            mode="normal" />
-            <Button 
-            border_8
-            color={"primary_1"}>Change</Button>
-            <Button 
-            border_0
-            color={"white"}>Remove</Button>
-            </View>
+            <InputAvatar 
+            placeholder={'https://images.unsplash.com/photo-1695927621677-ec96e048dce2?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=wellington-ferreira-72TE8cWKXRY-unsplash.jpg&w=640'} />
             <Input 
             label="First name"
             required={true}
             placeholder="Type your first name here..."
-            maxLength={20}
+            maxLength={100}
             onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
             <Input 
-            label="Lasts name"
+            label="Last name"
             placeholder="Type your last name here..."
-            maxLength={20}
+            maxLength={100}
             onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
             <Input 
             label="Email"
             placeholder="Type your email here..."
-            maxLength={20}
+            maxLength={100}
             onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
             <Input 
             label="Phone number"
             placeholder="Type your phone number here..."
-            maxLength={20}
+            maxLength={15}
             onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
         </View>
         <View style={{ width: '90%' }}>
