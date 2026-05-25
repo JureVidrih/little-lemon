@@ -4,7 +4,9 @@ const appTheme = {
     secondary_1: "#EE9972",
     secondary_2: "#FBDABB",
     secondary_3: "#EDEFEE",
-    secondary_4: "#333333"
+    secondary_4: "#333333",
+    border_radius_8: 8,
+    border_radius_16: 16
 };
 
 const useAppTheme = () => {

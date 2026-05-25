@@ -5,18 +5,31 @@ import { useAppTheme } from '../../hooks/';
 
 type ButtonProps = {
     children: React.ReactNode,
-    onPress?: () => void
+    onPress?: () => void,
+    border_0?: boolean,
+    border_8?: boolean,
+    border_16?: boolean
 };
 
 export default function({
     children = "Button",
-    onPress = () => {} }: ButtonProps) {
+    onPress = () => {},
+    border_0,
+    border_8,
+    border_16 }: ButtonProps) {
     const theme = useAppTheme();
+
+    let borderRadius = 0;
+    if(border_8 === true) {
+        borderRadius = theme.border_radius_8;
+    } else if(border_16 === true) {
+        borderRadius = theme.border_radius_16;
+    }
 
     return (
         <TouchableOpacity 
         onPress={onPress}
-        style={[styles.container, { backgroundColor: theme.primary_1 }]}>
+        style={[styles.container, { backgroundColor: theme.primary_1, borderRadius: borderRadius }]}>
             <Text style={[styles.label, { color: 'white' }]}>{children}</Text>
         </TouchableOpacity>
     );
@@ -28,7 +41,10 @@ const styles = StyleSheet.create({
         height: 40,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: '#ffffffff'
     },
     label: {
         fontSize: 16
