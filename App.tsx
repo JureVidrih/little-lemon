@@ -13,7 +13,8 @@ export default function App() {
         <Button 
         border_16
         fullParentWidth
-        fullParentHeight>Gumb</Button>
+        fullParentHeight
+        color={"primary_2"}>Gumb</Button>
       </View>
       <StatusBar style="auto" />
     </View>

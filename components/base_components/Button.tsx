@@ -10,7 +10,8 @@ type ButtonProps = {
     border_8?: boolean,
     border_16?: boolean,
     fullParentWidth?: boolean,
-    fullParentHeight?: boolean
+    fullParentHeight?: boolean,
+    color?: string
 };
 
 export default function({
@@ -20,7 +21,8 @@ export default function({
     border_8,
     border_16,
     fullParentWidth,
-    fullParentHeight }: ButtonProps) {
+    fullParentHeight,
+    color = "primary_1" }: ButtonProps) {
     const theme = useAppTheme();
 
     let borderRadius = 0;
@@ -35,7 +37,7 @@ export default function({
         onPress={onPress}
         style={[
             styles.container, 
-            { backgroundColor: theme.primary_1, borderRadius: borderRadius }, 
+            { backgroundColor: theme[color], borderRadius: borderRadius }, 
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null)]}>
             <Text style={[styles.label, { color: 'white' }]}>{children}</Text>
