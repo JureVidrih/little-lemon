@@ -23,6 +23,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.29.7",
     "@types/react": "~19.1.0",
+    "react-native-safe-area-context": "^5.8.0",
     "typescript": "~5.9.2"
   },
   "jest": {
