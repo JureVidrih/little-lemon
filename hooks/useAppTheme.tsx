@@ -6,6 +6,7 @@ const appTheme = {
     secondary_3: "#EDEFEE",
     secondary_4: "#333333",
     white: '#ffffff',
+    gray: '#d9d9d9',
     border_radius_8: 8,
     border_radius_16: 16
 };
