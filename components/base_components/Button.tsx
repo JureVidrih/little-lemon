@@ -32,15 +32,27 @@ export default function({
         borderRadius = theme.border_radius_16;
     }
 
+    let textColor = '#ffffff';
+
+    switch(color) {
+        case "primary_2": textColor = '#000000'; break;
+        case "secondary_1": textColor = '#ffffff'; break;
+        case "secondary_2": textColor = theme.primary_1; break;
+        case "secondary_3": textColor = theme.primary_1; break;
+        case "secondary_4": textColor = '#ffffff'; break;
+        case "white": textColor = theme.primary_1;
+    }
+
     return (
         <TouchableOpacity 
         onPress={onPress}
         style={[
             styles.container, 
             { backgroundColor: theme[color], borderRadius: borderRadius }, 
+            (color === 'white' ? { borderColor: theme.primary_1 } : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null)]}>
-            <Text style={[styles.label, { color: 'white' }]}>{children}</Text>
+            <Text style={[styles.label, { color: textColor }]}>{children}</Text>
         </TouchableOpacity>
     );
 }

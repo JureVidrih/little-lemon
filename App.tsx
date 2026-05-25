@@ -9,12 +9,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello, world!</Text>
-      <View style={{ width: '75%', height: 100 }}>
+      <View style={{ width: null, height: null }}>
         <Button 
-        border_16
-        fullParentWidth
-        fullParentHeight
-        color={"primary_2"}>Gumb</Button>
+        border_0
+        color={"secondary_4"}>Gumb</Button>
       </View>
       <StatusBar style="auto" />
     </View>
