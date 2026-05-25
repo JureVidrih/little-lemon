@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     label: {
-        fontSize: 18
+        fontSize: 16,
+        fontWeight: 'bold'
     }
 });
