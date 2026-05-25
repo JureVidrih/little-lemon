@@ -8,7 +8,9 @@ type ButtonProps = {
     onPress?: () => void,
     border_0?: boolean,
     border_8?: boolean,
-    border_16?: boolean
+    border_16?: boolean,
+    fullParentWidth?: boolean,
+    fullParentHeight?: boolean
 };
 
 export default function({
@@ -16,7 +18,9 @@ export default function({
     onPress = () => {},
     border_0,
     border_8,
-    border_16 }: ButtonProps) {
+    border_16,
+    fullParentWidth,
+    fullParentHeight }: ButtonProps) {
     const theme = useAppTheme();
 
     let borderRadius = 0;
@@ -29,7 +33,11 @@ export default function({
     return (
         <TouchableOpacity 
         onPress={onPress}
-        style={[styles.container, { backgroundColor: theme.primary_1, borderRadius: borderRadius }]}>
+        style={[
+            styles.container, 
+            { backgroundColor: theme.primary_1, borderRadius: borderRadius }, 
+            (fullParentWidth === true ? { width: '100%' } : null), 
+            (fullParentHeight === true ? { height: '100%' } : null)]}>
             <Text style={[styles.label, { color: 'white' }]}>{children}</Text>
         </TouchableOpacity>
     );
