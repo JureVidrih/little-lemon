@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native';
+
+import * as ImagePicker from 'expo-image-picker';
 
 import { useAppTheme } from '../../hooks/';
 import { Avatar, Button } from '../base_components/';
@@ -21,7 +23,28 @@ export default function({
      }: InputAvatarProps) {
     const theme = useAppTheme();
 
-    const [input, setInput] = useState(value ?? "");
+    const pickImage = useCallback(async () => {
+        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+        if(!permissionResult.granted) {
+            Alert.alert("Permission required", "Permission to access the media library is required.");
+            return;
+        }
+
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ['images'],
+            allowsEditing: true,
+            aspect: [1, 1],
+            quality: 1
+        });
+
+        if(!result.canceled) {
+            setInput(result.assets[0].uri);
+        }
+
+    }, []);
+
+    const [input, setInput] = useState(placeholder ?? "");
 
     return (
         <View style={styles.container}>
@@ -29,13 +52,19 @@ export default function({
             <View style={{ width: '90%', height: null, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 }}>
                 <Avatar 
                 mode="normal"
-                source={placeholder} />
+                source={input} />
                 <Button 
                 border_8
-                color={"primary_1"}>Change</Button>
+                color={"primary_1"}
+                onPress={() => {
+                    pickImage();
+                }}>Change</Button>
                 <Button 
                 border_0
-                color={"white"}>Remove</Button>
+                color={"white"}
+                onPress={() => {
+                    setInput(null);
+                }}>Remove</Button>
             </View>
         </View>
     );
