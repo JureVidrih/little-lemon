@@ -20,26 +20,23 @@ export default function App() {
       <View style={{ width: '90%' }}>
         <Input 
         label="First name"
+        required={true}
         placeholder="Type your first name here..."
-        value="TESTEST"
         maxLength={20}
         onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
         <Input 
         label="Lasts name"
         placeholder="Type your last name here..."
-        value="TESTEST"
         maxLength={20}
         onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
         <Input 
         label="Email"
         placeholder="Type your email here..."
-        value="TESTEST"
         maxLength={20}
         onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
         <Input 
         label="Phone number"
         placeholder="Type your phone number here..."
-        value="TESTEST"
         maxLength={20}
         onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
         <Checkbox label="Order statuses" checked={true} />

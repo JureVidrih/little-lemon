@@ -7,6 +7,7 @@ type InputProps = {
     label?: string,
     value?: string,
     placeholder?: string,
+    required?: boolean,
     onChangeText?: (arg0: string) => void
 } & TextInputProps;
 
@@ -14,6 +15,7 @@ export default function({
     label = "Input Element Label",
     value,
     placeholder = "",
+    required = false,
     onChangeText,
     ...textInputProps
      }: InputProps) {
@@ -23,7 +25,7 @@ export default function({
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.label, { color: theme.primary_1 }]}>{label}</Text>
+            <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>
             <TextInput 
             style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }]}
             placeholder={placeholder}
