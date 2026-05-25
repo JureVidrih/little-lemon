@@ -3,11 +3,12 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ToastAndroid } from 'react-native';
 
-import { Button, Checkbox, Input } from './components/base_components';
+import { Button, Checkbox, Header, Input } from './components/base_components';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Header sizeType={4}>Personal information</Header>
       <View style={{ width: '90%', height: null, flexDirection: 'row', justifyContent: 'space-evenly', marginBottom: 15 }}>
         <Button 
         border_8
