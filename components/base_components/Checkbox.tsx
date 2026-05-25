@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React, { useState, useRef, useCallback } from 'react';
+import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 
 import Svg, { Path } from 'react-native-svg';
 
@@ -18,20 +18,41 @@ export default function({
     }: CheckboxProps) {
     const theme = useAppTheme();
 
+    const animation = useRef(new Animated.Value((checked === true ? 1 : 0))).current;
+    
+    const toggleAnimation = useCallback((toggleOn: boolean) => {
+        if(toggleOn === true) {
+            Animated.timing(animation, {
+                toValue: 1,
+                duration: 60,
+                useNativeDriver: true
+            }).start();
+        } else if(toggleOn === false) {
+            Animated.timing(animation, {
+                toValue: 0,
+                duration: 60,
+                useNativeDriver: true
+            }).start();
+        }
+    }, []);
+
     const [isChecked, setChecked] = useState(checked ?? false);
 
     return (
-        <View style={styles.container}>
-            <TouchableOpacity 
-            onPress={() => {
+        <Pressable 
+            style={styles.container}
+            onPress={(evt) => {
+                evt.stopPropagation();
+                toggleAnimation(!isChecked);
                 onSelect?.(!isChecked);
                 setChecked(!isChecked);
-            }}
+            }}>
+            <View 
             style={[
                 styles.checkBoxContainer,
                 { borderColor: theme.primary_1, backgroundColor: theme.primary_1 }
             ]}>
-                { isChecked === true ? (
+                <Animated.View style={{ opacity: animation }}>
                     <Svg
                     width={24}
                     height={24}
@@ -46,10 +67,10 @@ export default function({
                         strokeLinejoin="round"
                     />
                     </Svg>
-                ) : null}
-            </TouchableOpacity>
+                </Animated.View>
+            </View>
             <Text style={styles.label}>{label}</Text>
-        </View>
+        </Pressable>
     );
 }
 
