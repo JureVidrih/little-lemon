@@ -5,4 +5,6 @@ import Checkbox from './Checkbox.tsx';
 
 import Input from './Input.tsx';
 
-export { Header, Button, Checkbox, Input };
+import Avatar from './Avatar.tsx';
+
+export { Header, Button, Checkbox, Input, Avatar };
