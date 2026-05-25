@@ -12,7 +12,7 @@ export default function App() {
   return (
     <ScrollView style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
         <View style={{ width: '100%', height: 100 }}></View>
-        <View style={{ width: '90%', height: 500, justifyContent: 'space-around' }}>
+        <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
             // placeholder={'https://images.unsplash.com/photo-1695927621677-ec96e048dce2?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=wellington-ferreira-72TE8cWKXRY-unsplash.jpg&w=640'}
@@ -22,22 +22,25 @@ export default function App() {
             required={true}
             placeholder="Type your first name here..."
             maxLength={100}
-            onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
+            onChangeText={(newValue) => {  }}
+            validate={(newValue) => { return newValue.length >= 5; }} />
             <Input 
             label="Last name"
             placeholder="Type your last name here..."
             maxLength={100}
-            onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
+            onChangeText={(newValue) => {  }}
+            validate={(newValue) => { return newValue.length >= 5; }}
+            invalidValueLabel="Provide a valid last name!" />
             <Input 
             label="Email"
             placeholder="Type your email here..."
             maxLength={100}
-            onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
+            onChangeText={(newValue) => {  }} />
             <Input 
             label="Phone number"
             placeholder="Type your phone number here..."
             maxLength={15}
-            onChangeText={(newValue) => { ToastAndroid.show(newValue, 300); }} />
+            onChangeText={(newValue) => {  }} />
         </View>
         <View style={{ width: '90%' }}>
             <Header sizeType={5}>Email notifications</Header>

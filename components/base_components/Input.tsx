@@ -8,7 +8,9 @@ type InputProps = {
     value?: string,
     placeholder?: string,
     required?: boolean,
-    onChangeText?: (arg0: string) => void
+    invalidValueLabel?: string,
+    onChangeText?: (arg0: string) => void,
+    validate?: (arg0: string) => boolean
 } & TextInputProps;
 
 export default function({
@@ -16,12 +18,15 @@ export default function({
     value,
     placeholder = "",
     required = false,
+    invalidValueLabel = "Specified value is invalid.",
     onChangeText,
+    validate,
     ...textInputProps
      }: InputProps) {
     const theme = useAppTheme();
 
     const [input, setInput] = useState(value ?? "");
+    const [inputValidity, setInputValidity] = useState(validate?.(input) ?? true);
 
     return (
         <View style={styles.container}>
@@ -33,8 +38,10 @@ export default function({
             onChangeText={(newValue) => {
                 onChangeText?.(newValue);
                 setInput(newValue);
+                setInputValidity(validate?.(newValue) ?? true);
             }}
             {...textInputProps} />
+            <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>
         </View>
     );
 }
@@ -57,5 +64,10 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderWidth: 1,
         borderRadius: 8
+    },
+    invalidValueLabel: {
+        marginTop: 2,
+        fontSize: 12,
+        color: '#ff0000'
     }
 });
