@@ -11,7 +11,8 @@ type ButtonProps = {
     border_16?: boolean,
     fullParentWidth?: boolean,
     fullParentHeight?: boolean,
-    color?: string
+    color?: string,
+    dynamicSize?: boolean
 };
 
 export default function({
@@ -22,7 +23,8 @@ export default function({
     border_16,
     fullParentWidth,
     fullParentHeight,
-    color = "primary_1" }: ButtonProps) {
+    color = "primary_1",
+    dynamicSize = true }: ButtonProps) {
     const theme = useAppTheme();
 
     let borderRadius = 0;
@@ -49,9 +51,11 @@ export default function({
         style={[
             styles.container, 
             { backgroundColor: theme[color], borderRadius: borderRadius }, 
+            { borderColor: theme[color] },
             (color === 'white' ? { borderColor: theme.primary_1 } : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
-            (fullParentHeight === true ? { height: '100%' } : null)]}>
+            (fullParentHeight === true ? { height: '100%' } : null),
+            (dynamicSize === true ? { width: null, height: null} : null)]}>
             <Text style={[styles.label, { color: textColor }]}>{children}</Text>
         </TouchableOpacity>
     );
@@ -59,16 +63,17 @@ export default function({
 
 const styles = StyleSheet.create({
     container: {
+        paddingHorizontal: 19,
+        paddingVertical: 12,
         width: 175,
         height: 40,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: '#ffffffff'
+        borderWidth: 1
     },
     label: {
-        fontSize: 16
+        fontSize: 18
     }
 });

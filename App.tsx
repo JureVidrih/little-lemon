@@ -9,10 +9,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello, world!</Text>
-      <View style={{ width: null, height: null }}>
+      <View style={{ width: '80%', height: null, flexDirection: 'row', justifyContent: 'space-evenly' }}>
+        <Button 
+        border_8
+        color={"primary_1"}>Change</Button>
         <Button 
         border_0
-        color={"secondary_4"}>Gumb</Button>
+        color={"white"}>Remove</Button>
       </View>
       <StatusBar style="auto" />
     </View>
