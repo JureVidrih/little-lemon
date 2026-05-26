@@ -15,7 +15,7 @@ export default function({
     }: BackButtonProps) {
     const theme = useAppTheme();
 
-    let configuration = {
+    const configuration = {
         width: 32,
         height: 32,
         borderRadius: 16

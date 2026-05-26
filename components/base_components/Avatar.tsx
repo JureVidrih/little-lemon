@@ -15,7 +15,7 @@ export default function({
     }: AvatarProps) {
     const theme = useAppTheme();
 
-    let configuration = {
+    const configuration = {
         width: 100,
         height: 100,
         borderRadius: 50
