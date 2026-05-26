@@ -19,18 +19,21 @@ export default function App() {
             />
             <Input 
             label="First name"
-            required={true}
             placeholder="Type your first name here..."
             maxLength={100}
             onChangeText={(newValue) => {  }}
-            validate={(newValue) => { return newValue.length != 0; }}
+            validate={(newValue) => { return newValue.length >= 2; }}
+            required={true}
+            validateInitially={false}
             inputMode="text" />
             <Input 
             label="Last name"
             placeholder="Type your last name here..."
             maxLength={100}
             onChangeText={(newValue) => {  }}
-            validate={(newValue) => { return newValue.length != 0; }}
+            validate={(newValue) => { return newValue.length >= 2; }}
+            required={true}
+            validateInitially={false}
             invalidValueLabel="Provide a valid last name!"
             inputMode="text" />
             <Input 

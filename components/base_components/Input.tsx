@@ -8,6 +8,7 @@ type InputProps = {
     value?: string,
     placeholder?: string,
     required?: boolean,
+    validateInitially?: boolean,
     invalidValueLabel?: string,
     onChangeText?: (arg0: string) => void,
     validate?: (arg0: string) => boolean
@@ -21,12 +22,13 @@ export default function({
     invalidValueLabel = "Specified value is invalid.",
     onChangeText,
     validate,
+    validateInitially = false,
     ...textInputProps
      }: InputProps) {
     const theme = useAppTheme();
 
     const [input, setInput] = useState(value ?? "");
-    const [inputValidity, setInputValidity] = useState((required === true ? validate?.(input) : null) ?? true);
+    const [inputValidity, setInputValidity] = useState((validateInitially === true && required === true ? validate?.(input) : null) ?? true);
 
     return (
         <View style={styles.container}>
