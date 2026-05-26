@@ -11,7 +11,7 @@ export default function App() {
   
   return (
     <ScrollView style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
-        <UIHeader />
+        <UIHeader showBackButton={true} showAvatar={true}/>
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
