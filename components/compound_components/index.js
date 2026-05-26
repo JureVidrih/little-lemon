@@ -1,4 +1,6 @@
 import Hero from './Hero.tsx';
 import MenuCategories from './MenuCategories.tsx';
 
-export { Hero, MenuCategories };
+import MenuDishItem from './MenuDishItem.tsx';
+
+export { Hero, MenuCategories, MenuDishItem };
