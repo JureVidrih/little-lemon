@@ -26,7 +26,7 @@ export default function({
     const theme = useAppTheme();
 
     const [input, setInput] = useState(value ?? "");
-    const [inputValidity, setInputValidity] = useState(validate?.(input) ?? true);
+    const [inputValidity, setInputValidity] = useState((required === true ? validate?.(input) : null) ?? true);
 
     return (
         <View style={styles.container}>
@@ -38,7 +38,9 @@ export default function({
             onChangeText={(newValue) => {
                 onChangeText?.(newValue);
                 setInput(newValue);
-                setInputValidity(validate?.(newValue) ?? true);
+                if(required === true) {
+                    setInputValidity(validate?.(newValue) ?? true);
+                }
             }}
             {...textInputProps} />
             <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>

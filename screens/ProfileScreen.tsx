@@ -38,7 +38,9 @@ export default function App() {
             placeholder="Type your email here..."
             maxLength={100}
             onChangeText={(newValue) => {  }}
-            inputMode="email" />
+            inputMode="email"
+            validate={(newValue) => { return newValue.includes('@') && newValue.length > 5; }}
+            required={false} />
             <Input 
             label="Phone number"
             placeholder="Type your phone number here..."
