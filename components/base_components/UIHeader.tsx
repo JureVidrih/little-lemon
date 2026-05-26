@@ -7,22 +7,24 @@ import { Avatar, BackButton } from './';
 import { useAppTheme } from '../../hooks/';
 
 type UIHeaderProps = {
-
+    showBackButton?: boolean,
+    showAvatar?: boolean
 };
 
 export default function({
-
+        showBackButton = false,
+        showAvatar = false
     }: UIHeaderProps) {
     const theme = useAppTheme();
 
     return (
         <View style={styles.container}>
-            <BackButton mode="header" />
+            {showBackButton === true ? <BackButton mode="header" /> : <View style={{ width: 40, height: 40 }} />}
             <Image 
             style={{ width: 180, height: 60 }} 
             source={require("../../assets/Images/Logo.png")}
             resizeMode="contain" />
-            <Avatar mode="header" />
+            {showAvatar === true ? <Avatar mode="header" /> : <View style={{ width: 60, height: 60 }} />}
         </View>
     );
 }
