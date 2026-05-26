@@ -4,7 +4,7 @@ import { View, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
-type Avatar = {
+type AvatarProps = {
     mode?: string,
     source?: string
 };
@@ -12,7 +12,7 @@ type Avatar = {
 export default function({
     mode = "normal",
     source
-    }: Avatar) {
+    }: AvatarProps) {
     const theme = useAppTheme();
 
     let configuration = {
@@ -22,9 +22,9 @@ export default function({
     }
 
     if(mode === "header") {
-        configuration.width = 50;
-        configuration.height = 50;
-        configuration.borderRadius = 50;
+        configuration.width = 60;
+        configuration.height = 60;
+        configuration.borderRadius = 30;
     }
 
     return (
