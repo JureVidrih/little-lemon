@@ -6,9 +6,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
 import { Hero, MenuCategories, MenuDishItem } from '../components/compound_components';
+import { useSessionStorage } from '../hooks';
 
-export default function App() {
+export default function ({navigateToProfile}: {navigateToProfile: () => void}) {
     const insets = useSafeAreaInsets();
+
+    const sessionStorage = useSessionStorage();
 
     const [menuData, setMenuData] = useState([]);
 
@@ -26,7 +29,13 @@ export default function App() {
 
     return (
     <View style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]}>
-        <UIHeader showAvatar={true} showBackButton={false}/>
+        <UIHeader 
+        showAvatar={true} 
+        showBackButton={false}
+        avatarOnPress={() => {
+            navigateToProfile();
+        }}
+        avatarSource={sessionStorage.get("profileAvatarURI")} />
         <Hero />
         <View style={{ width: "100%", height: null, paddingHorizontal: 14 }}>
             <MenuCategories />

@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
+import { useSessionStorage } from '../hooks';
 
-export default function App() {
+export default function ({navigateToHome}: {navigateToHome: () => void}) {
   const insets = useSafeAreaInsets();
+
+  const sessionStorage = useSessionStorage();
+
+  const [avatarSource, setAvatarSource] = useState<string | null>(sessionStorage.get("profileAvatarURI"));
   
   return (
     <ScrollView style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
-        <UIHeader showBackButton={true} showAvatar={true}/>
+        <UIHeader 
+        showBackButton={true} 
+        showAvatar={true}
+        backButtonOnPress={() => {
+          navigateToHome();
+        }}
+        avatarSource={avatarSource} />
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
-            // placeholder={'https://images.unsplash.com/photo-1695927621677-ec96e048dce2?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=wellington-ferreira-72TE8cWKXRY-unsplash.jpg&w=640'}
+            placeholder={sessionStorage.get("profileAvatarURI")}
+            onSelect={(uri) => { 
+              if(uri === null) {
+                sessionStorage.remove("profileAvatarURI");
+              } else {
+                sessionStorage.set("profileAvatarURI", uri);
+              }
+              
+              setAvatarSource(uri);
+             }}
             />
             <Input 
             label="First name"
