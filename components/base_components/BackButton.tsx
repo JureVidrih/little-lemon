@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Svg, Path } from 'react-native-svg';
 
@@ -7,11 +7,13 @@ import { Svg, Path } from 'react-native-svg';
 import { useAppTheme } from '../../hooks/';
 
 type BackButtonProps = {
-    mode?: string
+    mode?: string,
+    onPress?: () => void
 };
 
 export default function({
-    mode = "normal"
+    mode = "normal",
+    onPress
     }: BackButtonProps) {
     const theme = useAppTheme();
 
@@ -28,7 +30,11 @@ export default function({
     }
 
     return (
-        <View style={[styles.container, {...configuration}]}>
+        <TouchableOpacity 
+        style={[styles.container, {...configuration}]}
+        onPress={() => {
+            onPress?.();
+        }}>
             <Svg
             width={configuration.width*0.75}
             height={configuration.height*0.75}
@@ -50,7 +56,8 @@ export default function({
                 strokeLinejoin="round"
             />
             </Svg>
-        </View>
+        </TouchableOpacity>
+
     );
 }
 

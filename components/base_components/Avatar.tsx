@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Pressable } from 'react-native';
 
 
 import { useAppTheme } from '../../hooks/';
 
 type AvatarProps = {
     mode?: string,
-    source?: string
+    source?: string | null,
+    onPress?: () => void
 };
 
 export default function({
     mode = "normal",
-    source
+    source,
+    onPress
     }: AvatarProps) {
     const theme = useAppTheme();
 
@@ -28,12 +30,17 @@ export default function({
     }
 
     return (
-        <View style={[styles.container, {...configuration}]}>
+        <Pressable 
+        style={[styles.container, {...configuration}]}
+        onPress={(evt) => {
+            evt.stopPropagation();
+            onPress?.();
+        }}>
             <Image 
             style={{ width: '100%', height: '100%' }}
-            source={(source !== undefined ? { uri: source } : undefined)}
+            source={(source !== undefined && source !== null ? { uri: source } : undefined)}
             />
-        </View>
+        </Pressable>
     );
 }
 
