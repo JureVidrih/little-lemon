@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 
 import * as ImagePicker from 'expo-image-picker';
 
-import { useAppTheme } from '../../hooks/';
+import { useAppTheme, useSessionStorage } from '../../hooks/';
 import { Avatar, Button } from '../base_components/';
 
 type InputAvatarProps = {
@@ -11,7 +11,7 @@ type InputAvatarProps = {
     value?: string,
     placeholder?: string,
     required?: boolean,
-    onChange?: (arg0: string) => void
+    onSelect?: (arg0: string | null) => void
 };
 
 export default function({
@@ -19,9 +19,11 @@ export default function({
     value,
     placeholder = "",
     required = false,
-    onChange
+    onSelect
      }: InputAvatarProps) {
     const theme = useAppTheme();
+
+    const [input, setInput] = useState(placeholder ?? "");
 
     const pickImage = useCallback(async () => {
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -39,12 +41,11 @@ export default function({
         });
 
         if(!result.canceled) {
+            onSelect?.(result.assets[0].uri);
             setInput(result.assets[0].uri);
         }
 
     }, []);
-
-    const [input, setInput] = useState(placeholder ?? "");
 
     return (
         <View style={styles.container}>
@@ -63,7 +64,8 @@ export default function({
                 border_0
                 color={"white"}
                 onPress={() => {
-                    setInput(null);
+                    onSelect?.(null);
+                    setInput("");
                 }}>Remove</Button>
             </View>
         </View>
