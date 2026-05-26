@@ -4,14 +4,14 @@ import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Avatar, Button, Checkbox, Header, Input, InputAvatar } from '../components/base_components';
+import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
 
 export default function App() {
   const insets = useSafeAreaInsets();
   
   return (
     <ScrollView style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
-        <View style={{ width: '100%', height: 100 }}></View>
+        <UIHeader />
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
@@ -23,24 +23,28 @@ export default function App() {
             placeholder="Type your first name here..."
             maxLength={100}
             onChangeText={(newValue) => {  }}
-            validate={(newValue) => { return newValue.length >= 5; }} />
+            validate={(newValue) => { return newValue.length != 0; }}
+            inputMode="text" />
             <Input 
             label="Last name"
             placeholder="Type your last name here..."
             maxLength={100}
             onChangeText={(newValue) => {  }}
-            validate={(newValue) => { return newValue.length >= 5; }}
-            invalidValueLabel="Provide a valid last name!" />
+            validate={(newValue) => { return newValue.length != 0; }}
+            invalidValueLabel="Provide a valid last name!"
+            inputMode="text" />
             <Input 
             label="Email"
             placeholder="Type your email here..."
             maxLength={100}
-            onChangeText={(newValue) => {  }} />
+            onChangeText={(newValue) => {  }}
+            inputMode="email" />
             <Input 
             label="Phone number"
             placeholder="Type your phone number here..."
             maxLength={15}
-            onChangeText={(newValue) => {  }} />
+            onChangeText={(newValue) => {  }}
+            inputMode="tel" />
         </View>
         <View style={{ width: '90%' }}>
             <Header sizeType={5}>Email notifications</Header>
