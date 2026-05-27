@@ -5,6 +5,7 @@ import { useAppTheme } from '../../hooks/';
 
 type ButtonProps = {
     children: React.ReactNode,
+    disabled?: boolean,
     onPress?: () => void,
     border_0?: boolean,
     border_8?: boolean,
@@ -17,6 +18,7 @@ type ButtonProps = {
 
 export default function({
     children = "Button",
+    disabled = false,
     onPress = () => {},
     border_0,
     border_8,
@@ -47,15 +49,19 @@ export default function({
 
     return (
         <TouchableOpacity 
-        onPress={onPress}
+        onPress={() => {
+            if(disabled !== true) {
+                onPress?.();
+            }
+        }}
         style={[
             styles.container, 
-            { backgroundColor: theme[color], borderRadius: borderRadius }, 
-            { borderColor: theme[color] },
+            { backgroundColor: theme[color], borderRadius: borderRadius, borderColor: theme[color] }, 
             (color === 'white' ? { borderColor: theme.primary_1 } : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null),
-            (dynamicSize === true ? { width: null, height: null} : null)]}>
+            (dynamicSize === true ? { width: null, height: null} : null),
+            (disabled === true ? { backgroundColor: theme.gray, borderColor: theme.gray } : null)]}>
             <Text style={[styles.label, { color: textColor }]}>{children}</Text>
         </TouchableOpacity>
     );
