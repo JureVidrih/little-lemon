@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextStyle } from 'react-native';
 
 
 import { useAppTheme } from '../../hooks/';
 
 type HeaderProps = {
     children: React.ReactNode,
-    sizeType?: number
+    sizeType?: number,
+    align?: TextStyle['textAlign']
 };
 
 export default function({
     children,
-    sizeType = 1
+    sizeType = 1,
+    align = "left"
     }: HeaderProps) {
     const theme = useAppTheme();
 
@@ -28,7 +30,7 @@ export default function({
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.headerText, { fontSize: fontSize, color: theme.primary_1 }]}>{children}</Text>
+            <Text style={[styles.headerText, { fontSize: fontSize, color: theme.primary_1, textAlign: align }]}>{children}</Text>
         </View>
     );
 }
