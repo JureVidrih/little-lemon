@@ -23,7 +23,7 @@ export default function({
      }: InputAvatarProps) {
     const theme = useAppTheme();
 
-    const [input, setInput] = useState(placeholder ?? "");
+    const [input, setInput] = useState(placeholder ?? null);
 
     const pickImage = useCallback(async () => {
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
