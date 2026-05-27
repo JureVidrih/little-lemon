@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         height: 100,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#ffffff'
     }
 });

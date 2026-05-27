@@ -9,7 +9,12 @@ export default function() {
     
     return (
         <Stack.Navigator 
-        initialRouteName="SplashScreen">
+        initialRouteName="SplashScreen"
+        screenOptions={{
+            contentStyle: {
+                backgroundColor: '#ffffff'
+            }
+        }}>
             <Stack.Screen 
             name="SplashScreen" 
             component={SplashScreen}
