@@ -1,20 +1,27 @@
+import React, { useState } from 'react';
+
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
+
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { HomeScreen, ProfileScreen, OnboardingScreen } from './screens/';
+import { Avatar, Button, Checkbox, Header, Input } from './components/base_components';
 
 export default function App() {
+  const [route, setRoute] = useState("home");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <OnboardingScreen />
+      {/* {route === "home" ? <HomeScreen navigateToProfile={() => { setRoute("profile"); }}/> : <ProfileScreen navigateToHome={() => { setRoute("home"); }}/>} */}
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
 });
