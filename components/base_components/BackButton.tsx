@@ -31,7 +31,7 @@ export default function({
 
     return (
         <TouchableOpacity 
-        style={[styles.container, {...configuration}]}
+        style={[styles.container, {...configuration}, { backgroundColor: theme.primary_1, borderColor: theme.primary_1 }]}
         onPress={() => {
             onPress?.();
         }}>
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000000',
         overflow: 'hidden'
     }
 });
