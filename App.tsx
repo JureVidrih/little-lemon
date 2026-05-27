@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ToastAndroid, ScrollView } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { AppScreenNavigator } from './navigators';
 
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { HomeScreen, ProfileScreen, OnboardingScreen } from './screens/';
-import { Avatar, Button, Checkbox, Header, Input } from './components/base_components';
+import { Avatar, Button, BackButton, Checkbox, Header, Input } from './components/base_components';
 
 export default function App() {
-  const [route, setRoute] = useState("home");
 
   return (
     <SafeAreaProvider>
-      <OnboardingScreen />
-      {/* {route === "home" ? <HomeScreen navigateToProfile={() => { setRoute("profile"); }}/> : <ProfileScreen navigateToHome={() => { setRoute("home"); }}/>} */}
+      <NavigationContainer>
+        <AppScreenNavigator />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
