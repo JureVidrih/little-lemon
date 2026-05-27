@@ -7,7 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
 import { useSessionStorage } from '../hooks';
 
-export default function ({navigateToHome}: {navigateToHome: () => void}) {
+export default function () {
   const insets = useSafeAreaInsets();
 
   const sessionStorage = useSessionStorage();

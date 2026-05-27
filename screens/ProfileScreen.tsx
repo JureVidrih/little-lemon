@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
-
-import { StyleSheet, Text, View, ToastAndroid, ScrollView } from 'react-native';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { StyleSheet, Text, View, Image, ToastAndroid, ScrollView } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
-import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
+import { Avatar, Button, BackButton, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
 import { useSessionStorage } from '../hooks';
 
-export default function ({navigateToHome}: {navigateToHome: () => void}) {
+export default function () {
   const insets = useSafeAreaInsets();
+
+  const navigation = useNavigation<any>();
 
   const sessionStorage = useSessionStorage();
 
   const [avatarSource, setAvatarSource] = useState<string | null>(sessionStorage.get("profileAvatarURI"));
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => {
+          return (
+              <UIHeader 
+                  showAvatar={true} 
+                  showBackButton={true}
+                  backButtonOnPress={() => {
+                      navigation.goBack();
+                  }}
+                  avatarSource={sessionStorage.get("profileAvatarURI")} />
+          );
+      }
+    });
+  }, [avatarSource]);
   
   return (
-    <ScrollView style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
-        <UIHeader 
-        showBackButton={true} 
-        showAvatar={true}
-        backButtonOnPress={() => {
-          navigateToHome();
-        }}
-        avatarSource={avatarSource} />
+    <ScrollView style={[styles.container, { marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
