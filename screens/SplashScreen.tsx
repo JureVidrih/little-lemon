@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ActivityIndicator, Platform } from 'reac
 
 import { useAppTheme } from '../hooks/';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function() {
     const theme = useAppTheme();
@@ -10,12 +11,16 @@ export default function() {
     const navigation = useNavigation<any>();
 
     useEffect(() => {
-        setTimeout(() => {
+        (async () => {
+            const isUserLoggedIn = await AsyncStorage.getItem("@little-lemon/profile/userLoggedIn");
+
+            setTimeout(() => {
             navigation.reset({
                 index: 0,
-                routes: [{ name: "HomeScreen" }]
+                routes: [{ name: (isUserLoggedIn === "true" ? "HomeScreen" : "OnboardingScreen") }]
             });
-        }, 1500);
+            }, 1500);
+        })();
     }, []);
 
     return (
@@ -50,7 +55,7 @@ const styles = StyleSheet.create({
     },
     indicator: {
         position: 'absolute',
-        top: '70%',
+        top: '75%',
         left: '50%',
         transform: [{ translateX: '-50%' }, { translateY: '-50%' }]
     }
