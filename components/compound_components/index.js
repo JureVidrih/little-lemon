@@ -3,4 +3,6 @@ import MenuCategories from './MenuCategories.tsx';
 
 import MenuDishItem from './MenuDishItem.tsx';
 
-export { Hero, MenuCategories, MenuDishItem };
+import HeroSearch from './HeroSearch.tsx';
+
+export { Hero, MenuCategories, MenuDishItem, HeroSearch };

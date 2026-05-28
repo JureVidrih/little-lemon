@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-
 import { useAppTheme } from '../../hooks/';
+import { HeroSearch } from './';
 
 type HeroProps = {
-
+    searchAction?: (arg0: string) => void
 };
 
 export default function({
-
+    searchAction
     }: HeroProps) {
     const theme = useAppTheme();
 
@@ -28,6 +28,7 @@ export default function({
                 transform: [{ translateY: '-50%' }] }}
             source={require("../../assets/Images/Hero_image.png")}
             resizeMode="cover" />
+            {searchAction && <HeroSearch />}
         </View>
     );
 }
