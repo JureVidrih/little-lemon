@@ -15,7 +15,7 @@ type InputProps = {
 } & TextInputProps;
 
 export default function({
-    label = "Input Element Label",
+    label,
     value,
     placeholder = "",
     required = false,
@@ -36,7 +36,7 @@ export default function({
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>
+            {label !== undefined && label !== null && <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>}
             <TextInput 
             style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }]}
             placeholder={placeholder}
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
         height: 50,
         borderStyle: 'solid',
         borderWidth: 1,
-        borderRadius: 8
+        borderRadius: 8,
+        backgroundColor: '#ffffff'
     },
     invalidValueLabel: {
         marginTop: 2,
