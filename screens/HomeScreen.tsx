@@ -24,15 +24,12 @@ export default function () {
                         showBackButton={false}
                         avatarOnPress={() => {
                             navigation.navigate("ProfileScreen");
-                        }}
-                        avatarSource={sessionStorage.get("profileAvatarURI")} />
+                        }} />
                 );
             }
         });
     }, []);
     
-    const sessionStorage = useSessionStorage();
-
     const [menuData, setMenuData] = useState([]);
 
     useLayoutEffect(() => {

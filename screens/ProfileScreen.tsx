@@ -5,19 +5,17 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
 import { mask } from 'react-native-mask-text';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Avatar, Button, BackButton, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
-import { useSessionStorage } from '../hooks';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSessionStorage, useAvatarState } from '../hooks';
 
 export default function () {
   const insets = useSafeAreaInsets();
 
   const navigation = useNavigation<any>();
 
-  const sessionStorage = useSessionStorage();
-
-  const [avatarSource, setAvatarSource] = useState<string | null>(sessionStorage.get("profileAvatarURI"));
+  const { reset, setFirstInitial, setLastInitial } = useAvatarState((state: any) => state);
 
   const [initialValues, setInitialValues] = useState<
   {
@@ -54,28 +52,21 @@ export default function () {
                   showBackButton={true}
                   backButtonOnPress={() => {
                       navigation.goBack();
-                  }}
-                  avatarSource={sessionStorage.get("profileAvatarURI")} />
+                  }} />
           );
       }
     });
-  }, [avatarSource]);
+  }, []);
   
   return (
     <ScrollView style={[styles.container, { marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 
-            placeholder={sessionStorage.get("profileAvatarURI")}
+            placeholder={undefined}
             onSelect={(uri) => { 
-              if(uri === null) {
-                sessionStorage.remove("profileAvatarURI");
-              } else {
-                sessionStorage.set("profileAvatarURI", uri);
-              }
-              
-              setAvatarSource(uri);
-             }}
+
+            }}
             />
             <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -88,7 +79,9 @@ export default function () {
               value={initialValues.firstName ?? undefined}
               placeholder="Type your first name here..."
               maxLength={100}
-              onChangeText={(newValue) => { AsyncStorage.setItem("@little-lemon/profile/firstName", newValue); }}
+              onChangeText={(newValue) => {
+                setFirstInitial(newValue[0]?.toUpperCase());
+                AsyncStorage.setItem("@little-lemon/profile/firstName", newValue); }}
               validate={(newValue) => { 
                 const regex = /^[a-zA-Z]+$/;
                 return regex.test(newValue);
@@ -101,7 +94,9 @@ export default function () {
               value={initialValues.lastName ?? undefined}
               placeholder="Type your last name here..."
               maxLength={100}
-              onChangeText={(newValue) => { AsyncStorage.setItem("@little-lemon/profile/lastName", newValue); }}
+              onChangeText={(newValue) => {
+                setLastInitial(newValue[0]?.toUpperCase());
+                AsyncStorage.setItem("@little-lemon/profile/lastName", newValue); }}
               validate={(newValue) => { 
                 const regex = /^[a-zA-Z]+$/;
                 return regex.test(newValue);
@@ -161,14 +156,15 @@ export default function () {
             border_8={true} 
             color={"primary_2"}
             onPress={async () => {
-              // await AsyncStorage.setItem("@little-lemon/profile/userLoggedIn", "false");
               let allKeys = await AsyncStorage.getAllKeys();
-              allKeys = allKeys.filter((elem) => { return elem.startsWith("@little-lemon")});
+              allKeys = allKeys.filter((elem) => { return elem.startsWith("@little-lemon/")});
               try {
                 await AsyncStorage.multiRemove(allKeys);
               } catch(err) {
                 console.log(err);
               }
+
+              reset();
 
               navigation.reset({
                 index: 0,

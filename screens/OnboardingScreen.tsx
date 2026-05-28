@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
 import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
-import { useSessionStorage } from '../hooks';
+import { useSessionStorage, useAvatarState } from '../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function () {
@@ -14,6 +14,8 @@ export default function () {
   const navigation = useNavigation<any>();
 
   const sessionStorage = useSessionStorage();
+
+  const { setFirstInitial } = useAvatarState((state: any) => state);
 
   const [inputValidity, setInputValidity] = useState({
     firstName: false,
@@ -39,6 +41,7 @@ export default function () {
             placeholder="Type your first name here.."
             required
             onChangeText={(newValue) => {
+              setFirstInitial(newValue[0]?.toUpperCase());
               AsyncStorage.setItem("@little-lemon/profile/firstName", newValue);
             }}
             validate={(newValue) => {
