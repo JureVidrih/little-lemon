@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TextInputProps, ViewStyle } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
 type InputProps = {
+    inputContainerStyle?: ViewStyle
     label?: string,
     value?: string,
     placeholder?: string,
@@ -15,6 +16,7 @@ type InputProps = {
 } & TextInputProps;
 
 export default function({
+    inputContainerStyle,
     label,
     value,
     placeholder = "",
@@ -38,7 +40,7 @@ export default function({
         <View style={styles.container}>
             {label !== undefined && label !== null && <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>}
             <TextInput 
-            style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }]}
+            style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }, inputContainerStyle]}
             placeholder={placeholder}
             value={input}
             onChangeText={(newValue) => {
