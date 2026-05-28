@@ -49,6 +49,7 @@ export default function({
 
     return (
         <TouchableOpacity 
+        disabled={disabled}
         onPress={() => {
             if(disabled !== true) {
                 onPress?.();

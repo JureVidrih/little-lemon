@@ -30,6 +30,10 @@ export default function({
     const [input, setInput] = useState(value ?? "");
     const [inputValidity, setInputValidity] = useState((validateInitially === true && required === true ? validate?.(input) : null) ?? true);
 
+    useLayoutEffect(() => {
+        setInput(value ?? "");
+    }, [value]);
+
     return (
         <View style={styles.container}>
             <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>
