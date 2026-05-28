@@ -28,7 +28,7 @@ export default function({
                 transform: [{ translateY: '-50%' }] }}
             source={require("../../assets/Images/Hero_image.png")}
             resizeMode="cover" />
-            {searchAction && <HeroSearch />}
+            {searchAction && <HeroSearch searchAction={searchAction} />}
         </View>
     );
 }

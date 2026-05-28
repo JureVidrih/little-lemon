@@ -6,7 +6,13 @@ import { Svg, Circle, Line } from 'react-native-svg';
 import { useAppTheme } from '../../hooks/';
 import { Input } from '../base_components';
 
-export default function() {
+type HeroSearchProps = {
+    searchAction?: (arg0: string) => void
+};
+
+export default function({
+    searchAction
+}: HeroSearchProps) {
     const theme = useAppTheme();
 
     const animation = useRef(new Animated.Value(0)).current;
@@ -65,7 +71,10 @@ export default function() {
                 </Svg>
             </TouchableOpacity>
             <Animated.View style={[styles.inputContainer, { opacity: animation, transform: [{ scaleY: animation }] }]}>
-                <Input label="Search filter" />
+                <Input 
+                onChangeText={(newValue) => { searchAction?.(newValue); }}
+                hideInvalidLabel={true}
+                inputContainerStyle={{ height: 40 }} />
             </Animated.View>
         </View>
     );

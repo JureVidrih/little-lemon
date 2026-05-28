@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -45,11 +45,26 @@ export default function () {
         })();
     }, []);
 
+    const [activeMenuCategories, setActiveMenuCategories] = useState([]);
+    const [searchedValue, setSearchedValue] = useState("");
+
+    useLayoutEffect(() => {
+        (async () => {
+            const data: any = await db.getData(searchedValue, (activeMenuCategories.length === 0 ? null : activeMenuCategories));
+            setMenuData(data);
+        })();
+    }, [searchedValue, activeMenuCategories]);
+
     return (
     <View style={[styles.container, { marginBottom: insets.bottom }]}>
-        <Hero />
+        <Hero
+        searchAction={(newValue) => {
+            setSearchedValue(newValue);
+        }} />
         <View style={{ width: "100%", height: null, paddingHorizontal: 14 }}>
-            <MenuCategories />
+            <MenuCategories onItemSelect={(activeCategories) => {
+                setActiveMenuCategories(activeCategories);
+            }}/>
         </View>
         <View style={{ width: "100%", flex: 1, paddingHorizontal: 14}}>
             <FlatList 

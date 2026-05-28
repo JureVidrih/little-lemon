@@ -34,10 +34,15 @@ export function fetchData(url: string) {
     });
 }
 
-export function getData(filter: string | null, filterCategories: string | null) {
+export function getData(filter: string | null, filterCategories: string[] | null) {
     return new Promise((resolve, reject) => {
         try {
-            let data = db.getAllSync('select * from menuitems;');
+            let data = null;
+            if(filter !== null) {
+                data = db.getAllSync(`select * from menuitems where name like '%${filter}%'${(filterCategories !== null ? (` and (${filterCategories.map(elem => `category = '${elem}'`).join(" or ")});`) : (`;`))}`);
+            } else {
+                data = db.getAllAsync("select * from menuitems");
+            }
             resolve(data);
         } catch(err) {
             reject(err);
