@@ -11,6 +11,7 @@ type InputProps = {
     required?: boolean,
     validateInitially?: boolean,
     invalidValueLabel?: string,
+    hideInvalidLabel?: boolean,
     onChangeText?: (arg0: string) => void,
     validate?: (arg0: string) => boolean
 } & TextInputProps;
@@ -22,6 +23,7 @@ export default function({
     placeholder = "",
     required = false,
     invalidValueLabel = "Specified value is invalid.",
+    hideInvalidLabel = false,
     onChangeText,
     validate,
     validateInitially = false,
@@ -51,7 +53,7 @@ export default function({
                 }
             }}
             {...textInputProps} />
-            <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>
+            {hideInvalidLabel === false && <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>}
         </View>
     );
 }
