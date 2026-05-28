@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ToastAndroid, ScrollView } from 'react-native';
@@ -9,7 +9,6 @@ import { AppScreenNavigator } from './navigators';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Avatar, Button, BackButton, Checkbox, Header, Input } from './components/base_components';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   return (
