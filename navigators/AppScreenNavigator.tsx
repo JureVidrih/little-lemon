@@ -25,6 +25,9 @@ export default function() {
             <Stack.Screen 
             name="OnboardingScreen" 
             component={OnboardingScreen}
+            options={{
+                headerShown: false
+            }}
             />
             <Stack.Screen 
             name="HomeScreen" 
