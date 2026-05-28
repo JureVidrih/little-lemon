@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { View, Image, StyleSheet, Pressable, Text } from 'react-native';
 
 
 import { useAppTheme, useSessionStorage } from '../../hooks/';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type AvatarProps = {
     mode?: string,
@@ -18,6 +19,23 @@ export default function({
     const theme = useAppTheme();
 
     const sessionStorage = useSessionStorage();
+
+    const[initials, setInitials] = useState({
+        first: "",
+        last: ""
+    });
+
+    useLayoutEffect(() => {
+        (async () => {
+            let first = await AsyncStorage.getItem("@little-lemon/profile/firstName") ?? "";
+            let last = await AsyncStorage.getItem("@little-lemon/profile/lastName") ?? "";
+
+            setInitials({
+                first: first[0].toUpperCase(),
+                last: last[0].toUpperCase()
+            });
+        })();
+    }, []);
 
     const configuration = {
         width: 100,
@@ -55,7 +73,7 @@ export default function({
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}>
-                        <Text style={[styles.placeholderLabel, { fontSize: configuration.labelSize }]}>{sessionStorage.get("profile/firstName")?.[0]?.toUpperCase()}{sessionStorage.get("profile/lastName")?.[0]?.toUpperCase()}</Text>
+                        <Text style={[styles.placeholderLabel, { fontSize: configuration.labelSize }]}>{initials.first}{initials.last}</Text>
                     </View>
                 )
             }
