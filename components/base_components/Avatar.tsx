@@ -1,9 +1,10 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { View, Image, StyleSheet, Pressable, Text } from 'react-native';
 
-
 import { useAppTheme, useSessionStorage } from '../../hooks/';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { useAvatarState } from '../../hooks/';
 
 type AvatarProps = {
     mode?: string,
@@ -18,23 +19,32 @@ export default function({
     }: AvatarProps) {
     const theme = useAppTheme();
 
-    const sessionStorage = useSessionStorage();
-
-    const[initials, setInitials] = useState({
-        first: "",
-        last: ""
-    });
+    const { avatarUri, firstInitial, lastInitial, setAvatarUri, setFirstInitial, setLastInitial } = useAvatarState((state: any) => state);
 
     useLayoutEffect(() => {
-        (async () => {
-            let first = await AsyncStorage.getItem("@little-lemon/profile/firstName") ?? "";
-            let last = await AsyncStorage.getItem("@little-lemon/profile/lastName") ?? "";
-
-            setInitials({
-                first: first[0].toUpperCase(),
-                last: last[0].toUpperCase()
-            });
-        })();
+        if(avatarUri === null || firstInitial === null || lastInitial === null) {
+            (async () => {
+                if(avatarUri === null) {
+                    const temp = await AsyncStorage.getItem("@little-lemon/profile/avatarUri");
+                    if(temp !== null) {
+                        setAvatarUri(temp);
+                    }
+                }
+                if(firstInitial === null) {
+                    const temp = await AsyncStorage.getItem("@little-lemon/profile/firstName");
+                    if(temp !== null) {
+                        setFirstInitial(temp[0]?.toUpperCase());
+                    }
+                }
+                if(lastInitial === null) {
+                    const temp = await AsyncStorage.getItem("@little-lemon/profile/lastName");
+                    if(temp !== null) {
+                        setLastInitial(temp[0]?.toUpperCase());
+                    }
+                }
+            }
+        )();
+        }
     }, []);
 
     const configuration = {
@@ -59,10 +69,10 @@ export default function({
             onPress?.();
         }}>
             {
-                source !== undefined && source !== null ? (
+                (source !== undefined && source !== null) || (avatarUri !== undefined && avatarUri !== null) ? (
                     <Image 
                     style={{ width: '100%', height: '100%' }}
-                    source={(source !== undefined && source !== null ? { uri: source } : undefined)}
+                    source={(source !== undefined && source !== null ? { uri: source } : { uri: avatarUri })}
                     />
                 ) : (
                     <View
@@ -70,10 +80,14 @@ export default function({
                         width: '100%',
                         height: '100%',
                         backgroundColor: '#298dff',
+                        borderStyle: 'solid',
+                        borderWidth: 1,
+                        borderRadius: '50%',
+                        borderColor: theme.gray,
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}>
-                        <Text style={[styles.placeholderLabel, { fontSize: configuration.labelSize }]}>{initials.first}{initials.last}</Text>
+                        <Text style={[styles.placeholderLabel, { fontSize: configuration.labelSize }]}>{firstInitial ?? ""}{lastInitial ?? ""}</Text>
                     </View>
                 )
             }
