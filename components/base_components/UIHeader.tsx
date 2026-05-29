@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { Avatar, BackButton } from './';
 
-
 import { useAppTheme, useSessionStorage } from '../../hooks/';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

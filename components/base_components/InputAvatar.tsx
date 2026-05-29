@@ -2,8 +2,9 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
 import { View, Text, StyleSheet, Alert } from 'react-native';
 
 import * as ImagePicker from 'expo-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useAppTheme, useSessionStorage } from '../../hooks/';
+import { useAppTheme, useSessionStorage, useAvatarState } from '../../hooks/';
 import { Avatar, Button } from '../base_components/';
 
 type InputAvatarProps = {
@@ -17,11 +18,13 @@ type InputAvatarProps = {
 export default function({
     label = "Avatar",
     value,
-    placeholder = "",
+    placeholder,
     required = false,
     onSelect
      }: InputAvatarProps) {
     const theme = useAppTheme();
+
+    const { setAvatarUri } = useAvatarState((state: any) => state);
 
     const [input, setInput] = useState(placeholder ?? null);
 
@@ -42,7 +45,9 @@ export default function({
 
         if(!result.canceled) {
             onSelect?.(result.assets[0].uri);
+            setAvatarUri(result.assets[0].uri);
             setInput(result.assets[0].uri);
+            await AsyncStorage.setItem("@little-lemon/profile/avatarUri", result.assets[0].uri);
         }
 
     }, []);
@@ -65,7 +70,9 @@ export default function({
                 color={"white"}
                 onPress={() => {
                     onSelect?.(null);
-                    setInput("");
+                    setAvatarUri(null);
+                    AsyncStorage.removeItem("@little-lemon/profile/avatarUri");
+                    setInput(null);
                 }}>Remove</Button>
             </View>
         </View>

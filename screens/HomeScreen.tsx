@@ -1,12 +1,14 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import * as SQLite from 'expo-sqlite';
 
 import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
 import { Hero, MenuCategories, MenuDishItem } from '../components/compound_components';
 import { useSessionStorage } from '../hooks';
+import * as db from '../database/database.ts';
 
 export default function () {
     const insets = useSafeAreaInsets();
@@ -22,34 +24,44 @@ export default function () {
                         showBackButton={false}
                         avatarOnPress={() => {
                             navigation.navigate("ProfileScreen");
-                        }}
-                        avatarSource={sessionStorage.get("profileAvatarURI")} />
+                        }} />
                 );
             }
         });
     }, []);
     
-    const sessionStorage = useSessionStorage();
-
     const [menuData, setMenuData] = useState([]);
 
     useLayoutEffect(() => {
-        fetch("https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/capstone.json")
-        .then((response) => {
-            if(response.ok) {
-                return response.json();
-            }
-        })
-        .then((data) => {
-            setMenuData(data.menu);
-        });
+        (async () => {
+            await db.createTable();
+            await db.fetchData("https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/capstone.json");
+
+            const data: any = await db.getData(null, null);
+            setMenuData(data);
+        })();
     }, []);
+
+    const [activeMenuCategories, setActiveMenuCategories] = useState([]);
+    const [searchedValue, setSearchedValue] = useState("");
+
+    useLayoutEffect(() => {
+        (async () => {
+            const data: any = await db.getData(searchedValue, (activeMenuCategories.length === 0 ? null : activeMenuCategories));
+            setMenuData(data);
+        })();
+    }, [searchedValue, activeMenuCategories]);
 
     return (
     <View style={[styles.container, { marginBottom: insets.bottom }]}>
-        <Hero />
+        <Hero
+        searchAction={(newValue) => {
+            setSearchedValue(newValue);
+        }} />
         <View style={{ width: "100%", height: null, paddingHorizontal: 14 }}>
-            <MenuCategories />
+            <MenuCategories onItemSelect={(activeCategories) => {
+                setActiveMenuCategories(activeCategories);
+            }}/>
         </View>
         <View style={{ width: "100%", flex: 1, paddingHorizontal: 14}}>
             <FlatList 

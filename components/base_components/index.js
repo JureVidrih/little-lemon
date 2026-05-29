@@ -1,3 +1,4 @@
+import Txt from './Txt.tsx';
 import UIHeader from './UIHeader.tsx';
 
 import Header from './Header.tsx';
@@ -12,4 +13,4 @@ import InputAvatar from './InputAvatar.tsx';
 
 import Avatar from './Avatar.tsx';
 
-export { UIHeader, Header, Button, ToggleButton, Checkbox, BackButton, Input, InputAvatar, Avatar };
+export { Txt, UIHeader, Header, Button, ToggleButton, Checkbox, BackButton, Input, InputAvatar, Avatar };

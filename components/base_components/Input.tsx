@@ -1,25 +1,29 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TextInputProps, ViewStyle } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
 type InputProps = {
+    inputContainerStyle?: ViewStyle
     label?: string,
     value?: string,
     placeholder?: string,
     required?: boolean,
     validateInitially?: boolean,
     invalidValueLabel?: string,
+    hideInvalidLabel?: boolean,
     onChangeText?: (arg0: string) => void,
     validate?: (arg0: string) => boolean
 } & TextInputProps;
 
 export default function({
-    label = "Input Element Label",
+    inputContainerStyle,
+    label,
     value,
     placeholder = "",
     required = false,
     invalidValueLabel = "Specified value is invalid.",
+    hideInvalidLabel = false,
     onChangeText,
     validate,
     validateInitially = false,
@@ -32,13 +36,16 @@ export default function({
 
     useLayoutEffect(() => {
         setInput(value ?? "");
+        if(required === true) {
+            setInputValidity(validate?.(value ?? "") ?? true);
+        }
     }, [value]);
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>
+            {label !== undefined && label !== null && <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>}
             <TextInput 
-            style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }]}
+            style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }, inputContainerStyle]}
             placeholder={placeholder}
             value={input}
             onChangeText={(newValue) => {
@@ -49,7 +56,7 @@ export default function({
                 }
             }}
             {...textInputProps} />
-            <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>
+            {hideInvalidLabel === false && <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>}
         </View>
     );
 }
@@ -71,7 +78,8 @@ const styles = StyleSheet.create({
         height: 50,
         borderStyle: 'solid',
         borderWidth: 1,
-        borderRadius: 8
+        borderRadius: 8,
+        backgroundColor: '#ffffff'
     },
     invalidValueLabel: {
         marginTop: 2,

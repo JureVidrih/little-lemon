@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 
 import Svg, { Path } from 'react-native-svg';
@@ -37,6 +37,13 @@ export default function({
     }, []);
 
     const [isChecked, setChecked] = useState(checked ?? false);
+
+    useLayoutEffect(() => {
+        if(checked !== undefined) {
+            toggleAnimation(checked);
+            setChecked(checked);
+        }
+    }, [checked]);
 
     return (
         <Pressable 
