@@ -133,7 +133,7 @@ export default function () {
               label="Phone number"
               value={mask(changedValues?.phoneNumber ?? "", "(999) 999-9999")}
               placeholder="Type your phone number here..."
-              maxLength={15}
+              maxLength={10}
               onChangeText={(newValue) => {
                 setChangedValues({ ...changedValues, phoneNumber: newValue });
               }}
