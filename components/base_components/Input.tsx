@@ -36,6 +36,9 @@ export default function({
 
     useLayoutEffect(() => {
         setInput(value ?? "");
+        if(required === true) {
+            setInputValidity(validate?.(value ?? "") ?? true);
+        }
     }, [value]);
 
     return (
