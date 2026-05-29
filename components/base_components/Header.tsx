@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextStyle } from 'react-native';
 
-
 import { useAppTheme } from '../../hooks/';
+import { Txt } from './';
 
 type HeaderProps = {
     children: React.ReactNode,
@@ -30,7 +30,9 @@ export default function({
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.headerText, { fontSize: fontSize, color: theme.primary_1, textAlign: align }]}>{children}</Text>
+            <Txt 
+            textStyle='subTitle'
+            style={[styles.headerText, { fontSize: fontSize, textAlign: align }]}>{children}</Txt>
         </View>
     );
 }

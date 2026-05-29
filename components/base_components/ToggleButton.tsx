@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
+import { Txt } from './';
 
 type ToggleButtonProps = {
     children: React.ReactNode,
@@ -95,7 +96,10 @@ export default function({
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null),
             (dynamicSize === true ? { width: null, height: null} : null)]}>
-                <Animated.Text style={[styles.label, { color: animatedLabel }]}>{children}</Animated.Text>
+                <Txt 
+                textStyle="sectionCategories"
+                style={[styles.label, { color: animatedLabel }]}
+                >{children}</Txt>
             </Animated.View>
         </Pressable>
     );
@@ -116,7 +120,6 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     label: {
-        fontSize: 15,
-        fontWeight: '900'
+
     }
 });

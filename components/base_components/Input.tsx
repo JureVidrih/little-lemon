@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TextInputProps, ViewStyle } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
+import { Txt } from './';
 
 type InputProps = {
     inputContainerStyle?: ViewStyle
@@ -43,7 +44,7 @@ export default function({
 
     return (
         <View style={styles.container}>
-            {label !== undefined && label !== null && <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>}
+            {label !== undefined && label !== null && <Txt textStyle="pregular" style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Txt>}
             <TextInput 
             style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }, inputContainerStyle]}
             placeholder={placeholder}
@@ -56,7 +57,7 @@ export default function({
                 }
             }}
             {...textInputProps} />
-            {hideInvalidLabel === false && <Text style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Text>}
+            {hideInvalidLabel === false && <Txt textStyle="pregular" style={styles.invalidValueLabel}>{(inputValidity === false ? invalidValueLabel : null)}</Txt>}
         </View>
     );
 }
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     invalidValueLabel: {
-        marginTop: 2,
+        marginVertical: 2,
         fontSize: 12,
         color: '#ff0000'
     }

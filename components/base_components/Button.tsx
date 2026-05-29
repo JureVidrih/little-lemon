@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
+import { Txt } from './';
 
 type ButtonProps = {
     children: React.ReactNode,
@@ -63,7 +64,10 @@ export default function({
             (fullParentHeight === true ? { height: '100%' } : null),
             (dynamicSize === true ? { width: null, height: null} : null),
             (disabled === true ? { backgroundColor: theme.gray, borderColor: theme.gray } : null)]}>
-            <Text style={[styles.label, { color: textColor }]}>{children}</Text>
+            <Txt
+            textStyle="sectionCategories" 
+            style={[styles.label, { color: textColor }]}>{children}</Txt>
+
         </TouchableOpacity>
     );
 }
@@ -81,7 +85,6 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     label: {
-        fontSize: 16,
-        fontWeight: 'bold'
+
     }
 });

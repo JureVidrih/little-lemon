@@ -16,9 +16,15 @@ export default function({
 
     return (
         <View style={[styles.container, { backgroundColor: theme.primary_1 }]}>
-            <Text style={{ color: theme.primary_2, fontSize: 36, fontWeight: 'bold' }}>Little Lemon</Text>
-            <Text style={{ color: '#ffffff', fontSize: 25 }}>Chicago</Text>
-            <Text style={{ marginTop: 25, width: '55%', color: '#ffffff', fontSize: 18 }}>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Text>
+            <Txt 
+            textStyle="displayTitle"
+            style={{ color: theme.primary_2, marginTop: -15, marginBottom: -27 }}>Little Lemon</Txt>
+            <Txt 
+            textStyle="subTitle"
+            style={{ color: '#ffffff', marginBottom: 9 }}>Chicago</Txt>
+            <Txt 
+            textStyle="lead"
+            style={{ width: '60%', color: '#ffffff' }}>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Txt>
             <Image 
             style={{ 
                 width: 150, 
@@ -26,7 +32,7 @@ export default function({
                 position: 'absolute', 
                 top: '50%', 
                 right: 14, 
-                transform: [{ translateY: '-50%' }] }}
+                transform: [{ translateY: '-30%' }] }}
             source={require("../../assets/Images/Hero_image.png")}
             resizeMode="cover" />
             {searchAction && <HeroSearch searchAction={searchAction} />}

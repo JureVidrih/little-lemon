@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useAppTheme, useSessionStorage, useAvatarState } from '../../hooks/';
-import { Avatar, Button } from '../base_components/';
+import { useAppTheme, useAvatarState } from '../../hooks/';
+import { Avatar, Button, Txt } from '../base_components/';
 
 type InputAvatarProps = {
     label?: string,
@@ -54,7 +54,9 @@ export default function({
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Text>
+            <Txt 
+            textStyle="pregular"
+            style={[styles.label, { }]}>{label}{(required === true ? " *" : null)}</Txt>
             <View style={{ width: '90%', height: null, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 }}>
                 <Avatar 
                 mode="normal"

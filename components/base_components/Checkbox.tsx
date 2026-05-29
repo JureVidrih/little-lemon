@@ -4,6 +4,7 @@ import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { useAppTheme } from '../../hooks/';
+import { Txt } from './';
 
 type CheckboxProps = {
     label: string,
@@ -76,7 +77,9 @@ export default function({
                     </Svg>
                 </Animated.View>
             </View>
-            <Text style={styles.label}>{label}</Text>
+            <Txt 
+            textStyle="pregular"
+            style={styles.label}>{label}</Txt>
         </Pressable>
     );
 }
@@ -91,7 +94,6 @@ const styles = StyleSheet.create({
     },
     label: {
         marginLeft: 10,
-        fontSize: 18
     },
     checkBoxContainer: {
         width: 28,
