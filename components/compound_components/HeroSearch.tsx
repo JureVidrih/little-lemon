@@ -74,7 +74,7 @@ export default function({
                 <Input 
                 onChangeText={(newValue) => { searchAction?.(newValue); }}
                 hideInvalidLabel={true}
-                inputContainerStyle={{ height: 40, paddingVertical: 8 }}
+                inputContainerStyle={{ height: 40, paddingVertical: 8, backgroundColor: '#ffffff', borderStyle: 'solid', borderWidth: 1, borderColor: theme.gray }}
                 editable={inputVisible} />
             </Animated.View>
         </View>
