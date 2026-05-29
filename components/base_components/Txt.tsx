@@ -1,18 +1,19 @@
 import React from 'react';
-import { Text, StyleSheet, TextStyle } from 'react-native';
+import { Text, StyleSheet, TextStyle, Animated } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
 type TxtProps = {
     children: React.ReactNode,
-    style?: TextStyle,
+    style?: TextStyle | TextStyle[],
     textStyle?: string
-};
+} & TextStyle;
 
 export default function({
     children = "Button",
     style,
-    textStyle 
+    textStyle,
+    ...textProps
 }: TxtProps) {
     const theme = useAppTheme();
     
@@ -51,7 +52,7 @@ export default function({
         case "sectionCategories": textConfiguration = {
             fontSize: 16,
             fontWeight: '800',
-            color: '#000000',
+            color: '#495E57',
             fontFamily: 'Karla-Regular'
         }; break;
         case "cardTitle": textConfiguration = {
@@ -75,9 +76,9 @@ export default function({
     }
 
     return (
-        <Text style={[textConfiguration, style]}>
+        <Animated.Text style={[textConfiguration, style]} {...textProps}>
             {children}
-        </Text>
+        </Animated.Text>
     );
 }
 

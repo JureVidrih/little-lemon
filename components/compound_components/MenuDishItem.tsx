@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
-import { ToggleButton } from '../base_components';
+import { Txt } from '../base_components';
 
 type MenuDishItemProps = {
     name: string,
@@ -33,9 +33,16 @@ export default function({
     return (
         <View style={[styles.container, { borderColor: theme.gray }]}>
             <View style={styles.leftContainer}>
-                <Text style={styles.dishName}>{name}</Text>
-                <Text style={[styles.dishLabel, { color: theme.primary_1 }]} numberOfLines={2}>{label}</Text>
-                <Text style={[styles.dishPrice, { color: theme.primary_1 }]}>${price}</Text>
+                <Txt 
+                textStyle="cardTitle"
+                style={styles.dishName}>{name}</Txt>
+                <Txt 
+                textStyle="pregular"
+                style={[styles.dishLabel, { color: theme.primary_1 }]} 
+                numberOfLines={2}>{label}</Txt>
+                <Txt 
+                textStyle="phighlight"
+                style={[styles.dishPrice]}>${price}</Txt>
             </View>
             <View style={styles.rightContainer}>
                 <Image style={styles.dishImage} source={image} />
@@ -74,17 +81,12 @@ const styles = StyleSheet.create({
         height: 72
     },
     dishName: {
-        color: '#000000',
-        fontSize: 15,
-        fontWeight: '700'
+
     },
     dishLabel: {
-        color: '#000000',
-        fontSize: 13,
+
     },
     dishPrice: {
-        color: '#000000',
-        fontSize: 15,
-        fontWeight: '500'
+
     }
 });

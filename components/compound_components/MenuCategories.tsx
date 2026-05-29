@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 
-import { ToggleButton } from '../base_components';
+import { ToggleButton, Txt } from '../base_components';
 
 type MenuCategoriesProps = {
     onItemSelect: (arg0: any) => void
@@ -22,7 +22,9 @@ export default function({
 
     return (
         <View style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
-            <Text style={{ color: "#000000", fontSize: 19, fontWeight: '900' }}>{"Order for delivery!".toUpperCase()}</Text>
+            <Txt 
+            textStyle="sectionTitle"
+            style={{ }}>{"Order for delivery!".toUpperCase()}</Txt>
             <View style={styles.categoriesContainer}>
                 <ToggleButton 
                 border_16 

@@ -24,70 +24,61 @@ export default function () {
   
   return (
     <View style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]}>
-      <Image style={{ width: 180, height: 60}} resizeMode="contain" source={require("../assets/Images/Logo.png")} />
+      <Image style={{ width: 240, height: 120, marginTop: 25 }} resizeMode="contain" source={require("../assets/Images/Logo.png")} />
       <View style={styles.bodyContainer}>
         <Header sizeType={4} align="center">Let us get to know you</Header>
         <View style={styles.formContainer}>
-          <KeyboardAvoidingView
-          style={{ 
-            width: '100%',
-            height: '100%'
+          <Input 
+          label="First Name"
+          placeholder="Type your first name here.."
+          required
+          onChangeText={(newValue) => {
+            setFirstInitial(newValue[0]?.toUpperCase());
+            AsyncStorage.setItem("@little-lemon/profile/firstName", newValue);
           }}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          enabled={true}
-          keyboardVerticalOffset={200}>
-            <Input 
-            label="First Name"
-            placeholder="Type your first name here.."
-            required
-            onChangeText={(newValue) => {
-              setFirstInitial(newValue[0]?.toUpperCase());
-              AsyncStorage.setItem("@little-lemon/profile/firstName", newValue);
-            }}
-            validate={(newValue) => {
-              const regex = /^[a-zA-Z]+$/;
-              let condition = regex.test(newValue);
-              if(condition === true) {
-                setInputValidity({
-                  firstName: true,
-                  email: inputValidity.email
-                });
-              } else {
-                setInputValidity({
-                  firstName: false,
-                  email: inputValidity.email
-                });
-              }
-              return condition;
-            }}
-            invalidValueLabel="Name may contain only letters."
-            inputMode="text" />
-            <Input 
-            label="Email"
-            placeholder="Type your email here.."
-            required
-            onChangeText={(newValue) => {
-              AsyncStorage.setItem("@little-lemon/profile/email", newValue);
-            }}
-            validate={(newValue) => {
-              const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              let condition = regex.test(newValue);
-              if(condition === true) {
-                setInputValidity({
-                  firstName: inputValidity.firstName,
-                  email: true
-                });
-              } else {
-                setInputValidity({
-                  firstName: inputValidity.firstName,
-                  email: false
-                });
-              }
-              return condition;
-            }}
-            invalidValueLabel="Specify a valid email address."
-            inputMode="email" />
-          </KeyboardAvoidingView>
+          validate={(newValue) => {
+            const regex = /^[a-zA-Z]+$/;
+            let condition = regex.test(newValue);
+            if(condition === true) {
+              setInputValidity({
+                firstName: true,
+                email: inputValidity.email
+              });
+            } else {
+              setInputValidity({
+                firstName: false,
+                email: inputValidity.email
+              });
+            }
+            return condition;
+          }}
+          invalidValueLabel="Name may contain only letters."
+          inputMode="text" />
+          <Input 
+          label="Email"
+          placeholder="Type your email here.."
+          required
+          onChangeText={(newValue) => {
+            AsyncStorage.setItem("@little-lemon/profile/email", newValue);
+          }}
+          validate={(newValue) => {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let condition = regex.test(newValue);
+            if(condition === true) {
+              setInputValidity({
+                firstName: inputValidity.firstName,
+                email: true
+              });
+            } else {
+              setInputValidity({
+                firstName: inputValidity.firstName,
+                email: false
+              });
+            }
+            return condition;
+          }}
+          invalidValueLabel="Specify a valid email address."
+          inputMode="email" />
         </View>
         <View style={styles.buttonContainer}>
           <Button
@@ -115,6 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   bodyContainer: {
+    position: 'static',
     paddingTop: 25,
     width: '100%',
     flex: 1.4,
@@ -123,10 +115,11 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     position:  'absolute',
-    top: '50%',
+    top: '55%',
     left: '50%',
     width: '72%',
-    justifyContent: 'center',
+    height: 190,
+    justifyContent: 'space-between',
     alignItems: 'center',
     transform: [{ translateX: '-50%' }, { translateY: '-50%' }]
   },
