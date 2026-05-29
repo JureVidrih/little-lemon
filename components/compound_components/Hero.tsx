@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
+import { Txt } from '../base_components/'
 import { HeroSearch } from './';
 
 type HeroProps = {
