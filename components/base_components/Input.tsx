@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, TextInputProps, ViewStyle } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
@@ -32,15 +32,21 @@ export default function({
      }: InputProps) {
     const theme = useAppTheme();
 
+    let firstRender = useRef(true);
+
     const [input, setInput] = useState(value ?? "");
     const [inputValidity, setInputValidity] = useState((validateInitially === true && required === true ? validate?.(input) : null) ?? true);
 
     useLayoutEffect(() => {
         setInput(value ?? "");
         if(required === true) {
-            setInputValidity(validate?.(value ?? "") ?? true);
+            setInputValidity((firstRender.current === true && validateInitially === false ? true : (validate?.(value ?? "") ?? true)));
         }
     }, [value]);
+
+    useEffect(() => {
+        firstRender.current = false;
+    }, []);
 
     return (
         <View style={styles.container}>
