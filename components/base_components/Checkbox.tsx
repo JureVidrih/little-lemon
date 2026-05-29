@@ -4,7 +4,7 @@ import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { useAppTheme } from '../../hooks/';
-import { Txt } from './';
+import Txt from './Txt.tsx';
 
 type CheckboxProps = {
     label: string,

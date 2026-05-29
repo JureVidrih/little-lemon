@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
 import { Txt } from '../base_components/'
-import { HeroSearch } from './';
+import HeroSearch from './HeroSearch.tsx';
 
 type HeroProps = {
     searchAction?: (arg0: string) => void

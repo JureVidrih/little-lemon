@@ -5,7 +5,9 @@ import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useAppTheme, useAvatarState } from '../../hooks/';
-import { Avatar, Button, Txt } from '../base_components/';
+import Avatar from './Avatar.tsx';
+import Button from './Button.tsx';
+import Txt from './Txt.tsx';
 
 type InputAvatarProps = {
     label?: string,

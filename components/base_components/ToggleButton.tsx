@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
 
 import { useAppTheme } from '../../hooks/';
-import { Txt } from './';
+import Txt from './Txt.tsx';
 
 type ToggleButtonProps = {
     children: React.ReactNode,
