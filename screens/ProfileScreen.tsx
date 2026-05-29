@@ -20,6 +20,10 @@ export default function () {
   let initialValues = useRef<any>(null);
 
   const [changedValues, setChangedValues] = useState<any>(null);
+  const [requiredFieldsValidity, setRequiredFieldsValidity] = useState<any>({
+    firstName: true,
+    email: true
+  });
 
   useLayoutEffect(() => {
     (async () => {
@@ -86,7 +90,9 @@ export default function () {
               }}
               validate={(newValue) => { 
                 const regex = /^[a-zA-Z]+$/;
-                return regex.test(newValue);
+                const condition = regex.test(newValue);
+                setRequiredFieldsValidity({...requiredFieldsValidity, firstName: condition});
+                return condition;
               }}
               required={true}
               validateInitially={false}
@@ -115,7 +121,9 @@ export default function () {
               onChangeText={(newValue) => { setChangedValues({ ...changedValues, email: newValue }); }}
               validate={(newValue) => {
                 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return regex.test(newValue);
+                const condition = regex.test(newValue);
+                setRequiredFieldsValidity({...requiredFieldsValidity, email: condition});
+                return condition;
               }}
               required={true}
               validateInitially={false}
@@ -193,8 +201,10 @@ export default function () {
             color={"white"}
             onPress={() => {
               setChangedValues({...initialValues.current});
+              setRequiredFieldsValidity({ firstName: true, email: true });
             }}>Discard changes</Button>
-            <Button 
+            <Button
+            disabled={(requiredFieldsValidity.firstName === false || requiredFieldsValidity.email === false)}
             border_8
             color={"primary_1"}
             onPress={() => {
