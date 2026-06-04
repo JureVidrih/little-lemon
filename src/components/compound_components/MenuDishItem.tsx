@@ -23,11 +23,11 @@ export default function({
     let image = null;
 
     switch(imageSource) {
-        case "greekSalad.jpg": image = require("../../assets/Images/greekSalad.png"); break;
-        case "bruschetta.jpg": image = require("../../assets/Images/bruschetta.png"); break;
-        case "grilledFish.jpg": image = require("../../assets/Images/grilledFish.png"); break;
-        case "pasta.jpg": image = require("../../assets/Images/pasta.png"); break;
-        case "lemonDessert.jpg": image = require("../../assets/Images/lemonDessert.png"); break;
+        case "greekSalad.jpg": image = require("../../../assets/Images/greekSalad.png"); break;
+        case "bruschetta.jpg": image = require("../../../assets/Images/bruschetta.png"); break;
+        case "grilledFish.jpg": image = require("../../../assets/Images/grilledFish.png"); break;
+        case "pasta.jpg": image = require("../../../assets/Images/pasta.png"); break;
+        case "lemonDessert.jpg": image = require("../../../assets/Images/lemonDessert.png"); break;
     }
 
     return (

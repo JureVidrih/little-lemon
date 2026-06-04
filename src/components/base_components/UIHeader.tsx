@@ -32,7 +32,7 @@ export default function({
             {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View style={{ width: 40, height: 40 }} />}
             <Image 
             style={{ width: 180, height: 60 }} 
-            source={require("../../assets/Images/Logo.png")}
+            source={require("../../../assets/Images/Logo.png")}
             resizeMode="contain" />
             {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View style={{ width: 60, height: 60 }} />}
         </View>

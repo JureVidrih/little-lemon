@@ -19,7 +19,7 @@ export default function () {
 
   let initialValues = useRef<any>(null);
 
-  const [changedValues, setChangedValues] = useState<any>(null);
+  const [changedValues, setChangedValues] = useState<any>({});
   const [requiredFieldsValidity, setRequiredFieldsValidity] = useState<any>({
     firstName: true,
     email: true
@@ -208,10 +208,10 @@ export default function () {
             border_8
             color={"primary_1"}
             onPress={() => {
-              setFirstInitial(changedValues?.firstName[0]?.toUpperCase() ?? null);
+              setFirstInitial(changedValues?.firstName?.[0]?.toUpperCase() ?? null);
               AsyncStorage.setItem("@little-lemon/profile/firstName", changedValues?.firstName ?? "");
 
-              setLastInitial(changedValues?.lastName[0]?.toUpperCase() ?? null);
+              setLastInitial(changedValues?.lastName?.[0]?.toUpperCase() ?? null);
               AsyncStorage.setItem("@little-lemon/profile/lastName", changedValues?.lastName ?? "");
 
               AsyncStorage.setItem("@little-lemon/profile/email", changedValues?.email ?? "");

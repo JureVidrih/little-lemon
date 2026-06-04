@@ -4,11 +4,11 @@ import { StyleSheet, Text, View, Image, ToastAndroid, ScrollView } from 'react-n
 import * as SplashScreen from 'expo-splash-screen';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { AppScreenNavigator } from './navigators';
+import { AppScreenNavigator } from './src/navigators';
 
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Avatar, Button, BackButton, Checkbox, Header, Input } from './components/base_components';
+import { Avatar, Button, BackButton, Checkbox, Header, Input } from './src/components/base_components';
 
 export default function App() {
   SplashScreen.hide();

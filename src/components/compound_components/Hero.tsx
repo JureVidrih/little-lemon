@@ -33,7 +33,7 @@ export default function({
                 top: '50%', 
                 right: 14, 
                 transform: [{ translateY: '-30%' }] }}
-            source={require("../../assets/Images/Hero_image.png")}
+            source={require("../../../assets/Images/Hero_image.png")}
             resizeMode="cover" />
             {searchAction && <HeroSearch searchAction={searchAction} />}
         </View>
