@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, StyleSheet, TextStyle, Animated } from 'react-native';
+import { Text, StyleSheet, TextStyle } from 'react-native';
+
+import Animated from 'react-native-reanimated';
 
 import { useAppTheme } from '../../hooks/';
 

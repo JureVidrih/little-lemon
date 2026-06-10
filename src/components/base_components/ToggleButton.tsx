@@ -1,5 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
+import { Pressable, View, Text, StyleSheet } from 'react-native';
+
+import Animated, { useSharedValue, withTiming, useAnimatedStyle, interpolateColor } from 'react-native-reanimated';
 
 import { useAppTheme } from '../../hooks/';
 import Txt from './Txt.tsx';
@@ -30,21 +32,17 @@ export default function({
     mode = "normal" }: ToggleButtonProps) {
     const theme = useAppTheme();
 
-    const animation = useRef(new Animated.Value((toggled === true ? 1 : 0))).current;
+    const animation = useSharedValue((toggled === true ? 1 : 0));
 
     const toggleAnimation = useCallback((toggleOn: boolean) => {
         if(toggleOn === true) {
-            Animated.timing(animation, {
-                toValue: 1,
-                duration: 140,
-                useNativeDriver: false
-            }).start();
+            animation.value = withTiming(1, {
+                duration: 140
+            });
         } else {
-            Animated.timing(animation, {
-                toValue: 0,
-                duration: 140,
-                useNativeDriver: false
-            }).start();
+            animation.value = withTiming(0, {
+                duration: 140
+            });
         }
     }, []);
 
@@ -62,14 +60,17 @@ export default function({
         configuration.borderRadius = theme.border_radius_16;
     }
 
-    const animatedValues = animation.interpolate({
-        inputRange: [0, 1],
-        outputRange: [theme.gray, theme.primary_1]
+    const animatedValues = useAnimatedStyle(() => { 
+        return { 
+            borderColor: interpolateColor(animation.value, [0, 1], [theme.gray, theme.primary_1]),
+            backgroundColor: interpolateColor(animation.value, [0, 1], [theme.gray, theme.primary_1])
+        }
     });
 
-    const animatedLabel = animation.interpolate({
-        inputRange: [0, 1],
-        outputRange: [theme.primary_1, "#ffffff"]
+    const animatedLabel = useAnimatedStyle(() => { 
+        return { 
+            color: interpolateColor(animation.value, [0, 1], [theme.primary_1, "#ffffff"])
+        }
     });
 
     return (
@@ -90,15 +91,14 @@ export default function({
                 width: configuration.width,
                 height: configuration.height,
                 borderRadius: configuration.borderRadius, 
-                borderColor: animatedValues,
-                backgroundColor: animatedValues
             }, 
+            animatedValues,
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null),
             (dynamicSize === true ? { width: null, height: null} : null)]}>
                 <Txt 
                 textStyle="sectionCategories"
-                style={[styles.label, { color: animatedLabel }]}
+                style={[styles.label, animatedLabel]}
                 >{children}</Txt>
             </Animated.View>
         </Pressable>
