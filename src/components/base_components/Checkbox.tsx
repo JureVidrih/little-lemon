@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback, useLayoutEffect } from 'react';
-import { Pressable, View, Text, StyleSheet, Animated } from 'react-native';
+import { Pressable, View, Text, StyleSheet } from 'react-native';
 
+import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
 
 import { useAppTheme } from '../../hooks/';
@@ -19,21 +20,28 @@ export default function({
     }: CheckboxProps) {
     const theme = useAppTheme();
 
-    const animation = useRef(new Animated.Value((checked === true ? 1 : 0))).current;
+    // const animation = useRef(new Animated.Value((checked === true ? 1 : 0))).current;
+    const animatedOpacity = useSharedValue((checked === true ? 1 : 0));
     
     const toggleAnimation = useCallback((toggleOn: boolean) => {
         if(toggleOn === true) {
-            Animated.timing(animation, {
-                toValue: 1,
-                duration: 60,
-                useNativeDriver: true
-            }).start();
+            // Animated.timing(animation, {
+            //     toValue: 1,
+            //     duration: 60,
+            //     useNativeDriver: true
+            // }).start();
+            animatedOpacity.value = withTiming(1, {
+                duration: 60
+            });
         } else if(toggleOn === false) {
-            Animated.timing(animation, {
-                toValue: 0,
-                duration: 60,
-                useNativeDriver: true
-            }).start();
+            // Animated.timing(animation, {
+            //     toValue: 0,
+            //     duration: 60,
+            //     useNativeDriver: true
+            // }).start();
+            animatedOpacity.value = withTiming(0, {
+                duration: 60
+            });
         }
     }, []);
 
@@ -60,7 +68,7 @@ export default function({
                 styles.checkBoxContainer,
                 { borderColor: theme.primary_1, backgroundColor: theme.primary_1 }
             ]}>
-                <Animated.View style={{ opacity: animation }}>
+                <Animated.View style={{ opacity: animatedOpacity }}>
                     <Svg
                     width={24}
                     height={24}
