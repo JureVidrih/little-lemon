@@ -20,25 +20,14 @@ export default function({
     }: CheckboxProps) {
     const theme = useAppTheme();
 
-    // const animation = useRef(new Animated.Value((checked === true ? 1 : 0))).current;
     const animatedOpacity = useSharedValue((checked === true ? 1 : 0));
     
     const toggleAnimation = useCallback((toggleOn: boolean) => {
         if(toggleOn === true) {
-            // Animated.timing(animation, {
-            //     toValue: 1,
-            //     duration: 60,
-            //     useNativeDriver: true
-            // }).start();
             animatedOpacity.value = withTiming(1, {
                 duration: 60
             });
         } else if(toggleOn === false) {
-            // Animated.timing(animation, {
-            //     toValue: 0,
-            //     duration: 60,
-            //     useNativeDriver: true
-            // }).start();
             animatedOpacity.value = withTiming(0, {
                 duration: 60
             });
