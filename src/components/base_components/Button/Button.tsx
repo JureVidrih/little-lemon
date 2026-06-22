@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
-import { useAppTheme } from '../../hooks/';
-import { Txt } from './';
+import { useAppTheme } from '../../../hooks/';
+import { Txt } from '../';
 
 type ButtonProps = {
     children: React.ReactNode,
@@ -13,7 +13,7 @@ type ButtonProps = {
     border_16?: boolean,
     fullParentWidth?: boolean,
     fullParentHeight?: boolean,
-    color?: string,
+    color?: "primary_1" | "primary_2" | "secondary_1" | "secondary_2" | "secondary_3" | "secondary_4" | "white",
     dynamicSize?: boolean
 };
 

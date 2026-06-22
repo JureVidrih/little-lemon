@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextStyle } from 'react-native';
 
-import { useAppTheme } from '../../hooks/';
-import { Txt } from './';
+import { useAppTheme } from '../../../hooks/';
+import { Txt } from '../';
 
 type HeaderProps = {
     children: React.ReactNode,

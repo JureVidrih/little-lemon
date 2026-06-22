@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
 
-import { useAppTheme } from '../../hooks/';
+import { useAppTheme } from '../../../hooks/';
 
 type BackButtonProps = {
     mode?: string,

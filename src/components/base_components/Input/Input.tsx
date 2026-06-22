@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, TextInputProps, ViewStyle } from 'react-native';
 
-import { useAppTheme } from '../../hooks/';
-import Txt from './Txt.tsx';
+import { useAppTheme } from '../../../hooks/';
+import { Txt } from '../';
 
 type InputProps = {
     inputContainerStyle?: ViewStyle

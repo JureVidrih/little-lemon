@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import { Avatar, BackButton } from './';
+import { Avatar, BackButton } from '../';
 
-import { useAppTheme, useSessionStorage } from '../../hooks/';
+import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type UIHeaderProps = {
@@ -32,7 +32,7 @@ export default function({
             {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View style={{ width: 40, height: 40 }} />}
             <Image 
             style={{ width: 180, height: 60 }} 
-            source={require("../../../assets/Images/Logo.png")}
+            source={require("../../../../assets/Images/Logo.png")}
             resizeMode="contain" />
             {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View style={{ width: 60, height: 60 }} />}
         </View>

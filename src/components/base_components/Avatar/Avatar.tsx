@@ -1,10 +1,10 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { View, Image, StyleSheet, Pressable, Text } from 'react-native';
 
-import { useAppTheme, useSessionStorage } from '../../hooks/';
+import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useAvatarState } from '../../hooks/';
+import { useAvatarState } from '../../../hooks/';
 
 type AvatarProps = {
     mode?: string,
