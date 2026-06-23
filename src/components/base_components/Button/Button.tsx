@@ -61,14 +61,14 @@ export default function({
             styles.container, 
             { backgroundColor: theme[color], borderRadius: borderRadius, borderColor: theme[color] }, 
             (color === 'white' ? { borderColor: theme.primary_1 } : null),
+            (dynamicSize === true ? { width: null, height: null} : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null),
-            (dynamicSize === true ? { width: null, height: null} : null),
             (disabled === true ? { backgroundColor: theme.gray, borderColor: theme.gray } : null)]}>
             <Txt
             testID="buttonLabel"
             textStyle="sectionCategories" 
-            style={[styles.label, { color: textColor }]}>{children}</Txt>
+            style={[{ color: textColor }]}>{children}</Txt>
 
         </TouchableOpacity>
     );
@@ -85,8 +85,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderStyle: 'solid',
         borderWidth: 1
-    },
-    label: {
-
     }
 });
