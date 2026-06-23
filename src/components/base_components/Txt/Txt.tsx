@@ -6,6 +6,7 @@ import Animated from 'react-native-reanimated';
 import { useAppTheme } from '../../../hooks/';
 
 type TxtProps = {
+    testID?: string,
     children: React.ReactNode,
     style?: TextStyle | TextStyle[],
     textStyle?: string

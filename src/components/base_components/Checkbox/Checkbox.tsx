@@ -5,7 +5,7 @@ import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
 
 import { useAppTheme } from '../../../hooks/';
-import { Txt } from '../';
+import Txt from '../Txt/Txt.tsx';
 
 type CheckboxProps = {
     label: string,

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TextStyle } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
-import { Txt } from '../';
+import Txt from '../Txt/Txt.tsx';
 
 type HeaderProps = {
     children: React.ReactNode,

@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import { Avatar, BackButton } from '../';
+import Avatar from '../Avatar/Avatar.tsx';
+import BackButton from '../BackButton/BackButton.tsx';
 
 import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
-import { Txt } from '../';
+import Txt from '../Txt/Txt.tsx';
 
 type ButtonProps = {
     children: React.ReactNode,
@@ -49,7 +49,8 @@ export default function({
     }
 
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
+        testID="touchableContainer"
         disabled={disabled}
         onPress={() => {
             if(disabled !== true) {
@@ -65,6 +66,7 @@ export default function({
             (dynamicSize === true ? { width: null, height: null} : null),
             (disabled === true ? { backgroundColor: theme.gray, borderColor: theme.gray } : null)]}>
             <Txt
+            testID="buttonLabel"
             textStyle="sectionCategories" 
             style={[styles.label, { color: textColor }]}>{children}</Txt>
 

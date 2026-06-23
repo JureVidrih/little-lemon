@@ -4,7 +4,7 @@ import { Pressable, View, Text, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, withTiming, useAnimatedStyle, interpolateColor } from 'react-native-reanimated';
 
 import { useAppTheme } from '../../../hooks/';
-import { Txt } from '../';
+import Txt from '../Txt/Txt.tsx';
 
 type ToggleButtonProps = {
     children: React.ReactNode,
