@@ -84,6 +84,3 @@ export default function({
         </Animated.Text>
     );
 }
-
-const styles = StyleSheet.create({
-});
