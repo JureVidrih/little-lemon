@@ -13,7 +13,7 @@ type TxtProps = {
 } & TextStyle;
 
 export default function({
-    children = "Button",
+    children = "/",
     style,
     textStyle,
     ...textProps
@@ -79,7 +79,7 @@ export default function({
     }
 
     return (
-        <Animated.Text style={[textConfiguration, style]} {...textProps}>
+        <Animated.Text testID="textContainer" style={[textConfiguration, style]} {...textProps}>
             {children}
         </Animated.Text>
     );
