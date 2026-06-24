@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
+import styles from './ButtonStyles.ts';
 import { useAppTheme } from '../../../hooks/';
 import Txt from '../Txt/Txt.tsx';
 
@@ -73,17 +74,3 @@ export default function({
         </TouchableOpacity>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 19,
-        paddingVertical: 12,
-        width: 175,
-        height: 40,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderStyle: 'solid',
-        borderWidth: 1
-    }
-});
