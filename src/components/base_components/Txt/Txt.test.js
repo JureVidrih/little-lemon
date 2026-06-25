@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 import Txt from './Txt.tsx';
 
