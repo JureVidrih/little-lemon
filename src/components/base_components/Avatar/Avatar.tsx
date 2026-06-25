@@ -62,7 +62,8 @@ export default function({
     }
 
     return (
-        <Pressable 
+        <Pressable
+        testID="pressableContainer"
         style={[styles.container, {...configuration}]}
         onPress={(evt) => {
             evt.stopPropagation();
