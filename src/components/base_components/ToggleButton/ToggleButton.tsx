@@ -16,8 +16,7 @@ type ToggleButtonProps = {
     border_16?: boolean,
     fullParentWidth?: boolean,
     fullParentHeight?: boolean,
-    dynamicSize?: boolean,
-    mode?: string
+    dynamicSize?: boolean
 };
 
 export default function({
@@ -29,8 +28,7 @@ export default function({
     border_16,
     fullParentWidth,
     fullParentHeight,
-    dynamicSize = true,
-    mode = "normal" }: ToggleButtonProps) {
+    dynamicSize = true }: ToggleButtonProps) {
     const theme = useAppTheme();
 
     const animation = useSharedValue((toggled === true ? 1 : 0));
@@ -75,7 +73,8 @@ export default function({
     });
 
     return (
-        <Pressable 
+        <Pressable
+        testID="pressableContainer"
         style={styles.pressableContainer}
         onPress={(evt) => {
             evt.stopPropagation();
@@ -86,6 +85,7 @@ export default function({
         }}
         >
             <Animated.View
+            testID="animatedContainer"
             style={[
             styles.container, 
             { 
@@ -94,10 +94,11 @@ export default function({
                 borderRadius: configuration.borderRadius, 
             }, 
             animatedValues,
+            (dynamicSize === true ? { width: null, height: null} : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
-            (fullParentHeight === true ? { height: '100%' } : null),
-            (dynamicSize === true ? { width: null, height: null} : null)]}>
-                <Txt 
+            (fullParentHeight === true ? { height: '100%' } : null)]}>
+                <Txt
+                testID="buttonLabel"
                 textStyle="sectionCategories"
                 style={[animatedLabel]}
                 >{children}</Txt>
