@@ -4,13 +4,14 @@ import { Text, StyleSheet, TextStyle } from 'react-native';
 import Animated from 'react-native-reanimated';
 
 import { useAppTheme } from '../../../hooks/';
+import textStyles from './TextStyles.ts';
+import type { textStylesType } from './TextStyles.ts';
 
 type TxtProps = {
     testID?: string,
     children: React.ReactNode,
     style?: TextStyle | TextStyle[],
-    textStyle?: string
-} & TextStyle;
+} & TextStyle & textStylesType;
 
 export default function({
     children = "/",
@@ -20,62 +21,15 @@ export default function({
 }: TxtProps) {
     const theme = useAppTheme();
     
-    let textConfiguration: TextStyle = {
+    let textConfiguration: any = {
         fontSize: 16,
         fontWeight: '400',
         color: '#000000',
         fontFamily: 'Arial'
     };
 
-    switch(textStyle) {
-        case "displayTitle": textConfiguration = {
-            fontSize: 64,
-            fontWeight: '500',
-            color: '#000000',
-            fontFamily: 'MarkaziText-Regular'
-        }; break;
-        case "subTitle": textConfiguration = {
-            fontSize: 40,
-            fontWeight: '400',
-            color: '#000000',
-            fontFamily: 'MarkaziText-Regular'
-        }; break;
-        case "lead": textConfiguration = {
-            fontSize: 18,
-            fontWeight: '500',
-            color: '#000000',
-            fontFamily: 'Karla-Regular'
-        }; break;
-        case "sectionTitle": textConfiguration = {
-            fontSize: 20,
-            fontWeight: '800',
-            color: '#000000',
-            fontFamily: 'Karla-Regular'
-        }; break;
-        case "sectionCategories": textConfiguration = {
-            fontSize: 16,
-            fontWeight: '800',
-            color: '#495E57',
-            fontFamily: 'Karla-Regular'
-        }; break;
-        case "cardTitle": textConfiguration = {
-            fontSize: 18,
-            fontWeight: '700',
-            color: '#000000',
-            fontFamily: 'Karla-Regular'
-        }; break;
-        case "pregular": textConfiguration = {
-            fontSize: 16,
-            fontWeight: '400',
-            color: '#495E57',
-            fontFamily: 'Karla-Regular'
-        }; break;
-        case "phighlight": textConfiguration = {
-            fontSize: 16,
-            fontWeight: '500',
-            color: '#495E57',
-            fontFamily: 'Karla-Regular'
-        }; break;
+    if(textStyle !== undefined) {
+        textConfiguration = textStyles[textStyle];
     }
 
     return (
