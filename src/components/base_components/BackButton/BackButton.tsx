@@ -31,6 +31,7 @@ export default function({
 
     return (
         <TouchableOpacity 
+        testID="touchableContainer"
         style={[styles.container, {...configuration}, { backgroundColor: theme.primary_1, borderColor: theme.primary_1 }]}
         onPress={() => {
             onPress?.();
