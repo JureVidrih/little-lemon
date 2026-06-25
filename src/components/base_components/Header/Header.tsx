@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextStyle } from 'react-native';
 
-import { useAppTheme } from '../../../hooks/';
 import Txt from '../Txt/Txt.tsx';
+
+import { useAppTheme } from '../../../hooks/';
+import styles from './HeaderStyles.ts';
 
 type HeaderProps = {
     children: React.ReactNode,
@@ -29,21 +31,10 @@ export default function({
     }
 
     return (
-        <View style={styles.container}>
+        <View testID="viewContainer" style={styles.container}>
             <Txt 
             textStyle='subTitle'
             style={[styles.headerText, { fontSize: fontSize, textAlign: align }]}>{children}</Txt>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: null
-    },
-    headerText: {
-        marginVertical: 10,
-        fontWeight: 'bold'
-    }
-});
