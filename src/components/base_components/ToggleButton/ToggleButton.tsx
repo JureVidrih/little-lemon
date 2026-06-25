@@ -3,6 +3,7 @@ import { Pressable, View, Text, StyleSheet } from 'react-native';
 
 import Animated, { useSharedValue, withTiming, useAnimatedStyle, interpolateColor } from 'react-native-reanimated';
 
+import styles from './ToggleButtonStyles.ts';
 import { useAppTheme } from '../../../hooks/';
 import Txt from '../Txt/Txt.tsx';
 
@@ -98,28 +99,9 @@ export default function({
             (dynamicSize === true ? { width: null, height: null} : null)]}>
                 <Txt 
                 textStyle="sectionCategories"
-                style={[styles.label, animatedLabel]}
+                style={[animatedLabel]}
                 >{children}</Txt>
             </Animated.View>
         </Pressable>
     );
 }
-
-const styles = StyleSheet.create({
-    pressableContainer: {
-        width: null,
-        height: null
-    },
-    container: {
-        paddingHorizontal: 8,
-        paddingVertical: 8,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderStyle: 'solid',
-        borderWidth: 1
-    },
-    label: {
-
-    }
-});
