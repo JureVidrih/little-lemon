@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Svg, Path } from 'react-native-svg';
 
-
+import styles from './BackButtonStyles';
 import { useAppTheme } from '../../../hooks/';
 
 type BackButtonProps = {
@@ -60,11 +60,3 @@ export default function({
 
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden'
-    }
-});
