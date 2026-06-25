@@ -7,6 +7,8 @@ import BackButton from '../BackButton/BackButton.tsx';
 import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import styles from './UIHeaderStyles.ts';
+
 type UIHeaderProps = {
     showBackButton?: boolean,
     showAvatar?: boolean,
@@ -24,10 +26,6 @@ export default function({
     }: UIHeaderProps) {
     const insets = useSafeAreaInsets();
 
-    const theme = useAppTheme();
-
-    const sessionStorage = useSessionStorage();
-
     return (
         <View style={[styles.container, { marginTop: insets.top }]}>
             {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View style={{ width: 40, height: 40 }} />}
@@ -39,15 +37,3 @@ export default function({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 15,
-        width: '100%',
-        height: 100,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#ffffff'
-    }
-});
