@@ -4,7 +4,6 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import Avatar from '../Avatar/Avatar.tsx';
 import BackButton from '../BackButton/BackButton.tsx';
 
-import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import styles from './UIHeaderStyles.ts';
@@ -27,13 +26,14 @@ export default function({
     const insets = useSafeAreaInsets();
 
     return (
-        <View style={[styles.container, { marginTop: insets.top }]}>
-            {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View style={{ width: 40, height: 40 }} />}
-            <Image 
-            style={{ width: 180, height: 60 }} 
+        <View testID="viewContainer" style={[styles.container, { marginTop: insets.top }]}>
+            {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View testID="placeholderBackButton" style={{ width: 40, height: 40 }} />}
+            <Image
+            testID="logoImage"
+            style={styles.logoImage} 
             source={require("../../../../assets/Images/Logo.png")}
             resizeMode="contain" />
-            {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View style={{ width: 60, height: 60 }} />}
+            {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View testID="placeholderAvatar" style={{ width: 60, height: 60 }} />}
         </View>
     );
 }

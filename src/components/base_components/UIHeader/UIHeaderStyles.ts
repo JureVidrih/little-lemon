@@ -9,5 +9,9 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#ffffff'
+    },
+    logoImage: {
+        width: 180,
+        height: 60
     }
 });
