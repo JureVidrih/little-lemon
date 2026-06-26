@@ -6,10 +6,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAppTheme } from '../../../hooks/';
 import { useAvatarState } from '../../../hooks/';
 
-import styles from './AvatarStyles.ts';
+import styles, { configurations } from './AvatarStyles.ts';
 
 type AvatarProps = {
-    mode?: string,
+    mode?: "normal" | "header",
     source?: string | null,
     onPress?: () => void
 };
@@ -49,48 +49,28 @@ export default function({
         }
     }, []);
 
-    const configuration = {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        labelSize: 36
-    }
-
-    if(mode === "header") {
-        configuration.width = 60;
-        configuration.height = 60;
-        configuration.borderRadius = 30;
-        configuration.labelSize = 28;
-    }
+    const configuration = configurations[mode];
 
     return (
         <Pressable
         testID="pressableContainer"
-        style={[styles.container, {...configuration}]}
+        style={[styles.container, {...configuration.container}]}
         onPress={(evt) => {
             evt.stopPropagation();
             onPress?.();
         }}>
             {
                 (source !== undefined && source !== null) || (avatarUri !== undefined && avatarUri !== null) ? (
-                    <Image 
+                    <Image
+                    testID="avatarImage"
                     style={{ width: '100%', height: '100%' }}
                     source={(source !== undefined && source !== null ? { uri: source } : { uri: avatarUri })}
                     />
                 ) : (
                     <View
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: '#298dff',
-                        borderStyle: 'solid',
-                        borderWidth: 1,
-                        borderRadius: '50%',
-                        borderColor: theme.gray,
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <Text style={[styles.placeholderLabel, { fontSize: configuration.labelSize }]}>{firstInitial ?? ""}{lastInitial ?? ""}</Text>
+                    testID="placeholderView"
+                    style={[styles.placeholderView, { borderColor: theme.gray }]}>
+                        <Text testID="textContainer" style={[styles.placeholderLabel, { ...configuration.label }]}>{firstInitial ?? ""}{lastInitial ?? ""}</Text>
                     </View>
                 )
             }
