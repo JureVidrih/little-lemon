@@ -11,7 +11,7 @@ export default StyleSheet.create({
     label: {
         marginLeft: 10,
     },
-    checkBoxContainer: {
+    checkboxContainer: {
         width: 28,
         height: 28,
         borderStyle: 'solid',

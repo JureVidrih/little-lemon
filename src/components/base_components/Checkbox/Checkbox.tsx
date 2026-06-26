@@ -46,7 +46,8 @@ export default function({
     }, [checked]);
 
     return (
-        <Pressable 
+        <Pressable
+            testID="pressableContainer"
             style={styles.container}
             onPress={(evt) => {
                 evt.stopPropagation();
@@ -54,12 +55,13 @@ export default function({
                 onSelect?.(!isChecked);
                 setChecked(!isChecked);
             }}>
-            <View 
+            <View
+            testID="viewContainer"
             style={[
-                styles.checkBoxContainer,
+                styles.checkboxContainer,
                 { borderColor: theme.primary_1, backgroundColor: theme.primary_1 }
             ]}>
-                <Animated.View style={{ opacity: animatedOpacity }}>
+                <Animated.View testID="animationContainer" style={{ opacity: animatedOpacity }}>
                     <Svg
                     width={24}
                     height={24}
