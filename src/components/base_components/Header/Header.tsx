@@ -4,11 +4,12 @@ import { View, Text, StyleSheet, TextStyle } from 'react-native';
 import Txt from '../Txt/Txt.tsx';
 
 import { useAppTheme } from '../../../hooks/';
-import styles from './HeaderStyles.ts';
+import styles, { fontSizes } from './HeaderStyles.ts';
+import type { fontSizeType } from './HeaderStyles.ts';
 
 type HeaderProps = {
     children: React.ReactNode,
-    sizeType?: number,
+    sizeType?: fontSizeType,
     align?: TextStyle['textAlign']
 };
 
@@ -19,16 +20,7 @@ export default function({
     }: HeaderProps) {
     const theme = useAppTheme();
 
-    let fontSize;
-
-    switch(sizeType) {
-        case 1: fontSize = 40; break;
-        case 2: fontSize = 32; break;
-        case 3: fontSize = 28; break;
-        case 4: fontSize = 26; break;
-        case 5: fontSize = 22; break;
-        case 6: fontSize = 19; break;
-    }
+    let fontSize = fontSizes[sizeType];
 
     return (
         <View testID="viewContainer" style={styles.container}>
