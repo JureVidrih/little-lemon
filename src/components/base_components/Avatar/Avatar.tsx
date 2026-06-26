@@ -1,10 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { View, Image, StyleSheet, Pressable, Text } from 'react-native';
 
-import { useAppTheme, useSessionStorage } from '../../../hooks/';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { useAppTheme } from '../../../hooks/';
 import { useAvatarState } from '../../../hooks/';
+
+import styles from './AvatarStyles.ts';
 
 type AvatarProps = {
     mode?: string,
@@ -95,13 +97,3 @@ export default function({
         </Pressable>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'gray',
-        overflow: 'hidden'
-    },
-    placeholderLabel: {
-        color: '#ffffff'
-    }
-});
