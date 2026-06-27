@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useAppTheme, useAvatarState } from '../../../hooks/';
+import styles from './InputAvatarStyles.ts';
 
 import Avatar from '../Avatar/Avatar.tsx';
 import Button from '../Button/Button.tsx';
@@ -83,24 +84,3 @@ export default function({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: null
-    },
-    label: {
-        marginBottom: 3,
-        fontSize: 12,
-        fontWeight: 'bold'
-    },
-    inputContainer: {
-        paddingHorizontal: 19,
-        paddingVertical: 12,
-        width: '100%',
-        height: 50,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 8
-    }
-});
