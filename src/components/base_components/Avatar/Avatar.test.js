@@ -68,8 +68,7 @@ describe("Avatar component", () => {
         mockAsyncStorage.setItem("@little-lemon/profile/firstName", "First");
         mockAsyncStorage.setItem("@little-lemon/profile/lastName", "Last");
         const { getByTestId } = await render(<Avatar />);
-
-        console.log(getByTestId("textContainer").props.children);
+        
         expect(getByTestId("textContainer")).toHaveTextContent("FL");
     });
 
