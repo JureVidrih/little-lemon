@@ -5,18 +5,17 @@ export default StyleSheet.create({
         width: '100%',
         height: null
     },
+    innerContainer: {
+        width: '90%', 
+        height: null, 
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        marginBottom: 15
+    },
     label: {
         marginBottom: 3,
         fontSize: 12,
         fontWeight: 'bold'
-    },
-    inputContainer: {
-        paddingHorizontal: 19,
-        paddingVertical: 12,
-        width: '100%',
-        height: 50,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderRadius: 8
     }
 });

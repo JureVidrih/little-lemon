@@ -13,7 +13,6 @@ import Txt from '../Txt/Txt.tsx';
 
 type InputAvatarProps = {
     label?: string,
-    value?: string,
     placeholder?: string,
     required?: boolean,
     onSelect?: (arg0: string | null) => void
@@ -21,7 +20,6 @@ type InputAvatarProps = {
 
 export default function({
     label = "Avatar",
-    value,
     placeholder,
     required = false,
     onSelect
@@ -57,11 +55,11 @@ export default function({
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View testID="outerContainer" style={styles.container}>
             <Txt 
             textStyle="pregular"
             style={[styles.label, { }]}>{label}{(required === true ? " *" : null)}</Txt>
-            <View style={{ width: '90%', height: null, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 }}>
+            <View testID="innerContainer" style={styles.innerContainer}>
                 <Avatar 
                 mode="normal"
                 source={input} />
