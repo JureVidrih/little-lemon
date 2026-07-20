@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, TextStyle } from 'react-native';
+import { Text, StyleSheet, TextStyle, TextProps } from 'react-native';
 
 import Animated from 'react-native-reanimated';
 
@@ -11,7 +11,7 @@ type TxtProps = {
     testID?: string,
     children: React.ReactNode,
     style?: TextStyle | TextStyle[],
-} & TextStyle & textStylesType;
+} & TextStyle & TextProps & textStylesType;
 
 export default function({
     children = "/",
