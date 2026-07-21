@@ -20,11 +20,11 @@ export default function({
     const activeCategoriesSet = useRef(new Set()).current;
 
     useLayoutEffect(() => {
-        onItemSelect([...activeCategoriesSet]);
+        onItemSelect?.([...activeCategoriesSet]);
     }, []);
 
     return (
-        <View style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
+        <View testID="outerContainer" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
             <Txt 
             textStyle="sectionTitle"
             style={{ }}>{"Order for delivery!".toUpperCase()}</Txt>

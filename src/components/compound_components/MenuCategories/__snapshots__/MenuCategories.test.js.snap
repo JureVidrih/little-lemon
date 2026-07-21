@@ -1,0 +1,688 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuCategories component should have rendered correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "height": 135,
+        "overflow": "hidden",
+        "paddingHorizontal": 0,
+        "paddingVertical": 30,
+        "width": "100%",
+      },
+      {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "rgba(217, 217, 217, 1)",
+      },
+    ]
+  }
+  testID="outerContainer"
+>
+  <Text
+    collapsable={false}
+    jestAnimatedProps={
+      {
+        "value": {},
+      }
+    }
+    jestAnimatedStyle={
+      {
+        "value": {},
+      }
+    }
+    jestInlineStyle={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "Karla-Regular",
+          "fontSize": 20,
+          "fontWeight": "800",
+        },
+        {},
+      ]
+    }
+    nativeID="9"
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "Karla-Regular",
+          "fontSize": 20,
+          "fontWeight": "800",
+        },
+        {},
+      ]
+    }
+    testID="textContainer"
+  >
+    ORDER FOR DELIVERY!
+  </Text>
+  <View
+    style={
+      {
+        "flexDirection": "row",
+        "height": null,
+        "justifyContent": "space-between",
+        "marginTop": 12,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "height": null,
+          "width": null,
+        }
+      }
+      testID="pressableContainer"
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        nativeID="10"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        testID="animatedContainer"
+      >
+        <Text
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              [],
+            ]
+          }
+          nativeID="11"
+          style={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            ]
+          }
+          testID="buttonLabel"
+        >
+          Starters
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "height": null,
+          "width": null,
+        }
+      }
+      testID="pressableContainer"
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        nativeID="12"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        testID="animatedContainer"
+      >
+        <Text
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              [],
+            ]
+          }
+          nativeID="13"
+          style={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            ]
+          }
+          testID="buttonLabel"
+        >
+          Mains
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "height": null,
+          "width": null,
+        }
+      }
+      testID="pressableContainer"
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        nativeID="14"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        testID="animatedContainer"
+      >
+        <Text
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              [],
+            ]
+          }
+          nativeID="15"
+          style={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            ]
+          }
+          testID="buttonLabel"
+        >
+          Desserts
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "height": null,
+          "width": null,
+        }
+      }
+      testID="pressableContainer"
+    >
+      <View
+        collapsable={false}
+        jestAnimatedProps={
+          {
+            "value": {},
+          }
+        }
+        jestAnimatedStyle={
+          {
+            "value": {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+          }
+        }
+        jestInlineStyle={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        nativeID="16"
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+              "paddingVertical": 8,
+            },
+            {
+              "borderRadius": 16,
+              "height": 35,
+              "width": 80,
+            },
+            {
+              "backgroundColor": "rgba(217, 217, 217, 1)",
+              "borderColor": "rgba(217, 217, 217, 1)",
+            },
+            {
+              "height": null,
+              "width": null,
+            },
+            null,
+            null,
+          ]
+        }
+        testID="animatedContainer"
+      >
+        <Text
+          collapsable={false}
+          jestAnimatedProps={
+            {
+              "value": {},
+            }
+          }
+          jestAnimatedStyle={
+            {
+              "value": {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            }
+          }
+          jestInlineStyle={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              [],
+            ]
+          }
+          nativeID="17"
+          style={
+            [
+              {
+                "color": "#495E57",
+                "fontFamily": "Karla-Regular",
+                "fontSize": 16,
+                "fontWeight": "800",
+              },
+              {
+                "color": "rgba(73, 94, 87, 1)",
+              },
+            ]
+          }
+          testID="buttonLabel"
+        >
+          Drinks
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
