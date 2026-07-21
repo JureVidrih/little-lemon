@@ -38,8 +38,9 @@ export default function({
     }, []);
 
     return (
-        <View style={[styles.container]}>
+        <View testID="heroSearchOuterContainer" style={[styles.container]}>
             <TouchableOpacity 
+            testID="showButton"
             style={styles.iconContainer}
             onPress={() => {
                 toggleInput(!inputVisible);

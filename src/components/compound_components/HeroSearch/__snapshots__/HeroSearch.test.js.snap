@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroSearch component should have rendered correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "bottom": 14,
+        "flexDirection": "row",
+        "height": 48,
+        "justifyContent": "flex-start",
+        "paddingLeft": 28,
+        "position": "absolute",
+        "width": "100%",
+      },
+    ]
+  }
+  testID="heroSearchOuterContainer"
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderColor": "white",
+        "borderRadius": 24,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": 48,
+        "justifyContent": "center",
+        "opacity": 1,
+        "overflow": "hidden",
+        "padding": 0,
+        "width": 48,
+      }
+    }
+    testID="showButton"
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight={28}
+      bbWidth={28}
+      fill="none"
+      focusable={false}
+      height={28}
+      meetOrSlice={0}
+      minX={0}
+      minY={0}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "flex": 0,
+            "height": 28,
+            "width": 28,
+          },
+        ]
+      }
+      vbHeight={24}
+      vbWidth={24}
+      width={28}
+    >
+      <RNSVGGroup
+        fill={null}
+        propList={
+          [
+            "fill",
+          ]
+        }
+      >
+        <RNSVGCircle
+          cx="11"
+          cy="11"
+          fill={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "stroke",
+              "strokeWidth",
+            ]
+          }
+          r="7"
+          stroke={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          strokeWidth={3}
+        />
+        <RNSVGLine
+          fill={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "stroke",
+              "strokeWidth",
+              "strokeLinecap",
+            ]
+          }
+          stroke={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          strokeLinecap={1}
+          strokeWidth={3}
+          x1="16.65"
+          x2="21"
+          y1="16.65"
+          y2="21"
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+  </View>
+  <View
+    collapsable={false}
+    style={
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": "100%",
+        "marginLeft": 10,
+        "opacity": 0,
+        "transform": [
+          {
+            "scaleY": 0,
+          },
+        ],
+        "width": null,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "height": null,
+          "width": "100%",
+        }
+      }
+      testID="outerContainer"
+    >
+      <TextInput
+        editable={false}
+        onChangeText={[Function]}
+        placeholder=""
+        style={
+          [
+            {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "height": 50,
+              "paddingHorizontal": 19,
+              "paddingVertical": 12,
+              "width": "100%",
+            },
+            {
+              "borderColor": "rgba(217, 217, 217, 1)",
+              "color": "rgba(73, 94, 87, 1)",
+            },
+            {
+              "backgroundColor": "#ffffff",
+              "borderColor": "rgba(217, 217, 217, 1)",
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "height": 40,
+              "paddingVertical": 8,
+            },
+          ]
+        }
+        testID="textInput"
+        value=""
+      />
+    </View>
+  </View>
+</View>
+`;
