@@ -2,8 +2,10 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
-import { Txt } from '../../base_components/'
+import Txt from '../../base_components/Txt/Txt.tsx'
 import HeroSearch from '../HeroSearch/HeroSearch.tsx';
+
+import styles from './HeroStyles.ts';
 
 type HeroProps = {
     searchAction?: (arg0: string) => void
@@ -39,12 +41,3 @@ export default function({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        padding: 14,
-        width: '100%',
-        height: 315,
-        overflow: 'hidden'
-    }
-});
