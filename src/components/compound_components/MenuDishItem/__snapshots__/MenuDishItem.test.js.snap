@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuDishItem component should have rendered correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "flexDirection": "row",
+        "height": 100,
+        "justifyContent": "space-between",
+        "overflow": "hidden",
+        "width": "100%",
+      },
+      {
+        "borderColor": "rgba(217, 217, 217, 1)",
+      },
+    ]
+  }
+  testID="outerContainer"
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "space-evenly",
+        "width": 100,
+      }
+    }
+  >
+    <Text
+      collapsable={false}
+      jestAnimatedProps={
+        {
+          "value": {},
+        }
+      }
+      jestAnimatedStyle={
+        {
+          "value": {},
+        }
+      }
+      jestInlineStyle={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 18,
+            "fontWeight": "700",
+          },
+          undefined,
+        ]
+      }
+      nativeID="3"
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 18,
+            "fontWeight": "700",
+          },
+          undefined,
+        ]
+      }
+      testID="textContainer"
+    >
+      Dummy name
+    </Text>
+    <Text
+      collapsable={false}
+      jestAnimatedProps={
+        {
+          "value": {},
+        }
+      }
+      jestAnimatedStyle={
+        {
+          "value": {},
+        }
+      }
+      jestInlineStyle={
+        [
+          {
+            "color": "#495E57",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 16,
+            "fontWeight": "400",
+          },
+          [
+            {
+              "color": "rgba(73, 94, 87, 1)",
+            },
+          ],
+        ]
+      }
+      nativeID="4"
+      numberOfLines={2}
+      style={
+        [
+          {
+            "color": "#495E57",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 16,
+            "fontWeight": "400",
+          },
+          {
+            "color": "rgba(73, 94, 87, 1)",
+          },
+        ]
+      }
+      testID="textContainer"
+    >
+      Dummy label
+    </Text>
+    <Text
+      collapsable={false}
+      jestAnimatedProps={
+        {
+          "value": {},
+        }
+      }
+      jestAnimatedStyle={
+        {
+          "value": {},
+        }
+      }
+      jestInlineStyle={
+        [
+          {
+            "color": "#495E57",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 16,
+            "fontWeight": "500",
+          },
+          undefined,
+        ]
+      }
+      nativeID="5"
+      style={
+        [
+          {
+            "color": "#495E57",
+            "fontFamily": "Karla-Regular",
+            "fontSize": 16,
+            "fontWeight": "500",
+          },
+          undefined,
+        ]
+      }
+      testID="textContainer"
+    >
+      $
+      1.99
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "height": "100%",
+        "justifyContent": "center",
+        "paddingLeft": 14,
+        "paddingTop": 7,
+        "width": null,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../assets/Images/greekSalad.png",
+        }
+      }
+      style={
+        {
+          "height": 72,
+          "width": 72,
+        }
+      }
+    />
+  </View>
+</View>
+`;

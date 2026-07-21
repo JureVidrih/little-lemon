@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
 
-import { Txt } from '../../base_components';
+import Txt from '../../base_components/Txt/Txt.tsx';
 
 import styles from './MenuDishItemStyles.ts';
 
@@ -25,15 +25,15 @@ export default function({
     let image = null;
 
     switch(imageSource) {
-        case "greekSalad.jpg": image = require("../../../assets/Images/greekSalad.png"); break;
-        case "bruschetta.jpg": image = require("../../../assets/Images/bruschetta.png"); break;
-        case "grilledFish.jpg": image = require("../../../assets/Images/grilledFish.png"); break;
-        case "pasta.jpg": image = require("../../../assets/Images/pasta.png"); break;
-        case "lemonDessert.jpg": image = require("../../../assets/Images/lemonDessert.png"); break;
+        case "greekSalad.jpg": image = require("../../../../assets/Images/greekSalad.png"); break;
+        case "bruschetta.jpg": image = require("../../../../assets/Images/bruschetta.png"); break;
+        case "grilledFish.jpg": image = require("../../../../assets/Images/grilledFish.png"); break;
+        case "pasta.jpg": image = require("../../../../assets/Images/pasta.png"); break;
+        case "lemonDessert.jpg": image = require("../../../../assets/Images/lemonDessert.png"); break;
     }
 
     return (
-        <View style={[styles.container, { borderColor: theme.gray }]}>
+        <View testID="outerContainer" style={[styles.container, { borderColor: theme.gray }]}>
             <View style={styles.leftContainer}>
                 <Txt 
                 textStyle="cardTitle"
