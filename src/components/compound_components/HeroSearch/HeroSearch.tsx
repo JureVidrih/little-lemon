@@ -4,7 +4,9 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react
 import { Svg, Circle, Line } from 'react-native-svg';
 
 import { useAppTheme } from '../../../hooks/';
-import { Input } from '../../base_components';
+import Input from '../../base_components/Input/Input.tsx';
+
+import styles from './HeroSearchStyles.ts';
 
 type HeroSearchProps = {
     searchAction?: (arg0: string) => void
@@ -80,37 +82,3 @@ export default function({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-        bottom: 14,
-        paddingLeft: 28,
-        width: '100%',
-        height: 48,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-    },
-    iconContainer: {
-        padding: 0,
-        width: 48,
-        height: 48,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: 'white',
-        borderRadius: 24,
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden'
-    },
-    inputContainer: {
-        marginLeft: 10,
-        width: null, 
-        height: '100%', 
-        flexDirection: 'row', 
-        flex: 1, 
-        alignItems: 'center'
-    }
-});
