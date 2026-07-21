@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
+
 import Txt from '../../base_components/Txt/Txt.tsx'
 import HeroSearch from '../HeroSearch/HeroSearch.tsx';
 
@@ -17,7 +18,7 @@ export default function({
     const theme = useAppTheme();
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.primary_1 }]}>
+        <View testID="heroOuterContainer" style={[styles.container, { backgroundColor: theme.primary_1 }]}>
             <Txt 
             textStyle="displayTitle"
             style={{ color: theme.primary_2, marginTop: -15, marginBottom: -27 }}>Little Lemon</Txt>
@@ -35,7 +36,7 @@ export default function({
                 top: '50%', 
                 right: 14, 
                 transform: [{ translateY: '-30%' }] }}
-            source={require("../../../assets/Images/Hero_image.png")}
+            source={require("../../../../assets/Images/Hero_image.png")}
             resizeMode="cover" />
             {searchAction && <HeroSearch searchAction={searchAction} />}
         </View>
