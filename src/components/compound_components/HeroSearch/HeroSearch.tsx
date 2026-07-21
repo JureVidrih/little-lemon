@@ -3,8 +3,8 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react
 
 import { Svg, Circle, Line } from 'react-native-svg';
 
-import { useAppTheme } from '../../hooks/';
-import { Input } from '../base_components';
+import { useAppTheme } from '../../../hooks/';
+import { Input } from '../../base_components';
 
 type HeroSearchProps = {
     searchAction?: (arg0: string) => void

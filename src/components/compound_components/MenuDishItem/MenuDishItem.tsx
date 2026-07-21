@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import { useAppTheme } from '../../hooks/';
+import { useAppTheme } from '../../../hooks/';
 
-import { Txt } from '../base_components';
+import { Txt } from '../../base_components';
 
 type MenuDishItemProps = {
     name: string,
@@ -35,14 +35,14 @@ export default function({
             <View style={styles.leftContainer}>
                 <Txt 
                 textStyle="cardTitle"
-                style={styles.dishName}>{name}</Txt>
+                >{name}</Txt>
                 <Txt 
                 textStyle="pregular"
-                style={[styles.dishLabel, { color: theme.primary_1 }]} 
+                style={[{ color: theme.primary_1 }]} 
                 numberOfLines={2}>{label}</Txt>
                 <Txt 
                 textStyle="phighlight"
-                style={[styles.dishPrice]}>${price}</Txt>
+                >${price}</Txt>
             </View>
             <View style={styles.rightContainer}>
                 <Image style={styles.dishImage} source={image} />
@@ -53,7 +53,6 @@ export default function({
 
 const styles = StyleSheet.create({
     container: {
-        
         width: '100%',
         height: 100,
         borderStyle: 'solid',
@@ -79,14 +78,5 @@ const styles = StyleSheet.create({
     dishImage: {
         width: 72,
         height: 72
-    },
-    dishName: {
-
-    },
-    dishLabel: {
-
-    },
-    dishPrice: {
-
     }
 });

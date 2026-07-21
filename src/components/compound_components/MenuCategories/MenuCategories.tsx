@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import { useAppTheme } from '../../hooks/';
+import { useAppTheme } from '../../../hooks/';
 
-import { ToggleButton, Txt } from '../base_components';
+import { ToggleButton, Txt } from '../../base_components';
 
 type MenuCategoriesProps = {
     onItemSelect: (arg0: any) => void
