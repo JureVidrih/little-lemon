@@ -3,7 +3,10 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
 
-import { ToggleButton, Txt } from '../../base_components';
+import ToggleButton from '../../base_components/ToggleButton/ToggleButton.tsx';
+import Txt from '../../base_components/Txt/Txt.tsx';
+
+import styles from './MenuCategoriesStyles.ts';
 
 type MenuCategoriesProps = {
     onItemSelect: (arg0: any) => void
@@ -74,22 +77,3 @@ export default function({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        paddingVertical: 30,
-        paddingHorizontal: 0,
-        width: '100%',
-        height: 135,
-        borderStyle: 'solid',
-        borderBottomWidth: 1,
-        overflow: 'hidden'
-    },
-    categoriesContainer: {
-        marginTop: 12,
-        width: '100%',
-        height: null,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    }
-});
