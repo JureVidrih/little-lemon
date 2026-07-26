@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, ToastAndroid, ScrollView, KeyboardAvoidingView,
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
-import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
-import { useSessionStorage, useAvatarState } from '../hooks';
+import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../../components/base_components';
+import { useSessionStorage, useAvatarState } from '../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function () {
@@ -24,7 +24,7 @@ export default function () {
   
   return (
     <View style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]}>
-      <Image style={{ width: 240, height: 120, marginTop: 25 }} resizeMode="contain" source={require("../../assets/Images/Logo.png")} />
+      <Image style={{ width: 240, height: 120, marginTop: 25 }} resizeMode="contain" source={require("../../../assets/Images/Logo.png")} />
       <View style={styles.bodyContainer}>
         <Header sizeType={4} align="center">Let us get to know you</Header>
         <View style={styles.formContainer}>

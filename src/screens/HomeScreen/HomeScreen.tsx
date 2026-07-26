@@ -5,10 +5,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import * as SQLite from 'expo-sqlite';
 
-import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
-import { Hero, MenuCategories, MenuDishItem } from '../components/compound_components';
-import { useSessionStorage } from '../hooks';
-import * as db from '../database/database.ts';
+import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '../../components/base_components';
+import { Hero, MenuCategories, MenuDishItem } from '../../components/compound_components';
+import * as db from '../../database/database.ts';
 
 export default function () {
     const insets = useSafeAreaInsets();

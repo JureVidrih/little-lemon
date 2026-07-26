@@ -7,8 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import { mask } from 'react-native-mask-text';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { Avatar, Button, BackButton, Checkbox, Header, Input, InputAvatar, UIHeader } from '../components/base_components';
-import { useSessionStorage, useAvatarState } from '../hooks';
+import { Avatar, Button, BackButton, Checkbox, Header, Input, InputAvatar, UIHeader } from '../../components/base_components';
+import { useSessionStorage, useAvatarState } from '../../hooks';
 
 export default function () {
   const insets = useSafeAreaInsets();

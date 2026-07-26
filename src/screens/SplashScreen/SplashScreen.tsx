@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useAppTheme, useAvatarState } from '../hooks/';
+import { useAppTheme, useAvatarState } from '../../hooks/';
 
 export default function() {
     const theme = useAppTheme();
@@ -14,8 +14,8 @@ export default function() {
     const navigation = useNavigation<any>();
 
     const [loaded, error] = useFonts({
-        'Karla-Regular': require("../../assets/Fonts/Karla-Regular.ttf"),
-        'MarkaziText-Regular': require("../../assets/Fonts/MarkaziText-Regular.ttf")
+        'Karla-Regular': require("../../../assets/Fonts/Karla-Regular.ttf"),
+        'MarkaziText-Regular': require("../../../assets/Fonts/MarkaziText-Regular.ttf")
     });
 
     const { setAvatarUri, setFirstInitial, setLastInitial } = useAvatarState((state: any) => state);
@@ -54,7 +54,7 @@ export default function() {
         <View style={styles.container}>
             <Image 
             style={styles.logo} 
-            source={require("../../assets/Images/logoIcon.png")} 
+            source={require("../../../assets/Images/logoIcon.png")} 
             resizeMode="contain" />
             <ActivityIndicator 
             style={styles.indicator}
