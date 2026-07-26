@@ -8,6 +8,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useAppTheme, useAvatarState } from '../../hooks/';
 
+import styles from './SplashScreenStyles.ts';
+
 export default function() {
     const theme = useAppTheme();
 
@@ -63,27 +65,3 @@ export default function() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ffffff'
-    },
-    logo: {
-        position: 'absolute',
-        top: '45%',
-        left: '50%',
-        width: 250, 
-        height: 250,
-        transform: [{ translateX: '-50%' }, { translateY: '-50%' }]
-    },
-    indicator: {
-        position: 'absolute',
-        top: '75%',
-        left: '50%',
-        transform: [{ translateX: '-50%' }, { translateY: '-50%' }]
-    }
-});

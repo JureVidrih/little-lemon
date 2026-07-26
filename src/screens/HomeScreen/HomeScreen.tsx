@@ -9,6 +9,8 @@ import { Avatar, Button, Checkbox, Header, Input, InputAvatar, UIHeader } from '
 import { Hero, MenuCategories, MenuDishItem } from '../../components/compound_components';
 import * as db from '../../database/database.ts';
 
+import styles from './HomeScreenStyles.ts';
+
 export default function () {
     const insets = useSafeAreaInsets();
 
@@ -77,11 +79,3 @@ export default function () {
     </View>
     );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#fff'
-  },
-});

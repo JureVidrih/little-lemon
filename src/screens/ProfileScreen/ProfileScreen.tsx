@@ -10,6 +10,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Avatar, Button, BackButton, Checkbox, Header, Input, InputAvatar, UIHeader } from '../../components/base_components';
 import { useSessionStorage, useAvatarState } from '../../hooks';
 
+import styles from './ProfileScreenStyles.ts';
+
 export default function () {
   const insets = useSafeAreaInsets();
 
@@ -228,10 +230,3 @@ export default function () {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff'
-  },
-});
