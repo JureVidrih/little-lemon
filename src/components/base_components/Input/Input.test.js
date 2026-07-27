@@ -11,7 +11,7 @@ describe("Input component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Input />);
 
-        expect(getByTestId("outerContainer")).toBeOnTheScreen();
+        expect(getByTestId("inputOuterContainer")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
@@ -19,7 +19,7 @@ describe("Input component", () => {
 
         const { getByTestId } = await render(<Input />);
 
-        expect(getByTestId("outerContainer")).toHaveStyle({
+        expect(getByTestId("inputOuterContainer")).toHaveStyle({
             ...styles.container
         });
 

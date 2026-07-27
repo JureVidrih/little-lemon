@@ -179,7 +179,7 @@ exports[`HeroSearch component should have rendered correctly 1`] = `
           "width": "100%",
         }
       }
-      testID="outerContainer"
+      testID="inputOuterContainer"
     >
       <TextInput
         editable={false}

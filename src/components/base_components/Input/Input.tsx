@@ -51,7 +51,7 @@ export default function({
     }, []);
 
     return (
-        <View testID="outerContainer" style={styles.container}>
+        <View testID="inputOuterContainer" style={styles.container}>
             {label !== undefined && label !== null && <Txt textStyle="pregular" style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Txt>}
             <TextInput 
             testID="textInput"
