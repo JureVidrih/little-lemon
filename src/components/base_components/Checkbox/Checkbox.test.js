@@ -10,7 +10,7 @@ describe("Checkbox component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Checkbox label="Label" />);
 
-        expect(getByTestId("pressableContainer")).toBeOnTheScreen();
+        expect(getByTestId("checkboxOuterContainer")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
@@ -18,7 +18,7 @@ describe("Checkbox component", () => {
 
         const { getByTestId } = await render(<Checkbox label="Label" />);
 
-        expect(getByTestId("pressableContainer")).toHaveStyle({
+        expect(getByTestId("checkboxOuterContainer")).toHaveStyle({
             ...checkboxStyles.container
         });
 
@@ -67,10 +67,10 @@ describe("Checkbox component", () => {
             checkOnSelect = checked;
         }} label="Label" />);
 
-        await user.press(getByTestId("pressableContainer"));
+        await user.press(getByTestId("checkboxOuterContainer"));
         expect(checkOnSelect).toBeTruthy();
 
-        await user.press(getByTestId("pressableContainer"));
+        await user.press(getByTestId("checkboxOuterContainer"));
         expect(checkOnSelect).not.toBeTruthy();
     });
 });

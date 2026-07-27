@@ -47,7 +47,7 @@ export default function({
 
     return (
         <Pressable
-            testID="pressableContainer"
+            testID="checkboxOuterContainer"
             style={styles.container}
             onPress={(evt) => {
                 evt.stopPropagation();
