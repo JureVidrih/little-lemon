@@ -32,7 +32,7 @@ describe("UIHeader component", () => {
         var { getByTestId } = await render(<UIHeader showBackButton={true} />);
 
         expect(getByTestId("viewContainer")).toBeOnTheScreen();
-        expect(getByTestId("touchableContainer")).toBeOnTheScreen();
+        expect(getByTestId("backbuttonOuterContainer")).toBeOnTheScreen();
 
         var { getByTestId } = await render(<UIHeader showBackButton={false} />);
 

@@ -51,7 +51,7 @@ export default function({
 
     return (
         <TouchableOpacity
-        testID="touchableContainer"
+        testID="buttonOuterContainer"
         disabled={disabled}
         onPress={() => {
             if(disabled !== true) {

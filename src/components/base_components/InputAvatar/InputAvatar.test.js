@@ -69,19 +69,19 @@ describe("InputAvatar component", () => {
 
         const { getByTestId, getAllByTestId } = await render(<InputAvatar onSelect={onSelect} />);
 
-        await user.press(getAllByTestId("touchableContainer")[0]);
+        await user.press(getAllByTestId("buttonOuterContainer")[0]);
         expect(onSelect).not.toHaveBeenCalled();
 
-        await user.press(getAllByTestId("touchableContainer")[0]);
+        await user.press(getAllByTestId("buttonOuterContainer")[0]);
         expect(onSelect).not.toHaveBeenCalled();
 
-        await user.press(getAllByTestId("touchableContainer")[0]);
+        await user.press(getAllByTestId("buttonOuterContainer")[0]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual(null);
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual(null);
         expect(useAvatarState.getState().avatarUri).toEqual(null);
         
-        await user.press(getAllByTestId("touchableContainer")[0]);
+        await user.press(getAllByTestId("buttonOuterContainer")[0]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual("imageURI");
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual("imageURI");
@@ -98,14 +98,14 @@ describe("InputAvatar component", () => {
 
         var { getByTestId, getAllByTestId } = await render(<InputAvatar />);
 
-        await user.press(getAllByTestId("touchableContainer")[1]);
+        await user.press(getAllByTestId("buttonOuterContainer")[1]);
         expect(onSelect).not.toHaveBeenCalled();
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual(null);
         expect(useAvatarState.getState().avatarUri).toEqual(null);
 
         var { getByTestId, getAllByTestId } = await render(<InputAvatar onSelect={onSelect} />);
 
-        await user.press(getAllByTestId("touchableContainer")[1]);
+        await user.press(getAllByTestId("buttonOuterContainer")[1]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual(null);
     });

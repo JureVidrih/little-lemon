@@ -37,42 +37,42 @@ describe("OnboardingScreen screen component", () => {
 
         let navigation = useNavigation();
 
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
-        await user.press(getByTestId("touchableContainer"));   
+        await user.press(getByTestId("buttonOuterContainer"));   
 
         expect(navigation.reset).not.toHaveBeenCalled();
 
         await user.type(getAllByTestId("textInput")[0], "John");
         await user.type(getAllByTestId("textInput")[1], "john.doe@example.com");
 
-        await user.press(getByTestId("touchableContainer"));  
+        await user.press(getByTestId("buttonOuterContainer"));  
 
-        expect(getByTestId("touchableContainer")).toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).toBeEnabled();
         expect(navigation.reset).toHaveBeenCalled();
 
         await user.type(getAllByTestId("textInput")[0], "123");
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
         await user.clear(getAllByTestId("textInput")[0]);
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
         await user.type(getAllByTestId("textInput")[0], "John");
 
         await user.clear(getAllByTestId("textInput")[1]);
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
 
         await user.type(getAllByTestId("textInput")[1], "john.doe");
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
         await user.type(getAllByTestId("textInput")[1], "@");
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
         await user.type(getAllByTestId("textInput")[1], "example");
-        expect(getByTestId("touchableContainer")).not.toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
 
         await user.type(getAllByTestId("textInput")[1], ".com");
-        expect(getByTestId("touchableContainer")).toBeEnabled();
+        expect(getByTestId("buttonOuterContainer")).toBeEnabled();
     });
 });

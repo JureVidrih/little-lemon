@@ -9,14 +9,14 @@ describe("BackButton component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<BackButton />);
 
-        expect(getByTestId("touchableContainer")).toBeOnTheScreen();
+        expect(getByTestId("backbuttonOuterContainer")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
         const theme = useAppTheme();
         const { getByTestId } = await render(<BackButton />);
 
-        expect(getByTestId("touchableContainer")).toHaveStyle({
+        expect(getByTestId("backbuttonOuterContainer")).toHaveStyle({
             width: 32,
             height: 32,
             backgroundColor: theme.primary_1,
@@ -32,7 +32,7 @@ describe("BackButton component", () => {
         const theme = useAppTheme();
         const { getByTestId } = await render(<BackButton mode="header" />);
 
-        expect(getByTestId("touchableContainer")).toHaveStyle({
+        expect(getByTestId("backbuttonOuterContainer")).toHaveStyle({
             width: 40,
             height: 40,
             backgroundColor: theme.primary_1,
@@ -50,7 +50,7 @@ describe("BackButton component", () => {
         let checkOnPress = null;
         const { getByTestId } = await render(<BackButton onPress={() => { checkOnPress = true; }} />);
 
-        await user.press(getByTestId("touchableContainer"));
+        await user.press(getByTestId("backbuttonOuterContainer"));
 
         expect(checkOnPress).toBeTruthy();
     });
