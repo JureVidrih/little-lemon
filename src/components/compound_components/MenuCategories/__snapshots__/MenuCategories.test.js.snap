@@ -107,7 +107,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="pressableContainer"
+      testID="toggleButtonOuterContainer"
     >
       <View
         collapsable={false}
@@ -260,7 +260,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="pressableContainer"
+      testID="toggleButtonOuterContainer"
     >
       <View
         collapsable={false}
@@ -413,7 +413,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="pressableContainer"
+      testID="toggleButtonOuterContainer"
     >
       <View
         collapsable={false}
@@ -566,7 +566,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="pressableContainer"
+      testID="toggleButtonOuterContainer"
     >
       <View
         collapsable={false}

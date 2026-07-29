@@ -74,7 +74,7 @@ export default function({
 
     return (
         <Pressable
-        testID="pressableContainer"
+        testID="toggleButtonOuterContainer"
         style={styles.pressableContainer}
         onPress={(evt) => {
             evt.stopPropagation();

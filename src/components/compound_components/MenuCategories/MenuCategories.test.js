@@ -21,10 +21,10 @@ describe("MenuCategories component", () => {
 
         const { getAllByTestId } = await render(<MenuCategories onItemSelect={(selectedItems) => { checkSelectedItems = selectedItems; }} />);
 
-        await user.press(getAllByTestId("pressableContainer")[0]);
-        await user.press(getAllByTestId("pressableContainer")[1]);
-        await user.press(getAllByTestId("pressableContainer")[2]);
-        await user.press(getAllByTestId("pressableContainer")[3]);
+        await user.press(getAllByTestId("toggleButtonOuterContainer")[0]);
+        await user.press(getAllByTestId("toggleButtonOuterContainer")[1]);
+        await user.press(getAllByTestId("toggleButtonOuterContainer")[2]);
+        await user.press(getAllByTestId("toggleButtonOuterContainer")[3]);
 
         expect(checkSelectedItems).toEqual(["starters", "mains", "desserts", "drinks"])
     });

@@ -9,7 +9,7 @@ describe("ToggleButton component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<ToggleButton />);
 
-        expect(getByTestId("pressableContainer")).toBeOnTheScreen();
+        expect(getByTestId("toggleButtonOuterContainer")).toBeOnTheScreen();
         expect(getByTestId("animatedContainer")).toBeOnTheScreen();
         expect(getByTestId("buttonLabel")).toBeOnTheScreen();
     });
@@ -19,7 +19,7 @@ describe("ToggleButton component", () => {
 
         const theme = useAppTheme();
 
-        expect(getByTestId("pressableContainer")).toHaveStyle({
+        expect(getByTestId("toggleButtonOuterContainer")).toHaveStyle({
             ...styles.pressableContainer
         });
 
@@ -127,10 +127,10 @@ describe("ToggleButton component", () => {
         let onPressCheck = null;
 
         var { getByTestId } = await render(<ToggleButton toggled={false} onPress={(isToggled) => { onPressCheck = isToggled; }} />);
-        await user.press(getByTestId("pressableContainer"));
+        await user.press(getByTestId("toggleButtonOuterContainer"));
         expect(onPressCheck).toBe(true);
 
-        await user.press(getByTestId("pressableContainer"));
+        await user.press(getByTestId("toggleButtonOuterContainer"));
         expect(onPressCheck).toBe(false);
     });
 });
