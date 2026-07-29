@@ -54,7 +54,7 @@ export default function () {
     }, [searchedValue, activeMenuCategories]);
 
     return (
-    <View style={[styles.container, { marginBottom: insets.bottom }]}>
+    <View testID="homeScreenOuterContainer" style={[styles.container, { marginBottom: insets.bottom }]}>
         <Hero
         searchAction={(newValue) => {
             setSearchedValue(newValue);
