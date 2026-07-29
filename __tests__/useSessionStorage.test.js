@@ -1,4 +1,4 @@
-import { useSessionStorage } from "../hooks/";
+import { useSessionStorage } from "../src/hooks/";
 
 describe("useSessionStorage hook", () => {
     it("It should start of empty", () => {
