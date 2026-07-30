@@ -58,5 +58,5 @@ Inside the Expo Go app, select the "Scan QR code" option and scan the QR code th
 [issues-url]: https://github.com/JureVidrih/little-lemon/issues
 [license-shield]: https://img.shields.io/github/license/JureVidrih/little-lemon.svg?style=for-the-badge
 [license-url]: https://github.com/JureVidrih/little-lemon/blob/master/LICENSE.txt
-[blog-shield]: https://img.shields.io/badge/blog-f44d14
+[blog-shield]: https://img.shields.io/badge/blog-f44d14?style=for-the-badge
 [blog-url]: https://jurevidrih.blogspot.com/
