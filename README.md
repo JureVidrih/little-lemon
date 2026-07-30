@@ -33,6 +33,12 @@ This is a mobile app created as my final submission for the capstone project in 
 - Data persistence with SQLite and AsyncStorage
 - Wireframes for the UI created with Figma
 
+<div style="margin: 0 auto;">
+	<video controls width="640" height="360">
+		<source src="https://github.com/JureVidrih/little-lemon/blob/feature/jurev/update-readme/assets/videos/littleLemonAppFootage.mp4" type="video/mp4" />
+	</video>
+</div>
+
 <br />
 <div id="getting-started"></div>
 
