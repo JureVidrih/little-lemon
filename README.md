@@ -3,7 +3,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![Unlicense License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
 <div align="center">
@@ -49,14 +48,12 @@ Once you're done with the previous step, type the following command into the com
 Inside the Expo Go app, select the "Scan QR code" option and scan the QR code that was displayed in the command line / terminal. Keep in mind, that you will need to be connected to your home Wi-Fi network in order for this to work. Then, after some time, the app will start.
 
 [contributors-shield]: https://img.shields.io/github/contributors/JureVidrih/little-lemon.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/JureVidrih/little-lemon/graphs/contributors
+[contributors-url]: https://github.com/JureVidrih/little-lemon/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/JureVidrih/little-lemon.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/JureVidrih/little-lemon/network/members
+[forks-url]: https://github.com/JureVidrih/little-lemon/network/members
 [stars-shield]: https://img.shields.io/github/stars/JureVidrih/little-lemon?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/JureVidrih/little-lemon/stargazers
+[stars-url]: https://github.com/JureVidrih/little-lemon/stargazers
 [issues-shield]: https://img.shields.io/github/issues/JureVidrih/little-lemon.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/JureVidrih/little-lemon/issues
+[issues-url]: https://github.com/JureVidrih/little-lemon/issues
 [license-shield]: https://img.shields.io/github/license/JureVidrih/little-lemon.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/JureVidrih/little-lemon/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[license-url]: https://github.com/JureVidrih/little-lemon/blob/master/LICENSE.txt
