@@ -55,11 +55,11 @@ export default function({
     }, []);
 
     return (
-        <View testID="outerContainer" style={styles.container}>
+        <View testID="inputavatar-outer-container" style={styles.container}>
             <Txt 
             textStyle="pregular"
             style={[styles.label, { }]}>{label}{(required === true ? " *" : null)}</Txt>
-            <View testID="innerContainer" style={styles.innerContainer}>
+            <View testID="inputavatar-inner-container" style={styles.innerContainer}>
                 <Avatar 
                 mode="normal"
                 source={input} />

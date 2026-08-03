@@ -21,22 +21,22 @@ describe("InputAvatar component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<InputAvatar />);
 
-        expect(getByTestId("outerContainer")).toBeOnTheScreen();
+        expect(getByTestId("inputavatar-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
         const { getByTestId, getAllByTestId, getByText } = await render(<InputAvatar />);
 
-        expect(getByTestId("outerContainer")).toHaveStyle({
+        expect(getByTestId("inputavatar-outer-container")).toHaveStyle({
             ...styles.container
         });
 
-        expect(getByTestId("innerContainer")).toHaveStyle({
+        expect(getByTestId("inputavatar-inner-container")).toHaveStyle({
             ...styles.innerContainer
         });
 
-        expect(getByTestId("placeholderView")).toBeOnTheScreen();
-        expect(getAllByTestId("buttonLabel").length).toEqual(2);
+        expect(getByTestId("avatar-placeholder-view")).toBeOnTheScreen();
+        expect(getAllByTestId("button-label").length).toEqual(2);
 
         expect(getByText("Avatar")).toBeOnTheScreen();
     });
@@ -50,7 +50,7 @@ describe("InputAvatar component", () => {
     it("should respect the placeholder prop", async () => {
         const { getByTestId, getAllByTestId, getByText } = await render(<InputAvatar placeholder="testSource" />);
 
-        expect(getByTestId("avatarImage")).toBeOnTheScreen();
+        expect(getByTestId("avatar-image")).toBeOnTheScreen();
     });
 
     it("should respect the required prop", async () => {
@@ -69,19 +69,19 @@ describe("InputAvatar component", () => {
 
         const { getByTestId, getAllByTestId } = await render(<InputAvatar onSelect={onSelect} />);
 
-        await user.press(getAllByTestId("buttonOuterContainer")[0]);
+        await user.press(getAllByTestId("button-outer-container")[0]);
         expect(onSelect).not.toHaveBeenCalled();
 
-        await user.press(getAllByTestId("buttonOuterContainer")[0]);
+        await user.press(getAllByTestId("button-outer-container")[0]);
         expect(onSelect).not.toHaveBeenCalled();
 
-        await user.press(getAllByTestId("buttonOuterContainer")[0]);
+        await user.press(getAllByTestId("button-outer-container")[0]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual(null);
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual(null);
         expect(useAvatarState.getState().avatarUri).toEqual(null);
         
-        await user.press(getAllByTestId("buttonOuterContainer")[0]);
+        await user.press(getAllByTestId("button-outer-container")[0]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual("imageURI");
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual("imageURI");
@@ -98,14 +98,14 @@ describe("InputAvatar component", () => {
 
         var { getByTestId, getAllByTestId } = await render(<InputAvatar />);
 
-        await user.press(getAllByTestId("buttonOuterContainer")[1]);
+        await user.press(getAllByTestId("button-outer-container")[1]);
         expect(onSelect).not.toHaveBeenCalled();
         expect(await mockAsyncStorage.getItem("@little-lemon/profile/avatarUri")).toEqual(null);
         expect(useAvatarState.getState().avatarUri).toEqual(null);
 
         var { getByTestId, getAllByTestId } = await render(<InputAvatar onSelect={onSelect} />);
 
-        await user.press(getAllByTestId("buttonOuterContainer")[1]);
+        await user.press(getAllByTestId("button-outer-container")[1]);
         expect(onSelect).toHaveBeenCalled();
         expect(checkOnSelect).toEqual(null);
     });
