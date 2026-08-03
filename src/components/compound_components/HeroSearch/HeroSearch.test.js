@@ -6,7 +6,7 @@ describe("HeroSearch component", () => {
     it("should render on the screen", async () => {
         const { getByTestId } = await render(<HeroSearch />);
 
-        expect(getByTestId("heroSearchOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("herosearch-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly", async () => {
@@ -23,13 +23,13 @@ describe("HeroSearch component", () => {
             checkOnSearch = newValue;
         }} />);
 
-        await user.press(getByTestId("showButton"));
-        await user.type(getByTestId("textInput"), "abc");
+        await user.press(getByTestId("herosearch-show-button"));
+        await user.type(getByTestId("input-text-input"), "abc");
 
         expect(checkOnSearch).toBe("abc");
 
-        await user.press(getByTestId("showButton"));
-        await user.type(getByTestId("textInput"), "123");
+        await user.press(getByTestId("herosearch-show-button"));
+        await user.type(getByTestId("input-text-input"), "123");
 
         expect(checkOnSearch).toBe("abc");
     });
