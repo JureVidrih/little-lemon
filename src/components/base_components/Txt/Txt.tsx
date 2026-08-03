@@ -33,7 +33,7 @@ export default function({
     }
 
     return (
-        <Animated.Text testID="textContainer" style={[textConfiguration, style]} {...textProps}>
+        <Animated.Text testID="text-container" style={[textConfiguration, style]} {...textProps}>
             {children}
         </Animated.Text>
     );

@@ -8,8 +8,8 @@ describe("Txt component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Txt />);
 
-        expect(getByTestId("textContainer")).toBeOnTheScreen();
-        expect(getByTestId("textContainer")).toHaveTextContent("/");
+        expect(getByTestId("text-container")).toBeOnTheScreen();
+        expect(getByTestId("text-container")).toHaveTextContent("/");
     });
 
     it("should respect style prop", async () => {
@@ -20,7 +20,7 @@ describe("Txt component", () => {
             fontFamily: 'Arial'
         }} />);
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             fontSize: 40,
             fontWeight: '800',
             color: '#3700ff',
@@ -35,6 +35,6 @@ describe("Txt component", () => {
     it("should respect textStyle prop", async () => {
         const { getByTestId } = await render(<Txt textStyle={Object.keys(textStyles)[0]} />);
 
-        expect(getByTestId("textContainer")).toHaveStyle(textStyles[Object.keys(textStyles)[0]]);
+        expect(getByTestId("text-container")).toHaveStyle(textStyles[Object.keys(textStyles)[0]]);
     });
 });
