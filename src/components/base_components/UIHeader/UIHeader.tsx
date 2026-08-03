@@ -26,14 +26,14 @@ export default function({
     const insets = useSafeAreaInsets();
 
     return (
-        <View testID="viewContainer" style={[styles.container, { marginTop: insets.top }]}>
-            {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View testID="placeholderBackButton" style={{ width: 40, height: 40 }} />}
+        <View testID="uiheader-outer-container" style={[styles.container, { marginTop: insets.top }]}>
+            {showBackButton === true ? <BackButton mode="header" onPress={backButtonOnPress} /> : <View testID="uiheader-placeholder-backbutton" style={{ width: 40, height: 40 }} />}
             <Image
-            testID="logoImage"
+            testID="uiheader-logo-image"
             style={styles.logoImage} 
             source={require("../../../../assets/Images/Logo.png")}
             resizeMode="contain" />
-            {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View testID="placeholderAvatar" style={{ width: 60, height: 60 }} />}
+            {showAvatar === true ? <Avatar mode="header" onPress={avatarOnPress} source={avatarSource} /> : <View testID="uiheader-placeholder-avatar" style={{ width: 60, height: 60 }} />}
         </View>
     );
 }
