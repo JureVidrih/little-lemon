@@ -28,7 +28,7 @@ describe("OnboardingScreen screen component", () => {
     it("should render on the screen", async () => {
         let { getByTestId } = await render(<OnboardingScreen />);
 
-        expect(getByTestId("onboardingScreenOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("onboardingscreen-outer-container")).toBeOnTheScreen();
     });
 
     it("should handle navigation and form action correctly", async () => {
@@ -37,42 +37,42 @@ describe("OnboardingScreen screen component", () => {
 
         let navigation = useNavigation();
 
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.press(getByTestId("buttonOuterContainer"));   
+        await user.press(getByTestId("button-outer-container"));   
 
         expect(navigation.reset).not.toHaveBeenCalled();
 
-        await user.type(getAllByTestId("textInput")[0], "John");
-        await user.type(getAllByTestId("textInput")[1], "john.doe@example.com");
+        await user.type(getAllByTestId("input-text-input")[0], "John");
+        await user.type(getAllByTestId("input-text-input")[1], "john.doe@example.com");
 
-        await user.press(getByTestId("buttonOuterContainer"));  
+        await user.press(getByTestId("button-outer-container"));  
 
-        expect(getByTestId("buttonOuterContainer")).toBeEnabled();
+        expect(getByTestId("button-outer-container")).toBeEnabled();
         expect(navigation.reset).toHaveBeenCalled();
 
-        await user.type(getAllByTestId("textInput")[0], "123");
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.type(getAllByTestId("input-text-input")[0], "123");
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.clear(getAllByTestId("textInput")[0]);
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.clear(getAllByTestId("input-text-input")[0]);
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.type(getAllByTestId("textInput")[0], "John");
+        await user.type(getAllByTestId("input-text-input")[0], "John");
 
-        await user.clear(getAllByTestId("textInput")[1]);
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.clear(getAllByTestId("input-text-input")[1]);
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
 
-        await user.type(getAllByTestId("textInput")[1], "john.doe");
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.type(getAllByTestId("input-text-input")[1], "john.doe");
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.type(getAllByTestId("textInput")[1], "@");
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.type(getAllByTestId("input-text-input")[1], "@");
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.type(getAllByTestId("textInput")[1], "example");
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        await user.type(getAllByTestId("input-text-input")[1], "example");
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        await user.type(getAllByTestId("textInput")[1], ".com");
-        expect(getByTestId("buttonOuterContainer")).toBeEnabled();
+        await user.type(getAllByTestId("input-text-input")[1], ".com");
+        expect(getByTestId("button-outer-container")).toBeEnabled();
     });
 });
