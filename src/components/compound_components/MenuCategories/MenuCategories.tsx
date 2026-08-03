@@ -24,10 +24,9 @@ export default function({
     }, []);
 
     return (
-        <View testID="outerContainer" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
+        <View testID="menucategories-outer-container" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
             <Txt 
-            textStyle="sectionTitle"
-            style={{ }}>{"Order for delivery!".toUpperCase()}</Txt>
+            textStyle="sectionTitle">{"Order for delivery!".toUpperCase()}</Txt>
             <View style={styles.categoriesContainer}>
                 <ToggleButton 
                 border_16 
