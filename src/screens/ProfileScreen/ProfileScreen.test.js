@@ -36,7 +36,7 @@ describe("ProfileScreen screen component", () => {
 
         let { getByTestId } = await render(<ProfileScreen />);
 
-        expect(getByTestId("profileScreenOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("profilescreen-outer-container")).toBeOnTheScreen();
     });
 
     it("should handle user discarding changes correctly", async () => {
@@ -44,12 +44,12 @@ describe("ProfileScreen screen component", () => {
 
         let { queryByDisplayValue, getByDisplayValue, getAllByTestId } = await render(<ProfileScreen />);
 
-        await user.type(getAllByTestId("textInput")[0], "123");
-        await user.type(getAllByTestId("textInput")[1], "Doe");
-        await user.type(getAllByTestId("textInput")[2], "abc");
-        await user.type(getAllByTestId("textInput")[3], "1234567890");
+        await user.type(getAllByTestId("input-text-input")[0], "123");
+        await user.type(getAllByTestId("input-text-input")[1], "Doe");
+        await user.type(getAllByTestId("input-text-input")[2], "abc");
+        await user.type(getAllByTestId("input-text-input")[3], "1234567890");
 
-        await user.press(getAllByTestId("buttonOuterContainer")[3]);
+        await user.press(getAllByTestId("button-outer-container")[3]);
 
         expect(getByDisplayValue("John")).toBeOnTheScreen();
         expect(queryByDisplayValue("Doe")).not.toBeOnTheScreen();
@@ -62,17 +62,17 @@ describe("ProfileScreen screen component", () => {
 
         let { queryByDisplayValue, getByDisplayValue, getAllByTestId } = await render(<ProfileScreen />);
 
-        await user.type(getAllByTestId("textInput")[0], "ny");
-        await user.type(getAllByTestId("textInput")[1], "Doe1234");
-        await user.type(getAllByTestId("textInput")[2], "p");
-        await user.type(getAllByTestId("textInput")[3], "1234567890");
+        await user.type(getAllByTestId("input-text-input")[0], "ny");
+        await user.type(getAllByTestId("input-text-input")[1], "Doe1234");
+        await user.type(getAllByTestId("input-text-input")[2], "p");
+        await user.type(getAllByTestId("input-text-input")[3], "1234567890");
 
-        await user.press(getAllByTestId("checkboxOuterContainer")[0]);
-        await user.press(getAllByTestId("checkboxOuterContainer")[1]);
-        await user.press(getAllByTestId("checkboxOuterContainer")[2]);
-        await user.press(getAllByTestId("checkboxOuterContainer")[3]);
+        await user.press(getAllByTestId("checkbox-outer-container")[0]);
+        await user.press(getAllByTestId("checkbox-outer-container")[1]);
+        await user.press(getAllByTestId("checkbox-outer-container")[2]);
+        await user.press(getAllByTestId("checkbox-outer-container")[3]);
 
-        await user.press(getAllByTestId("buttonOuterContainer")[4]);
+        await user.press(getAllByTestId("button-outer-container")[4]);
 
         expect(await AsyncStorage.getItem("@little-lemon/profile/firstName")).toBe("Johnny");
         expect(await AsyncStorage.getItem("@little-lemon/profile/lastName")).toBe("Doe1234");
@@ -95,7 +95,7 @@ describe("ProfileScreen screen component", () => {
 
         let { getByTestId, getAllByTestId } = await render(<ProfileScreen />);
 
-        await user.press(getAllByTestId("buttonOuterContainer")[2]);
+        await user.press(getAllByTestId("button-outer-container")[2]);
 
         let allKeys = await AsyncStorage.getAllKeys();
         allKeys = allKeys.filter((elem) => { return elem.startsWith("@little-lemon/")});
