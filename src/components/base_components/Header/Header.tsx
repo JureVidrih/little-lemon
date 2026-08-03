@@ -23,7 +23,7 @@ export default function({
     let fontSize = fontSizes[sizeType];
 
     return (
-        <View testID="viewContainer" style={styles.container}>
+        <View testID="header-view-container" style={styles.container}>
             <Txt 
             textStyle='subTitle'
             style={[styles.headerText, { fontSize: fontSize, textAlign: align }]}>{children}</Txt>
