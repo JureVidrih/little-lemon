@@ -74,7 +74,7 @@ export default function({
 
     return (
         <Pressable
-        testID="toggleButtonOuterContainer"
+        testID="togglebutton-outer-container"
         style={styles.pressableContainer}
         onPress={(evt) => {
             evt.stopPropagation();
@@ -85,7 +85,7 @@ export default function({
         }}
         >
             <Animated.View
-            testID="animatedContainer"
+            testID="togglebutton-animated-container"
             style={[
             styles.container, 
             { 
@@ -98,7 +98,7 @@ export default function({
             (fullParentWidth === true ? { width: '100%' } : null), 
             (fullParentHeight === true ? { height: '100%' } : null)]}>
                 <Txt
-                testID="buttonLabel"
+                testID="togglebutton-button-label"
                 textStyle="sectionCategories"
                 style={[animatedLabel]}
                 >{children}</Txt>
