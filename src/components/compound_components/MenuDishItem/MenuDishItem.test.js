@@ -6,7 +6,7 @@ describe("MenuDishItem component", () => {
     it("should have rendered on the screen", async () => {
         const { getByTestId } = await render(<MenuDishItem />);
 
-        expect(getByTestId("outerContainer")).toBeOnTheScreen();
+        expect(getByTestId("menudishitem-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly", async () => {

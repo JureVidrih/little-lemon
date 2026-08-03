@@ -18,7 +18,7 @@ exports[`MenuDishItem component should have rendered correctly 1`] = `
       },
     ]
   }
-  testID="outerContainer"
+  testID="menudishitem-outer-container"
 >
   <View
     style={
@@ -65,7 +65,7 @@ exports[`MenuDishItem component should have rendered correctly 1`] = `
           undefined,
         ]
       }
-      testID="textContainer"
+      testID="text-container"
     >
       Dummy name
     </Text>
@@ -111,7 +111,7 @@ exports[`MenuDishItem component should have rendered correctly 1`] = `
           },
         ]
       }
-      testID="textContainer"
+      testID="text-container"
     >
       Dummy label
     </Text>
@@ -150,7 +150,7 @@ exports[`MenuDishItem component should have rendered correctly 1`] = `
           undefined,
         ]
       }
-      testID="textContainer"
+      testID="text-container"
     >
       $
       1.99

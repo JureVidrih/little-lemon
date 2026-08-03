@@ -19,7 +19,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
       },
     ]
   }
-  testID="outerContainer"
+  testID="menucategories-outer-container"
 >
   <Text
     collapsable={false}
@@ -41,7 +41,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "fontSize": 20,
           "fontWeight": "800",
         },
-        {},
+        undefined,
       ]
     }
     nativeID="9"
@@ -53,10 +53,10 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "fontSize": 20,
           "fontWeight": "800",
         },
-        {},
+        undefined,
       ]
     }
-    testID="textContainer"
+    testID="text-container"
   >
     ORDER FOR DELIVERY!
   </Text>
@@ -107,7 +107,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="toggleButtonOuterContainer"
+      testID="togglebutton-outer-container"
     >
       <View
         collapsable={false}
@@ -177,7 +177,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
             null,
           ]
         }
-        testID="animatedContainer"
+        testID="togglebutton-animated-container"
       >
         <Text
           collapsable={false}
@@ -218,7 +218,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
               },
             ]
           }
-          testID="buttonLabel"
+          testID="togglebutton-button-label"
         >
           Starters
         </Text>
@@ -260,7 +260,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="toggleButtonOuterContainer"
+      testID="togglebutton-outer-container"
     >
       <View
         collapsable={false}
@@ -330,7 +330,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
             null,
           ]
         }
-        testID="animatedContainer"
+        testID="togglebutton-animated-container"
       >
         <Text
           collapsable={false}
@@ -371,7 +371,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
               },
             ]
           }
-          testID="buttonLabel"
+          testID="togglebutton-button-label"
         >
           Mains
         </Text>
@@ -413,7 +413,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="toggleButtonOuterContainer"
+      testID="togglebutton-outer-container"
     >
       <View
         collapsable={false}
@@ -483,7 +483,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
             null,
           ]
         }
-        testID="animatedContainer"
+        testID="togglebutton-animated-container"
       >
         <Text
           collapsable={false}
@@ -524,7 +524,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
               },
             ]
           }
-          testID="buttonLabel"
+          testID="togglebutton-button-label"
         >
           Desserts
         </Text>
@@ -566,7 +566,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
           "width": null,
         }
       }
-      testID="toggleButtonOuterContainer"
+      testID="togglebutton-outer-container"
     >
       <View
         collapsable={false}
@@ -636,7 +636,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
             null,
           ]
         }
-        testID="animatedContainer"
+        testID="togglebutton-animated-container"
       >
         <Text
           collapsable={false}
@@ -677,7 +677,7 @@ exports[`MenuCategories component should have rendered correctly 1`] = `
               },
             ]
           }
-          testID="buttonLabel"
+          testID="togglebutton-button-label"
         >
           Drinks
         </Text>

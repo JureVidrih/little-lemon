@@ -25,7 +25,7 @@ export default function () {
   });
   
   return (
-    <View testID="onboardingScreenOuterContainer" style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]}>
+    <View testID="onboardingscreen-outer-container" style={[styles.container, { marginTop: insets.top, marginBottom: insets.bottom }]}>
       <Image style={{ width: 240, height: 120, marginTop: 25 }} resizeMode="contain" source={require("../../../assets/Images/Logo.png")} />
       <View style={styles.bodyContainer}>
         <Header sizeType={4} align="center">Let us get to know you</Header>

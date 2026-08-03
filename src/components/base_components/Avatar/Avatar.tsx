@@ -53,7 +53,7 @@ export default function({
 
     return (
         <Pressable
-        testID="pressableContainer"
+        testID="avatar-pressable-container"
         style={[styles.container, {...configuration.container}]}
         onPress={(evt) => {
             evt.stopPropagation();
@@ -62,15 +62,15 @@ export default function({
             {
                 (source !== undefined && source !== null) || (avatarUri !== undefined && avatarUri !== null) ? (
                     <Image
-                    testID="avatarImage"
+                    testID="avatar-image"
                     style={{ width: '100%', height: '100%' }}
                     source={(source !== undefined && source !== null ? { uri: source } : { uri: avatarUri })}
                     />
                 ) : (
                     <View
-                    testID="placeholderView"
+                    testID="avatar-placeholder-view"
                     style={[styles.placeholderView, { borderColor: theme.gray }]}>
-                        <Text testID="textContainer" style={[styles.placeholderLabel, { ...configuration.label }]}>{firstInitial ?? ""}{lastInitial ?? ""}</Text>
+                        <Text testID="avatar-text-container" style={[styles.placeholderLabel, { ...configuration.label }]}>{firstInitial ?? ""}{lastInitial ?? ""}</Text>
                     </View>
                 )
             }

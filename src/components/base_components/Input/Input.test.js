@@ -11,7 +11,7 @@ describe("Input component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Input />);
 
-        expect(getByTestId("inputOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("input-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
@@ -19,16 +19,16 @@ describe("Input component", () => {
 
         const { getByTestId } = await render(<Input />);
 
-        expect(getByTestId("inputOuterContainer")).toHaveStyle({
+        expect(getByTestId("input-outer-container")).toHaveStyle({
             ...styles.container
         });
 
-        expect(getByTestId("textInput")).toHaveStyle({
+        expect(getByTestId("input-text-input")).toHaveStyle({
             ...styles.inputContainer,
             ...{ borderColor: theme.gray, color: theme.primary_1 }
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             ...txtStyles.pregular,
             ...styles.invalidValueLabel
         });
@@ -43,7 +43,7 @@ describe("Input component", () => {
 
         const { getByTestId } = await render(<Input inputContainerStyle={testedStyle} />);
 
-        expect(getByTestId("textInput")).toHaveStyle({
+        expect(getByTestId("input-text-input")).toHaveStyle({
             ...styles.inputContainer,
             ...{ borderColor: theme.gray, color: theme.primary_1 },
             ...testedStyle
@@ -57,20 +57,20 @@ describe("Input component", () => {
         label="Test label"
         hideInvalidLabel={true} />);
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             ...txtStyles.pregular,
             ...styles.label,
             ...{ color: theme.primary_1 }
         });
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Test label");
+        expect(getByTestId("text-container")).toHaveTextContent("Test label");
 
         var { getByTestId } = await render(<Input 
         label="Test label"
         required={true}
         hideInvalidLabel={true} />);
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Test label *");
+        expect(getByTestId("text-container")).toHaveTextContent("Test label *");
     });
 
     it("should respect value prop", async () => {
@@ -104,7 +104,7 @@ describe("Input component", () => {
         value="New value"
         />);
 
-        expect(getByTestId("textContainer")).not.toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).not.toHaveTextContent("Specified value is invalid.");
 
         await rerender(<Input 
         required={true} 
@@ -113,11 +113,11 @@ describe("Input component", () => {
         invalidValueLabel="Test invalid value label"
         />);
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Test invalid value label");
+        expect(getByTestId("text-container")).toHaveTextContent("Test invalid value label");
 
-        await user.type(getByTestId("textInput"), "Some value");
+        await user.type(getByTestId("input-text-input"), "Some value");
 
-        expect(getByTestId("textContainer")).not.toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).not.toHaveTextContent("Specified value is invalid.");
 
         await rerender(<Input 
         required={true} 
@@ -126,9 +126,9 @@ describe("Input component", () => {
         invalidValueLabel="Invalid label"
         hideInvalidLabel={true} />);
 
-        await user.clear(getByTestId("textInput"));
+        await user.clear(getByTestId("input-text-input"));
 
-        expect(queryAllByTestId("textContainer").length).toEqual(0);
+        expect(queryAllByTestId("text-container").length).toEqual(0);
     });
 
     it("should respect validateInitially prop", async () => {
@@ -141,7 +141,7 @@ describe("Input component", () => {
         validateInitially={true}
         />);
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).toHaveTextContent("Specified value is invalid.");
 
         var { getByTestId } = await render(<Input 
         required={true} 
@@ -150,7 +150,7 @@ describe("Input component", () => {
         validateInitially={false}
         />);
 
-        expect(getByTestId("textContainer")).not.toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).not.toHaveTextContent("Specified value is invalid.");
 
         var { getByTestId } = await render(<Input 
         required={false} 
@@ -159,7 +159,7 @@ describe("Input component", () => {
         validateInitially={false}
         />);
 
-        expect(getByTestId("textContainer")).not.toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).not.toHaveTextContent("Specified value is invalid.");
     });
 
 
@@ -170,7 +170,7 @@ describe("Input component", () => {
 
         const { getByTestId } = await render(<Input onChangeText={(newText) => { checkOnChangeText = newText; }} />);
 
-        await user.type(getByTestId("textInput"), "Test text.");
+        await user.type(getByTestId("input-text-input"), "Test text.");
 
         expect(checkOnChangeText).toEqual("Test text.");
     });
@@ -180,13 +180,13 @@ describe("Input component", () => {
 
         const { getByTestId } = await render(<Input required={true} validate={(valueToValidate) => { return valueToValidate.startsWith("Test "); }} />);
 
-        await user.type(getByTestId("textInput"), "A test text.");
+        await user.type(getByTestId("input-text-input"), "A test text.");
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).toHaveTextContent("Specified value is invalid.");
 
-        await user.clear(getByTestId("textInput"));
-        await user.type(getByTestId("textInput"), "Test text.");
+        await user.clear(getByTestId("input-text-input"));
+        await user.type(getByTestId("input-text-input"), "Test text.");
 
-        expect(getByTestId("textContainer")).not.toHaveTextContent("Specified value is invalid.");
+        expect(getByTestId("text-container")).not.toHaveTextContent("Specified value is invalid.");
     });
 });

@@ -8,17 +8,17 @@ describe("Header component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Header />);
 
-        expect(getByTestId("viewContainer")).toBeOnTheScreen();
+        expect(getByTestId("header-view-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
         const { getByTestId } = await render(<Header />);
 
-        expect(getByTestId("viewContainer")).toHaveStyle({
+        expect(getByTestId("header-view-container")).toHaveStyle({
             ...headerStyles.container
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             ...headerStyles.headerText,
             fontSize: fontSizes[1],
             textAlign: "left"
@@ -32,7 +32,7 @@ describe("Header component", () => {
     it("should respect sizeType prop and align prop", async () => {
         const { getByTestId } = await render(<Header align="right" sizeType={Object.keys(fontSizes)[0]} />);
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             fontSize: fontSizes[Object.keys(fontSizes)[0]],
             textAlign: "right"
         });

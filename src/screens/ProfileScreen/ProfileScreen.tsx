@@ -67,7 +67,7 @@ export default function () {
   }, []);
   
   return (
-    <ScrollView testID="profileScreenOuterContainer" style={[styles.container, { marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
+    <ScrollView testID="profilescreen-outer-container" style={[styles.container, { marginBottom: insets.bottom }]} contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}>
         <View style={{ width: '90%', height: 560, justifyContent: 'space-around' }}>
             <Header sizeType={5}>Personal information</Header>
             <InputAvatar 

@@ -51,7 +51,7 @@ export default function({
 
     return (
         <TouchableOpacity
-        testID="buttonOuterContainer"
+        testID="button-outer-container"
         disabled={disabled}
         onPress={() => {
             if(disabled !== true) {
@@ -67,7 +67,7 @@ export default function({
             (fullParentHeight === true ? { height: '100%' } : null),
             (disabled === true ? { backgroundColor: theme.gray, borderColor: theme.gray } : null)]}>
             <Txt
-            testID="buttonLabel"
+            testID="button-label"
             textStyle="sectionCategories" 
             style={[{ color: textColor }]}>{children}</Txt>
 

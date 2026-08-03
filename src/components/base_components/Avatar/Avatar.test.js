@@ -12,7 +12,7 @@ describe("Avatar component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Avatar />);
 
-        expect(getByTestId("pressableContainer")).toBeOnTheScreen();
+        expect(getByTestId("avatar-pressable-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props + no AsyncStorage data", async () => {
@@ -20,17 +20,17 @@ describe("Avatar component", () => {
 
         const { getByTestId } = await render(<Avatar />);
 
-        expect(getByTestId("pressableContainer")).toHaveStyle({
+        expect(getByTestId("avatar-pressable-container")).toHaveStyle({
             ...avatarStyles.container,
             ...configurations["normal"].container
         });
 
-        expect(getByTestId("placeholderView")).toHaveStyle({
+        expect(getByTestId("avatar-placeholder-view")).toHaveStyle({
             ...avatarStyles.placeholderView,
             borderColor: theme.gray
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("avatar-text-container")).toHaveStyle({
             ...avatarStyles.placeholderLabel,
             ...configurations["normal"].label
         });
@@ -39,27 +39,27 @@ describe("Avatar component", () => {
     it("should respect the source prop", async () => {
         const { getByTestId, unmount } = await render(<Avatar source="testSource" />);
 
-        expect(getByTestId("avatarImage")).toBeOnTheScreen();
+        expect(getByTestId("avatar-image")).toBeOnTheScreen();
     });
 
     it("should respect the mode prop", async () => {
         var { getByTestId } = await render(<Avatar mode="normal" />);
 
-        expect(getByTestId("pressableContainer")).toHaveStyle({
+        expect(getByTestId("avatar-pressable-container")).toHaveStyle({
             ...configurations["normal"].container
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("avatar-text-container")).toHaveStyle({
             ...configurations["normal"].label
         });
 
         var { getByTestId } = await render(<Avatar mode="header" />);
 
-        expect(getByTestId("pressableContainer")).toHaveStyle({
+        expect(getByTestId("avatar-pressable-container")).toHaveStyle({
             ...configurations["header"].container
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("avatar-text-container")).toHaveStyle({
             ...configurations["header"].label
         });
     });
@@ -69,7 +69,7 @@ describe("Avatar component", () => {
         mockAsyncStorage.setItem("@little-lemon/profile/lastName", "Last");
         const { getByTestId } = await render(<Avatar />);
         
-        expect(getByTestId("textContainer")).toHaveTextContent("FL");
+        expect(getByTestId("avatar-text-container")).toHaveTextContent("FL");
     });
 
     it("should work with saved avatar uri", async () => {
@@ -77,7 +77,7 @@ describe("Avatar component", () => {
         mockAsyncStorage.setItem("@little-lemon/profile/avatarUri", "testURI");
         const { getByTestId, unmount } = await render(<Avatar />);
 
-        expect(getByTestId("avatarImage")).toBeOnTheScreen();
+        expect(getByTestId("avatar-image")).toBeOnTheScreen();
     });
 
     it("should handle onPress event correctly", async () => {
@@ -89,7 +89,7 @@ describe("Avatar component", () => {
             checkOnPress = true;
         }} />);
 
-        await user.press(getByTestId("pressableContainer"));
+        await user.press(getByTestId("avatar-pressable-container"));
 
         expect(checkOnPress).toBeTruthy();
     });

@@ -12,18 +12,18 @@ describe("UIHeader component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render((<UIHeader />));
 
-        expect(getByTestId("viewContainer")).toBeOnTheScreen();
-        expect(getByTestId("logoImage")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-outer-container")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-logo-image")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
         const { getByTestId } = await render((<UIHeader />));
 
-        expect(getByTestId("viewContainer")).toHaveStyle({
+        expect(getByTestId("uiheader-outer-container")).toHaveStyle({
             ...UIHeaderStyles.container
         });
 
-        expect(getByTestId("logoImage")).toHaveStyle({
+        expect(getByTestId("uiheader-logo-image")).toHaveStyle({
             ...UIHeaderStyles.logoImage
         });
     });
@@ -31,23 +31,23 @@ describe("UIHeader component", () => {
     it("should respect showBackButton prop", async () => {
         var { getByTestId } = await render(<UIHeader showBackButton={true} />);
 
-        expect(getByTestId("viewContainer")).toBeOnTheScreen();
-        expect(getByTestId("backbuttonOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-outer-container")).toBeOnTheScreen();
+        expect(getByTestId("backbutton-outer-container")).toBeOnTheScreen();
 
         var { getByTestId } = await render(<UIHeader showBackButton={false} />);
 
-        expect(getByTestId("placeholderBackButton")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-placeholder-backbutton")).toBeOnTheScreen();
     });
 
     it("should respect avatar prop", async () => {
         var { getByTestId } = await render(<UIHeader showAvatar={true} />);
 
-        expect(getByTestId("viewContainer")).toBeOnTheScreen();
-        expect(getByTestId("pressableContainer")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-outer-container")).toBeOnTheScreen();
+        expect(getByTestId("avatar-pressable-container")).toBeOnTheScreen();
 
         var { getByTestId } = await render(<UIHeader showAvatar={false} />);
 
-        expect(getByTestId("placeholderAvatar")).toBeOnTheScreen();
+        expect(getByTestId("uiheader-placeholder-avatar")).toBeOnTheScreen();
 
     });
 });

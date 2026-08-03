@@ -18,7 +18,7 @@ export default function({
     const theme = useAppTheme();
 
     return (
-        <View testID="heroOuterContainer" style={[styles.container, { backgroundColor: theme.primary_1 }]}>
+        <View testID="hero-outer-container" style={[styles.container, { backgroundColor: theme.primary_1 }]}>
             <Txt 
             textStyle="displayTitle"
             style={{ color: theme.primary_2, marginTop: -15, marginBottom: -27 }}>Little Lemon</Txt>

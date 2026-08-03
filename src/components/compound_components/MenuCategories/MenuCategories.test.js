@@ -6,7 +6,7 @@ describe("MenuCategories component", () => {
     it("should have rendered on the screen", async () => {
         const { getByTestId } = await render(<MenuCategories />);
 
-        expect(getByTestId("outerContainer")).toBeOnTheScreen();
+        expect(getByTestId("menucategories-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly", async () => {
@@ -21,10 +21,10 @@ describe("MenuCategories component", () => {
 
         const { getAllByTestId } = await render(<MenuCategories onItemSelect={(selectedItems) => { checkSelectedItems = selectedItems; }} />);
 
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[0]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[1]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[2]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[3]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[0]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[1]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[2]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[3]);
 
         expect(checkSelectedItems).toEqual(["starters", "mains", "desserts", "drinks"])
     });

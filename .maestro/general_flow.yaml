@@ -2,7 +2,7 @@ appId: host.exp.exponent
 ---
 - openLink: exp://192.168.1.5:8081
 - assertVisible:
-    id: "viewContainer"
+    id: "onboardingscreen-outer-container"
 
 - tapOn: "Type your first name here.."
 - inputText: "John"
@@ -14,16 +14,16 @@ appId: host.exp.exponent
 - assertVisible: "Little Lemon"
 
 - tapOn:
-    id: "pressableContainer"
+    id: "avatar-pressable-container"
 - assertVisible: "Personal information"
 - assertVisible: "John"
 - assertVisible: "John.doe@example.com"
 
 - tapOn:
-    id: "backbuttonOuterContainer"
+    id: "backbutton-outer-container"
 
 - tapOn:
-    id: "pressableContainer"
+    id: "avatar-pressable-container"
 - scrollUntilVisible:
     element: "Log out"
 

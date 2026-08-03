@@ -16,7 +16,7 @@ exports[`HeroSearch component should have rendered correctly 1`] = `
       },
     ]
   }
-  testID="heroSearchOuterContainer"
+  testID="herosearch-outer-container"
 >
   <View
     accessibilityState={
@@ -62,7 +62,7 @@ exports[`HeroSearch component should have rendered correctly 1`] = `
         "width": 48,
       }
     }
-    testID="showButton"
+    testID="herosearch-show-button"
   >
     <RNSVGSvgView
       align="xMidYMid"
@@ -179,7 +179,7 @@ exports[`HeroSearch component should have rendered correctly 1`] = `
           "width": "100%",
         }
       }
-      testID="inputOuterContainer"
+      testID="input-outer-container"
     >
       <TextInput
         editable={false}
@@ -211,7 +211,7 @@ exports[`HeroSearch component should have rendered correctly 1`] = `
             },
           ]
         }
-        testID="textInput"
+        testID="input-text-input"
         value=""
       />
     </View>
