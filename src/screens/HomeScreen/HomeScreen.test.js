@@ -94,7 +94,7 @@ describe("HomeScreen screen component", () => {
     it("should render on the screen", async () => {
         let { getByTestId } = await render(<HomeScreen />);
 
-        expect(getByTestId("homeScreenOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("homescreen-outer-container")).toBeOnTheScreen();
     });
 
     it("should fetch and display data from the web", async () => {
@@ -111,7 +111,7 @@ describe("HomeScreen screen component", () => {
         const user = userEvent.setup();
         let { getByTestId, getAllByTestId } = await render(<HomeScreen />);
 
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[0]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[0]);
 
         expect(screen.queryByText("Greek Salad")).toBeOnTheScreen();
         expect(screen.queryByText("Bruschetta")).toBeOnTheScreen();
@@ -119,8 +119,8 @@ describe("HomeScreen screen component", () => {
         expect(screen.queryByText("Pasta")).not.toBeOnTheScreen();
         expect(screen.queryByText("Lemon Dessert")).not.toBeOnTheScreen();
 
-        await user.press(getByTestId("showButton"));
-        await user.type(getByTestId("textInput"), "sal");
+        await user.press(getByTestId("herosearch-show-button"));
+        await user.type(getByTestId("input-text-input"), "sal");
 
         expect(screen.queryByText("Greek Salad")).toBeOnTheScreen();
         expect(screen.queryByText("Bruschetta")).not.toBeOnTheScreen();
@@ -128,7 +128,7 @@ describe("HomeScreen screen component", () => {
         expect(screen.queryByText("Pasta")).not.toBeOnTheScreen();
         expect(screen.queryByText("Lemon Dessert")).not.toBeOnTheScreen();
 
-        await user.clear(getByTestId("textInput"));
+        await user.clear(getByTestId("input-text-input"));
 
         expect(screen.queryByText("Greek Salad")).toBeOnTheScreen();
         expect(screen.queryByText("Bruschetta")).toBeOnTheScreen();
@@ -136,7 +136,7 @@ describe("HomeScreen screen component", () => {
         expect(screen.queryByText("Pasta")).not.toBeOnTheScreen();
         expect(screen.queryByText("Lemon Dessert")).not.toBeOnTheScreen();
 
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[0]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[0]);
 
         expect(screen.queryByText("Greek Salad")).toBeOnTheScreen();
         expect(screen.queryByText("Bruschetta")).toBeOnTheScreen();
@@ -144,10 +144,10 @@ describe("HomeScreen screen component", () => {
         expect(screen.queryByText("Pasta")).toBeOnTheScreen();
         expect(screen.queryByText("Lemon Dessert")).toBeOnTheScreen();
 
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[0]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[1]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[2]);
-        await user.press(getAllByTestId("toggleButtonOuterContainer")[3]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[0]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[1]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[2]);
+        await user.press(getAllByTestId("togglebutton-outer-container")[3]);
 
         expect(screen.queryByText("Greek Salad")).toBeOnTheScreen();
         expect(screen.queryByText("Bruschetta")).toBeOnTheScreen();
