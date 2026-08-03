@@ -10,7 +10,7 @@ describe("Checkbox component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Checkbox label="Label" />);
 
-        expect(getByTestId("checkboxOuterContainer")).toBeOnTheScreen();
+        expect(getByTestId("checkbox-outer-container")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
@@ -18,26 +18,26 @@ describe("Checkbox component", () => {
 
         const { getByTestId } = await render(<Checkbox label="Label" />);
 
-        expect(getByTestId("checkboxOuterContainer")).toHaveStyle({
+        expect(getByTestId("checkbox-outer-container")).toHaveStyle({
             ...checkboxStyles.container
         });
 
-        expect(getByTestId("viewContainer")).toHaveStyle({
+        expect(getByTestId("checkbox-view-container")).toHaveStyle({
             ...checkboxStyles.checkboxContainer,
             borderColor: theme.primary_1,
             backgroundColor: theme.primary_1
         });
 
-        expect(getByTestId("animationContainer")).toHaveStyle({
+        expect(getByTestId("checkbox-animation-container")).toHaveStyle({
             opacity: 0
         });
 
-        expect(getByTestId("textContainer")).toHaveStyle({
+        expect(getByTestId("text-container")).toHaveStyle({
             ...checkboxStyles.label,
             ...textStyles["pregular"]
         });
 
-        expect(getByTestId("textContainer")).toHaveTextContent("Label");
+        expect(getByTestId("text-container")).toHaveTextContent("Label");
     });
 
     it("should respect checked prop", async () => {
@@ -45,13 +45,13 @@ describe("Checkbox component", () => {
 
         var { getByTestId } = await render(<Checkbox checked={true} label="Label" />);
 
-        expect(getByTestId("animationContainer")).toHaveStyle({
+        expect(getByTestId("checkbox-animation-container")).toHaveStyle({
             opacity: 1
         });
 
         var { getByTestId } = await render(<Checkbox checked={false} label="Label" />);
 
-        expect(getByTestId("animationContainer")).toHaveStyle({
+        expect(getByTestId("checkbox-animation-container")).toHaveStyle({
             opacity: 0
         });
     });
@@ -67,10 +67,10 @@ describe("Checkbox component", () => {
             checkOnSelect = checked;
         }} label="Label" />);
 
-        await user.press(getByTestId("checkboxOuterContainer"));
+        await user.press(getByTestId("checkbox-outer-container"));
         expect(checkOnSelect).toBeTruthy();
 
-        await user.press(getByTestId("checkboxOuterContainer"));
+        await user.press(getByTestId("checkbox-outer-container"));
         expect(checkOnSelect).not.toBeTruthy();
     });
 });
