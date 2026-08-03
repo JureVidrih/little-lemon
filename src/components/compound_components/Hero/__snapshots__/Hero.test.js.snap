@@ -15,7 +15,7 @@ exports[`Hero component should have rendered correctly 1`] = `
       },
     ]
   }
-  testID="heroOuterContainer"
+  testID="hero-outer-container"
 >
   <Text
     collapsable={false}
@@ -60,7 +60,7 @@ exports[`Hero component should have rendered correctly 1`] = `
         },
       ]
     }
-    testID="textContainer"
+    testID="text-container"
   >
     Little Lemon
   </Text>
@@ -105,7 +105,7 @@ exports[`Hero component should have rendered correctly 1`] = `
         },
       ]
     }
-    testID="textContainer"
+    testID="text-container"
   >
     Chicago
   </Text>
@@ -150,7 +150,7 @@ exports[`Hero component should have rendered correctly 1`] = `
         },
       ]
     }
-    testID="textContainer"
+    testID="text-container"
   >
     We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
   </Text>
@@ -191,7 +191,7 @@ exports[`Hero component should have rendered correctly 1`] = `
         },
       ]
     }
-    testID="heroSearchOuterContainer"
+    testID="herosearch-outer-container"
   >
     <View
       accessibilityState={
@@ -237,7 +237,7 @@ exports[`Hero component should have rendered correctly 1`] = `
           "width": 48,
         }
       }
-      testID="showButton"
+      testID="herosearch-show-button"
     >
       <RNSVGSvgView
         align="xMidYMid"
@@ -354,7 +354,7 @@ exports[`Hero component should have rendered correctly 1`] = `
             "width": "100%",
           }
         }
-        testID="inputOuterContainer"
+        testID="input-outer-container"
       >
         <TextInput
           editable={false}
@@ -386,7 +386,7 @@ exports[`Hero component should have rendered correctly 1`] = `
               },
             ]
           }
-          testID="textInput"
+          testID="input-text-input"
           value=""
         />
       </View>
