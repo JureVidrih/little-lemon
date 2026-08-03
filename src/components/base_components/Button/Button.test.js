@@ -9,8 +9,8 @@ describe("Button component", () => {
     it("should have rendered correctly", async () => {
         const { getByTestId } = await render(<Button />);
 
-        expect(getByTestId("buttonOuterContainer")).toBeOnTheScreen();
-        expect(getByTestId("buttonLabel")).toBeOnTheScreen();
+        expect(getByTestId("button-outer-container")).toBeOnTheScreen();
+        expect(getByTestId("button-label")).toBeOnTheScreen();
     });
 
     it("should have rendered correctly with no props", async () => {
@@ -18,8 +18,8 @@ describe("Button component", () => {
 
         const theme = useAppTheme();
 
-        expect(getByTestId("buttonOuterContainer")).toBeEnabled();
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toBeEnabled();
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             ...buttonStyles.container,
             width: null,
             height: null,
@@ -28,16 +28,16 @@ describe("Button component", () => {
             borderColor: theme["primary_1"],
         });
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: "#ffffff"
         });
-        expect(getByTestId("buttonLabel")).toHaveTextContent("Button");
+        expect(getByTestId("button-label")).toHaveTextContent("Button");
     });
 
     it("should respect dynamicSize prop", async () => {
         const { getByTestId } = await render(<Button dynamicSize={true} fullParentWidth={false} fullParentHeight={false} />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             width: null,
             height: null
         });
@@ -46,7 +46,7 @@ describe("Button component", () => {
     it("should respect fullParentWidth and/or fullParentHeight props", async () => {
         const { getByTestId } = await render(<Button fullParentWidth={true} fullParentHeight={true} />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             width: '100%',
             height: '100%'
         });
@@ -57,9 +57,9 @@ describe("Button component", () => {
 
         const theme = useAppTheme();
 
-        expect(getByTestId("buttonOuterContainer")).not.toBeEnabled();
+        expect(getByTestId("button-outer-container")).not.toBeEnabled();
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             backgroundColor: theme.gray,
             borderColor: theme.gray
         });
@@ -70,25 +70,25 @@ describe("Button component", () => {
 
         var { getByTestId } = await render(<Button />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             borderRadius: 0
         });
 
         var { getByTestId } = await render(<Button border_0={true} />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             borderRadius: 0
         });
 
         var { getByTestId } = await render(<Button border_8={true} />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             borderRadius: theme.border_radius_8
         });
 
         var { getByTestId } = await render(<Button border_16={true} />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             borderRadius: theme.border_radius_16
         });
     });
@@ -98,43 +98,43 @@ describe("Button component", () => {
 
         var { getByTestId } = await render(<Button color="white" />);
 
-        expect(getByTestId("buttonOuterContainer")).toHaveStyle({
+        expect(getByTestId("button-outer-container")).toHaveStyle({
             borderColor: theme.primary_1
         });
 
         var { getByTestId } = await render(<Button color="primary_2" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: "#000000"
         });
 
         var { getByTestId } = await render(<Button color="secondary_1" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: "#ffffff"
         });
 
         var { getByTestId } = await render(<Button color="secondary_2" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: theme.primary_1
         });
 
         var { getByTestId } = await render(<Button color="secondary_3" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: theme.primary_1
         });
 
         var { getByTestId } = await render(<Button color="secondary_4" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: "#ffffff"
         });
 
         var { getByTestId } = await render(<Button color="white" />);
 
-        expect(getByTestId("buttonLabel")).toHaveStyle({
+        expect(getByTestId("button-label")).toHaveStyle({
             color: theme.primary_1
         });
     });
@@ -145,13 +145,13 @@ describe("Button component", () => {
         let onPressCheck = null;
 
         var { getByTestId } = await render(<Button disabled={false} onPress={() => { onPressCheck = true; }} />);
-        await user.press(getByTestId("buttonOuterContainer"));
+        await user.press(getByTestId("button-outer-container"));
         expect(onPressCheck).toBe(true);
 
         onPressCheck = null;
 
         var { getByTestId } = await render(<Button disabled={true} onPress={() => { onPressCheck = true; }} />);
-        await user.press(getByTestId("buttonOuterContainer"));
+        await user.press(getByTestId("button-outer-container"));
         expect(onPressCheck).toBe(null);
     });
 });
