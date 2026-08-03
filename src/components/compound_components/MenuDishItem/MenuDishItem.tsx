@@ -33,7 +33,7 @@ export default function({
     }
 
     return (
-        <View testID="outerContainer" style={[styles.container, { borderColor: theme.gray }]}>
+        <View testID="menudishitem-outer-container" style={[styles.container, { borderColor: theme.gray }]}>
             <View style={styles.leftContainer}>
                 <Txt 
                 textStyle="cardTitle"
