@@ -51,10 +51,10 @@ export default function({
     }, []);
 
     return (
-        <View testID="inputOuterContainer" style={styles.container}>
+        <View testID="input-outer-container" style={styles.container}>
             {label !== undefined && label !== null && <Txt textStyle="pregular" style={[styles.label, { color: theme.primary_1 }]}>{label}{(required === true ? " *" : null)}</Txt>}
             <TextInput 
-            testID="textInput"
+            testID="input-text-input"
             style={[styles.inputContainer, { borderColor: theme.gray, color: theme.primary_1 }, inputContainerStyle]}
             placeholder={placeholder}
             value={input}
