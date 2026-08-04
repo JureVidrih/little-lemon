@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
+import Animated, { useSharedValue, withTiming, useAnimatedStyle, interpolateColor } from 'react-native-reanimated';
 import { Svg, Circle, Line } from 'react-native-svg';
 
 import { useAppTheme } from '../../../hooks/';
@@ -17,25 +18,28 @@ export default function({
 }: HeroSearchProps) {
     const theme = useAppTheme();
 
-    const animation = useRef(new Animated.Value(0)).current;
+    const animation = useSharedValue(0.01);
 
     const [inputVisible, setInputVisibility] = useState(false);
 
     const toggleInput = useCallback((toggleOn: boolean) => {
         if(toggleOn === true) {
-            Animated.timing(animation, {
-                toValue: 1,
-                duration: 150,
-                useNativeDriver: true
-            }).start();
+            animation.value = withTiming(1, {
+                duration: 140
+            });
         } else {
-            Animated.timing(animation, {
-                toValue: 0,
-                duration: 150,
-                useNativeDriver: true
-            }).start();
+            animation.value = withTiming(0.01, {
+                duration: 140
+            });
         }
     }, []);
+
+    const animatedValues = useAnimatedStyle(() => { 
+        return { 
+            opacity: animation.value,
+            transform: [{ scaleY: animation.value }]
+        }
+    });
 
     return (
         <View testID="herosearch-outer-container" style={[styles.container]}>
@@ -73,7 +77,7 @@ export default function({
                 />
                 </Svg>
             </TouchableOpacity>
-            <Animated.View style={[styles.inputContainer, { opacity: animation, transform: [{ scaleY: animation }] }]}>
+            <Animated.View style={[styles.inputContainer, { flex: 1 }, animatedValues]}>
                 <Input 
                 onChangeText={(newValue) => { searchAction?.(newValue); }}
                 hideInvalidLabel={true}
