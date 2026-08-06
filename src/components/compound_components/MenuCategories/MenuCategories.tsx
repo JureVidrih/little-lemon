@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
 
@@ -15,6 +15,7 @@ type MenuCategoriesProps = {
 export default function({
         onItemSelect
     }: MenuCategoriesProps) {
+    const dimensions = useWindowDimensions();
     const theme = useAppTheme();
 
     const activeCategoriesSet = useRef(new Set()).current;
@@ -27,8 +28,9 @@ export default function({
         <View testID="menucategories-outer-container" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
             <Txt 
             textStyle="sectionTitle">{"Order for delivery!".toUpperCase()}</Txt>
-            <View style={styles.categoriesContainer}>
+            <View style={[styles.categoriesContainer, (dimensions.width >= 600 ? { justifyContent: 'flex-start' } : null)]}>
                 <ToggleButton 
+                style={(dimensions.width >= 600 ? { marginRight: 10 } : null)}
                 border_16 
                 dynamicSize={true}
                 onPress={() => {
@@ -40,6 +42,7 @@ export default function({
                     onItemSelect([...activeCategoriesSet]);
                 }}>Starters</ToggleButton>
                 <ToggleButton 
+                style={(dimensions.width >= 600 ? { marginRight: 10 } : null)}
                 border_16 
                 dynamicSize={true}
                 onPress={() => {
@@ -51,6 +54,7 @@ export default function({
                     onItemSelect([...activeCategoriesSet]);
                 }}>Mains</ToggleButton>
                 <ToggleButton 
+                style={(dimensions.width >= 600 ? { marginRight: 10 } : null)}
                 border_16 
                 dynamicSize={true}
                 onPress={() => {
@@ -62,6 +66,7 @@ export default function({
                     onItemSelect([...activeCategoriesSet]);
                 }}>Desserts</ToggleButton>
                 <ToggleButton 
+                style={(dimensions.width >= 600 ? { marginRight: 10 } : null)}
                 border_16 
                 dynamicSize={true}
                 onPress={() => {
