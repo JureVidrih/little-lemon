@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Pressable, View, Text, StyleSheet } from 'react-native';
+import { Pressable, View, Text, StyleSheet, ViewStyle } from 'react-native';
 
 import Animated, { useSharedValue, withTiming, useAnimatedStyle, interpolateColor } from 'react-native-reanimated';
 
@@ -8,6 +8,7 @@ import { useAppTheme } from '../../../hooks/';
 import Txt from '../Txt/Txt.tsx';
 
 type ToggleButtonProps = {
+    style?: ViewStyle | null,
     children: React.ReactNode,
     toggled?: boolean,
     onPress?: (arg0: boolean) => void,
@@ -20,6 +21,7 @@ type ToggleButtonProps = {
 };
 
 export default function({
+    style,
     children = "Button",
     toggled = false,
     onPress,
@@ -96,7 +98,8 @@ export default function({
             animatedValues,
             (dynamicSize === true ? { width: null, height: null} : null),
             (fullParentWidth === true ? { width: '100%' } : null), 
-            (fullParentHeight === true ? { height: '100%' } : null)]}>
+            (fullParentHeight === true ? { height: '100%' } : null),
+            style]}>
                 <Txt
                 testID="togglebutton-button-label"
                 textStyle="sectionCategories"

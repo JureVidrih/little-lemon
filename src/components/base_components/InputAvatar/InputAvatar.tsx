@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert, useWindowDimensions } from 'react-native';
 
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,6 +24,7 @@ export default function({
     required = false,
     onSelect
      }: InputAvatarProps) {
+    const dimensions = useWindowDimensions();
     const theme = useAppTheme();
 
     const { setAvatarUri } = useAvatarState((state: any) => state);
@@ -54,12 +55,14 @@ export default function({
 
     }, []);
 
+    console.log(dimensions);
+
     return (
         <View testID="inputavatar-outer-container" style={styles.container}>
             <Txt 
             textStyle="pregular"
             style={[styles.label, { }]}>{label}{(required === true ? " *" : null)}</Txt>
-            <View testID="inputavatar-inner-container" style={styles.innerContainer}>
+            <View testID="inputavatar-inner-container" style={[styles.innerContainer, (dimensions.width >= 600 ? { width: '67%' } : (dimensions.width >= 400 ? { width: '90%' } : null))]}>
                 <Avatar 
                 mode="normal"
                 source={input} />

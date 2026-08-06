@@ -6,7 +6,7 @@ export default StyleSheet.create({
         height: null
     },
     innerContainer: {
-        width: '90%', 
+        width: '100%', 
         height: null, 
         flexDirection: 'row', 
         justifyContent: 'space-between', 
