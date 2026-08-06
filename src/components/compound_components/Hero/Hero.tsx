@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, useWindowDimensions } from 'react-native';
 
 import { useAppTheme } from '../../../hooks/';
 
@@ -15,10 +15,11 @@ type HeroProps = {
 export default function({
     searchAction
     }: HeroProps) {
+    const dimensions = useWindowDimensions();
     const theme = useAppTheme();
 
     return (
-        <View testID="hero-outer-container" style={[styles.container, { backgroundColor: theme.primary_1 }]}>
+        <View testID="hero-outer-container" style={[styles.container, { backgroundColor: theme.primary_1 }, (dimensions.width >= 400 ? { height: 315 } : { height: 250})]}>
             <Txt 
             textStyle="displayTitle"
             style={{ color: theme.primary_2, marginTop: -15, marginBottom: -27 }}>Little Lemon</Txt>
@@ -27,17 +28,19 @@ export default function({
             style={{ color: '#ffffff', marginBottom: 9 }}>Chicago</Txt>
             <Txt 
             textStyle="lead"
-            style={{ width: '60%', color: '#ffffff' }}>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Txt>
-            <Image 
-            style={{ 
-                width: 150, 
-                height: 150, 
-                position: 'absolute', 
-                top: '50%', 
-                right: 14, 
-                transform: [{ translateY: '-30%' }] }}
-            source={require("../../../../assets/Images/Hero_image.png")}
-            resizeMode="cover" />
+            style={{ width: (dimensions.width >= 400 ? '60%' : '100%'), color: '#ffffff' }}>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Txt>
+            {dimensions.width >= 400 ? (
+                <Image 
+                style={{ 
+                    width: 150, 
+                    height: 150, 
+                    position: 'absolute', 
+                    top: '50%', 
+                    right: 14, 
+                    transform: [{ translateY: '-30%' }] }}
+                source={require("../../../../assets/Images/Hero_image.png")}
+                resizeMode="cover" />
+            ) : null}
             {searchAction && <HeroSearch searchAction={searchAction} />}
         </View>
     );

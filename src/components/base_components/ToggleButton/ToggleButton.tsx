@@ -8,7 +8,7 @@ import { useAppTheme } from '../../../hooks/';
 import Txt from '../Txt/Txt.tsx';
 
 type ToggleButtonProps = {
-    style?: ViewStyle,
+    style?: ViewStyle | null,
     children: React.ReactNode,
     toggled?: boolean,
     onPress?: (arg0: boolean) => void,

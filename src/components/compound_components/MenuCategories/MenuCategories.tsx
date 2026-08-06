@@ -25,7 +25,7 @@ export default function({
     }, []);
 
     return (
-        <View testID="menucategories-outer-container" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }]}>
+        <View testID="menucategories-outer-container" style={[styles.container, { backgroundColor: "#ffffff", borderBottomColor: theme.gray }, (dimensions.width <= 400 ? { paddingVertical: 20, height: null } : null)]}>
             <Txt 
             textStyle="sectionTitle">{"Order for delivery!".toUpperCase()}</Txt>
             <View style={[styles.categoriesContainer, (dimensions.width >= 600 ? { justifyContent: 'flex-start' } : null)]}>
